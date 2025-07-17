@@ -1,153 +1,50 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Simran 404 CyberX</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <style>
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background-color: #0d0d0d;
-      color: white;
-    }
-
-    header {
-      background-color: #111;
-      padding: 15px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      position: relative;
-      z-index: 2;
-    }
-
-    .menu-icon {
-      font-size: 24px;
-      cursor: pointer;
-      margin-left: 10px;
-    }
-
-    .title {
-      font-size: 24px;
-      font-weight: bold;
-      text-align: center;
-      flex-grow: 1;
-      color: #00ffea;
-    }
-
-    .sidebar {
-      height: 100%;
-      width: 0;
-      position: fixed;
-      top: 0;
-      left: 0;
-      background-color: #111;
-      overflow-x: hidden;
-      transition: 0.3s;
-      padding-top: 60px;
-      z-index: 3;
-    }
-
-    .sidebar a {
-      padding: 12px 20px;
-      text-decoration: none;
-      font-size: 20px;
-      color: white;
-      display: block;
-      transition: 0.2s;
-    }
-
-    .sidebar a:hover {
-      background-color: #333;
-    }
-
-    .overlay {
-      position: fixed;
-      display: none;
-      top: 0;
-      left: 0;
-      height: 100%;
-      width: 100%;
-      background-color: rgba(0, 0, 0, 0.5);
-      z-index: 2;
-    }
-
-    .content {
-      padding: 20px;
-    }
-
-    section {
-      display: none;
-    }
-
-    section.active {
-      display: block;
-    }
-  </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SIMRAN 404 Cyber</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
 
-<header>
-  <span class="menu-icon" onclick="openSidebar()">☰</span>
-  <div class="title">@Simran404cyberx</div>
-</header>
+  <!-- Toggle Button -->
+  <div class="menu-toggle" id="menuToggle">☰</div>
 
-<div class="sidebar" id="sidebar">
-  <a href="#" onclick="showSection('about')">About</a>
-  <a href="#" onclick="showSection('cyber')">Cyber Attack</a>
-  <a href="#" onclick="showSection('nethunter')">Rootless NetHunter</a>
-  <a href="#" onclick="showSection('tools')">My Tools</a>
-  <a href="#" onclick="showSection('contact')">Contact</a>
-</div>
+  <!-- Sidebar -->
+  <div class="sidebar" id="sidebar">
+    <h2>@simran404cyberx</h2>
+    <a href="#about">About</a>
+    <a href="#cyber">Cyber Attack</a>
+    <a href="#nethunter">Rootless NetHunter</a>
+    <a href="#tools">My Tools</a>
+    <a href="#contact">Contact</a>
+  </div>
 
-<div class="overlay" id="overlay" onclick="closeSidebar()"></div>
+  <!-- Page Content -->
+  <div class="content" id="mainContent">
+    <section id="about">
+      <h1>About</h1>
+      <p>Yahan aapka About content aayega...</p>
+    </section>
+    <section id="cyber">
+      <h1>Cyber Attack</h1>
+      <p>Yahan Cyber Attack ke baare me likhiye...</p>
+    </section>
+    <section id="nethunter">
+      <h1>Rootless NetHunter</h1>
+      <p>NetHunter ka description yahan dijiye...</p>
+    </section>
+    <section id="tools">
+      <h1>My Tools</h1>
+      <p>Yahan aap apne hacking tools ka detail likhiye...</p>
+    </section>
+    <section id="contact">
+      <h1>Contact</h1>
+      <p>Contact information yahan aayega...</p>
+    </section>
+  </div>
 
-<div class="content">
-  <section id="about" class="active">
-    <h2>About Me</h2>
-    <p>Yahan apna About section ka content daalo...</p>
-  </section>
-
-  <section id="cyber">
-    <h2>Cyber Attacks</h2>
-    <p>Yahan par Cyber Attack ke baare me likho...</p>
-  </section>
-
-  <section id="nethunter">
-    <h2>Rootless NetHunter</h2>
-    <p>Nethunter ke tools aur usage ke baare me yahan likho...</p>
-  </section>
-
-  <section id="tools">
-    <h2>My Tools</h2>
-    <p>Apne tools ke naam aur use likho...</p>
-  </section>
-
-  <section id="contact">
-    <h2>Contact</h2>
-    <p>Apna contact ya social media links yahan daalo...</p>
-  </section>
-</div>
-
-<script>
-  function openSidebar() {
-    document.getElementById("sidebar").style.width = "250px";
-    document.getElementById("overlay").style.display = "block";
-  }
-
-  function closeSidebar() {
-    document.getElementById("sidebar").style.width = "0";
-    document.getElementById("overlay").style.display = "none";
-  }
-
-  function showSection(id) {
-    let sections = document.querySelectorAll("section");
-    sections.forEach(sec => sec.classList.remove("active"));
-    document.getElementById(id).classList.add("active");
-    closeSidebar();
-  }
-</script>
-
+  <script src="script.js"></script>
 </body>
 </html>
