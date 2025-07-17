@@ -8,13 +8,13 @@ menuBtn.onclick = function () {
 };
 
 function closeSidebar() {
-  sidebar.style.left = "-250px";
+  sidebar.style.left = "-200px";
   overlay.style.display = "none";
 }
 
 function showSection(sectionId) {
   const sections = document.querySelectorAll(".content-section");
-  sections.forEach(sec => sec.style.display = "none");
+  sections.forEach(section => section.style.display = "none");
 
   document.getElementById(sectionId).style.display = "block";
   closeSidebar();
