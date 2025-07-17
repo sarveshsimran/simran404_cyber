@@ -4,66 +4,37 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>SIMRAN 404 | Cyber Warrior</title>
-  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="style.css"/>
 </head>
 <body>
 
+  <!-- Fixed Top Header -->
+  <header class="top-bar">
+    <h1>@simran404cyberx</h1>
+    <p>Welcome to SIMRAN 404 | Cyber Warrior | Ethical Hacker</p>
+  </header>
+
+  <!-- Sidebar Menu Toggle Button -->
+  <div class="menu-btn" onclick="toggleSidebar()">☰</div>
+
   <!-- Sidebar -->
-  <div class="sidebar">
-    <h2>MENU</h2>
-    <a href="#home">Home</a>
-    <a href="#tools">Tools</a>
-    <a href="#about">About</a>
-    <a href="#guides">Guides</a>
-    <a href="#contact">Contact</a>
+  <div class="sidebar" id="sidebar">
+    <a href="#" onclick="showSection('home')">🏠 Home</a>
+    <a href="#" onclick="showSection('tools')">🛠 Tools</a>
+    <a href="#" onclick="showSection('about')">👨‍💻 About</a>
+    <a href="#" onclick="showSection('contact')">📞 Contact</a>
+    <a href="#" onclick="showSection('docs')">📚 Docs</a>
   </div>
 
-  <!-- Main content -->
-  <div class="main-content">
-    <div class="site-title">
-      <h1>@simran404cyberx</h1>
-    </div>
+  <!-- Content Section -->
+  <main class="content">
+    <section id="home" class="section">👋 This is the SIMRAN 404 Home Page.</section>
+    <section id="tools" class="section">🧰 List of Tools: IP Lookup, Phone Info, Port Scanner, Tracker, etc.</section>
+    <section id="about" class="section">👤 Created by Sarvesh Bharti. Ethical Hacker from Azamgarh.</section>
+    <section id="contact" class="section">📧 Email: sarveshjatav738@gmail.com <br> 📱 Insta: @sarveshbharti2025</section>
+    <section id="docs" class="section">📄 Guides: Kali Nethunter, Termux, Hacking Tutorials & more...</section>
+  </main>
 
-    <section id="home">
-      <h2>💻 Welcome to SIMRAN 404</h2>
-      <p>The Dark Side of Knowledge | Cyber Warrior | Ethical Hacker</p>
-    </section>
-
-    <section id="tools">
-      <h2>🛠️ Hacking Tools</h2>
-      <ul>
-        <li>🔍 Phone Number Information</li>
-        <li>🌐 IP Lookup</li>
-        <li>🛡️ Port Scanner</li>
-        <li>👤 Username Finder</li>
-        <li>📍 Real-Time Location Tracker</li>
-        <li>🚨 Emergency Alert System</li>
-      </ul>
-    </section>
-
-    <section id="about">
-      <h2>👤 About Me</h2>
-      <p><strong>Name:</strong> Sarvesh Bharti (SIMRAN 404)</p>
-      <p><strong>From:</strong> UP Azamgarh, DARIYAPUR</p>
-      <p><strong>Father's Name:</strong> OM Prakash</p>
-      <p><strong>Skills:</strong> Ethical Hacking, Python Tools, Kali Linux, NetHunter</p>
-    </section>
-
-    <section id="guides">
-      <h2>📘 Guides & Docs</h2>
-      <p>✔️ Kali NetHunter Setup</p>
-      <p>✔️ Android Hacking Tools</p>
-      <p>✔️ Terminal Usage & Cybersecurity Tips</p>
-    </section>
-
-    <section id="contact">
-      <h2>📞 Contact & Links</h2>
-      <p><strong>GitHub:</strong> <a href="https://github.com/sarveshsimran">sarveshsimran</a></p>
-      <p><strong>Email:</strong> sarveshjatav738@gmail.com</p>
-      <p><strong>Instagram:</strong> sarveshbharti2025</p>
-      <p><strong>WhatsApp Channel:</strong> <a href="https://whatsapp.com/channel/0029VaQJJUfD38CVK2WoPI3M">Join Now</a></p>
-    </section>
-  </div>
-
+  <script src="script.js"></script>
 </body>
 </html>
