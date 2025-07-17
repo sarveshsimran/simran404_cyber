@@ -1,92 +1,114 @@
 body {
   margin: 0;
   font-family: 'Segoe UI', sans-serif;
-  background-color: #0f0f0f;
-  color: #ffffff;
+  background: #0f0f0f;
+  color: #f0f0f0;
 }
 
-/* Top bar */
-.top-bar {
-  background: #111;
-  padding: 15px;
+.top-banner {
   text-align: center;
-  border-bottom: 1px solid #444;
+  padding: 10px;
+  background: #111;
   position: fixed;
   width: 100%;
-  z-index: 10;
+  top: 0;
+  z-index: 1000;
 }
 
-/* Sidebar */
-.sidebar {
+header h1 {
+  margin: 5px;
+  color: #ff0080;
+}
+
+header h2 {
+  margin: 0;
+  font-size: 20px;
+}
+
+#toggle-sidebar {
   position: fixed;
-  top: 65px;
-  left: -220px;
-  width: 200px;
-  height: 100%;
-  background-color: #1a1a1a;
-  padding-top: 20px;
-  transition: 0.3s;
-  z-index: 9;
-}
-
-.sidebar a {
-  padding: 10px 20px;
-  display: block;
-  color: white;
-  text-decoration: none;
-  transition: 0.3s;
-}
-
-.sidebar a:hover {
-  background-color: #333;
-}
-
-/* Menu Button */
-.menu-btn {
-  font-size: 30px;
-  cursor: pointer;
-  position: fixed;
-  top: 70px;
+  top: 10px;
   left: 10px;
-  z-index: 11;
+  z-index: 1100;
+  font-size: 24px;
+  background: none;
+  color: #fff;
+  border: none;
+  cursor: pointer;
 }
 
-/* Content Area */
-.content {
+.container {
+  display: flex;
   margin-top: 120px;
-  padding: 20px;
-  margin-left: 0;
+}
+
+.sidebar {
+  width: 220px;
+  background: #111;
+  padding-top: 20px;
+  position: fixed;
+  top: 80px;
+  left: -250px;
+  height: 100%;
+  z-index: 1001;
   transition: 0.3s;
 }
 
-/* Section */
-.section {
+.sidebar.active {
+  left: 0;
+}
+
+.sidebar ul {
+  list-style: none;
+  padding: 0;
+}
+
+.sidebar ul li {
+  padding: 15px;
+  border-bottom: 1px solid #222;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.sidebar ul li:hover {
+  background: #222;
+}
+
+main {
+  margin-left: 0;
+  padding: 20px;
+  flex-grow: 1;
+}
+
+.overlay {
   display: none;
-  animation: fadeIn 0.5s ease-in-out;
+  position: fixed;
+  top: 80px;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  z-index: 1000;
 }
 
-@keyframes fadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
-}
-
-/* Show section when active */
-.section.active {
+.overlay.active {
   display: block;
 }
 
-/* Responsive */
+.content-section {
+  display: none;
+}
+
+.content-section.active {
+  display: block;
+}
+
 @media (max-width: 768px) {
   .sidebar {
-    width: 180px;
+    width: 200px;
   }
 
-  .menu-btn {
-    top: 65px;
-    left: 5px;
-  }
-
-  .content {
+  main {
     padding: 10px;
   }
 }
