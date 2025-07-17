@@ -1,21 +1,13 @@
-const sidebar = document.getElementById("sidebar");
-const overlay = document.getElementById("overlay");
-const menuBtn = document.getElementById("menu-btn");
+const menuToggle = document.getElementById('menuToggle');
+const sidebar = document.getElementById('sidebar');
+const mainContent = document.getElementById('mainContent');
 
-menuBtn.onclick = function () {
-  sidebar.style.left = "0";
-  overlay.style.display = "block";
-};
+menuToggle.addEventListener('click', () => {
+  sidebar.classList.toggle('active');
+});
 
-function closeSidebar() {
-  sidebar.style.left = "-200px";
-  overlay.style.display = "none";
-}
-
-function showSection(sectionId) {
-  const sections = document.querySelectorAll(".content-section");
-  sections.forEach(section => section.style.display = "none");
-
-  document.getElementById(sectionId).style.display = "block";
-  closeSidebar();
-}
+mainContent.addEventListener('click', () => {
+  if (sidebar.classList.contains('active')) {
+    sidebar.classList.remove('active');
+  }
+});
