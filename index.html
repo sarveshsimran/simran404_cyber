@@ -3,37 +3,41 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>SIMRAN 404 | Cyber Warrior</title>
-  <link rel="stylesheet" href="style.css"/>
+  <title>SIMRAN 404 CYBER</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-
-  <!-- Fixed Top Header -->
-  <header class="top-bar">
-    <h1>@simran404cyberx</h1>
-    <p>Welcome to SIMRAN 404 | Cyber Warrior | Ethical Hacker</p>
+  <header>
+    <div class="top-banner">
+      <h1>@simran404cyberx</h1>
+      <h2>Welcome to SIMRAN 404</h2>
+      <p>The Dark Side of Knowledge</p>
+    </div>
+    <button id="toggle-sidebar">☰</button>
   </header>
 
-  <!-- Sidebar Menu Toggle Button -->
-  <div class="menu-btn" onclick="toggleSidebar()">☰</div>
+  <div class="container">
+    <nav id="sidebar" class="sidebar">
+      <ul>
+        <li onclick="showSection('home')">🏠 Home</li>
+        <li onclick="showSection('tools')">🛠️ Tools</li>
+        <li onclick="showSection('about')">ℹ️ About</li>
+        <li onclick="showSection('contact')">📞 Contact</li>
+        <li onclick="showSection('biodata')">📜 BioData</li>
+      </ul>
+    </nav>
 
-  <!-- Sidebar -->
-  <div class="sidebar" id="sidebar">
-    <a href="#" onclick="showSection('home')">🏠 Home</a>
-    <a href="#" onclick="showSection('tools')">🛠 Tools</a>
-    <a href="#" onclick="showSection('about')">👨‍💻 About</a>
-    <a href="#" onclick="showSection('contact')">📞 Contact</a>
-    <a href="#" onclick="showSection('docs')">📚 Docs</a>
+    <div id="overlay" class="overlay" onclick="closeSidebar()"></div>
+
+    <main id="main-content">
+      <!-- Dynamic content will appear here -->
+      <div id="home" class="content-section">Click sidebar buttons to load content.</div>
+      <div id="tools" class="content-section" style="display:none;">Tools section loaded here.</div>
+      <div id="about" class="content-section" style="display:none;">About SIMRAN 404</div>
+      <div id="contact" class="content-section" style="display:none;">Contact us at: sarveshjatav738@gmail.com</div>
+      <div id="biodata" class="content-section" style="display:none;">Name: Sarvesh Bharti<br>Location: Dariyapur, Azamgarh<br>GitHub: <a href="https://github.com/sarveshsimran/simran404_sarvesh" target="_blank">simran404_sarvesh</a></div>
+    </main>
   </div>
-
-  <!-- Content Section -->
-  <main class="content">
-    <section id="home" class="section">👋 This is the SIMRAN 404 Home Page.</section>
-    <section id="tools" class="section">🧰 List of Tools: IP Lookup, Phone Info, Port Scanner, Tracker, etc.</section>
-    <section id="about" class="section">👤 Created by Sarvesh Bharti. Ethical Hacker from Azamgarh.</section>
-    <section id="contact" class="section">📧 Email: sarveshjatav738@gmail.com <br> 📱 Insta: @sarveshbharti2025</section>
-    <section id="docs" class="section">📄 Guides: Kali Nethunter, Termux, Hacking Tutorials & more...</section>
-  </main>
 
   <script src="script.js"></script>
 </body>
