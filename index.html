@@ -1,43 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>SIMRAN 404 CYBER</title>
-  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
+
   <header>
-    <div class="top-banner">
-      <h1>@simran404cyberx</h1>
-      <h2>Welcome to SIMRAN 404</h2>
-      <p>The Dark Side of Knowledge</p>
+    <div class="top-bar">
+      <span>@simran404cyberx</span>
+      <span>Welcome to SIMRAN 404</span>
     </div>
-    <button id="toggle-sidebar">☰</button>
+    <button id="toggle-btn">☰</button>
   </header>
 
-  <div class="container">
-    <nav id="sidebar" class="sidebar">
+  <aside id="sidebar">
+    <nav>
       <ul>
-        <li onclick="showSection('home')">🏠 Home</li>
-        <li onclick="showSection('tools')">🛠️ Tools</li>
-        <li onclick="showSection('about')">ℹ️ About</li>
-        <li onclick="showSection('contact')">📞 Contact</li>
-        <li onclick="showSection('biodata')">📜 BioData</li>
+        <li onclick="showContent('home')">🏠 Home</li>
+        <li onclick="showContent('tools')">🛠️ Tools</li>
+        <li onclick="showContent('about')">👤 About</li>
+        <li onclick="showContent('contact')">📬 Contact</li>
       </ul>
     </nav>
+  </aside>
 
-    <div id="overlay" class="overlay" onclick="closeSidebar()"></div>
-
-    <main id="main-content">
-      <!-- Dynamic content will appear here -->
-      <div id="home" class="content-section">Click sidebar buttons to load content.</div>
-      <div id="tools" class="content-section" style="display:none;">Tools section loaded here.</div>
-      <div id="about" class="content-section" style="display:none;">About SIMRAN 404</div>
-      <div id="contact" class="content-section" style="display:none;">Contact us at: sarveshjatav738@gmail.com</div>
-      <div id="biodata" class="content-section" style="display:none;">Name: Sarvesh Bharti<br>Location: Dariyapur, Azamgarh<br>GitHub: <a href="https://github.com/sarveshsimran/simran404_sarvesh" target="_blank">simran404_sarvesh</a></div>
-    </main>
-  </div>
+  <main id="content">
+    <!-- Dynamic content will appear here -->
+  </main>
 
   <script src="script.js"></script>
 </body>
