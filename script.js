@@ -1,19 +1,19 @@
-let sidebarVisible = false;
+document.getElementById("toggle-sidebar").addEventListener("click", function () {
+  document.getElementById("sidebar").classList.toggle("active");
+  document.getElementById("overlay").classList.toggle("active");
+});
 
-function toggleSidebar() {
-  const sidebar = document.getElementById("sidebar");
-  if (!sidebarVisible) {
-    sidebar.style.left = "0";
-    sidebarVisible = true;
-  } else {
-    sidebar.style.left = "-220px";
-    sidebarVisible = false;
-  }
+function closeSidebar() {
+  document.getElementById("sidebar").classList.remove("active");
+  document.getElementById("overlay").classList.remove("active");
 }
 
-function showSection(id) {
-  const sections = document.querySelectorAll('.section');
-  sections.forEach(sec => sec.classList.remove('active'));
-  document.getElementById(id).classList.add('active');
-  toggleSidebar(); // Auto-close sidebar on mobile after click
+function showSection(sectionId) {
+  const sections = document.querySelectorAll(".content-section");
+  sections.forEach((section) => {
+    section.classList.remove("active");
+  });
+
+  document.getElementById(sectionId).classList.add("active");
+  closeSidebar();
 }
