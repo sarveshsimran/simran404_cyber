@@ -1,100 +1,68 @@
 body {
   margin: 0;
   font-family: 'Segoe UI', sans-serif;
-  background: #111;
+  background-color: #111;
   color: #eee;
-  line-height: 1.6;
+  text-align: center;
 }
 
-header {
-  background: #000;
-  color: #0f0;
-  padding: 1em 2em;
+.topbar {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
+  background: #000;
+  padding: 1em;
+  position: relative;
   border-bottom: 2px solid #0f0;
 }
 
-header .logo {
-  font-size: 1.5em;
-  font-weight: bold;
-}
-
-nav a {
+.topbar h1 {
+  font-size: 1.8em;
   color: #0f0;
-  margin-left: 1.2em;
-  text-decoration: none;
-  font-weight: bold;
+  margin: 0;
 }
 
-main {
-  display: flex;
-  padding: 2em;
-  max-width: 1200px;
-  margin: auto;
+.menu-icon {
+  position: absolute;
+  left: 1em;
+  font-size: 1.8em;
+  color: #0f0;
+  cursor: pointer;
 }
 
-article {
-  flex: 3;
-  margin-right: 2em;
-}
-
-.meta {
-  font-size: 0.9em;
-  color: #888;
-  margin-bottom: 1em;
-}
-
-.article-img {
-  width: 100%;
-  max-height: 400px;
-  object-fit: cover;
-  margin-bottom: 1.5em;
+.logo-container img {
+  margin-top: 30px;
+  width: 200px;
+  border-radius: 100%;
   border: 2px solid #0f0;
 }
 
-aside {
-  flex: 1;
-  background: #1a1a1a;
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: -250px;
+  height: 100%;
+  width: 250px;
+  background-color: #222;
+  padding-top: 60px;
+  transition: 0.3s;
+  z-index: 1000;
+  box-shadow: 2px 0 10px #0f0;
+}
+
+.sidebar.open {
+  left: 0;
+}
+
+.sidebar a {
+  display: block;
   padding: 1em;
-  border-left: 2px solid #0f0;
-}
-
-aside h2 {
   color: #0f0;
-  font-size: 1.1em;
-  border-bottom: 1px solid #333;
-  padding-bottom: 0.5em;
-  margin-top: 1em;
-}
-
-aside ul {
-  list-style: none;
-  padding: 0;
-}
-
-aside li {
-  margin: 0.7em 0;
-}
-
-aside a {
-  color: #ccc;
   text-decoration: none;
+  border-bottom: 1px solid #333;
+  font-weight: bold;
 }
 
-aside .social a {
-  display: inline-block;
-  margin-right: 1em;
-  margin-top: 0.5em;
-  color: #0f0;
+.sidebar a:hover {
+  background: #111;
 }
-
-footer {
-  background: #000;
-  color: #999;
-  text-align: center;
-  padding: 1em;
-  border-top: 2px solid #0f0;
-  margin-top: 2em;
-  }
