@@ -3,59 +3,31 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Remote Input Injection Vulnerability in Air Keyboard</title>
-  <link rel="stylesheet" href="style.css"/>
+  <title>@simran4040cyberx</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <header>
-    <div class="logo">MOBILE HACKER</div>
-    <nav>
-      <a href="#">Home</a>
-      <a href="#">Vulnerabilities</a>
-      <a href="#">Tools</a>
-      <a href="#">Contact</a>
-    </nav>
-  </header>
+  <div class="topbar">
+    <div class="menu-icon" onclick="toggleSidebar()">☰</div>
+    <h1>@simran4040cyberx</h1>
+  </div>
 
-  <main>
-    <article>
-      <h1>Remote Input Injection Vulnerability in Air Keyboard iOS App Still Unpatched</h1>
-      <div class="meta">📅 July 17, 2025 | 🧑‍💻 By Sarvesh Bharti</div>
+  <div class="logo-container">
+    <img src="logo.png" alt="Simran404 Logo" />
+  </div>
 
-      <img src="images/airkeyboard.png" alt="Air Keyboard Vulnerability" class="article-img"/>
+  <div id="sidebar" class="sidebar">
+    <a href="#">Home</a>
+    <a href="#">Tools</a>
+    <a href="#">Vulnerabilities</a>
+    <a href="#">GitHub</a>
+    <a href="#">Contact</a>
+  </div>
 
-      <p>
-        A critical vulnerability has been discovered in the Air Keyboard iOS app that allows attackers to remotely inject arbitrary input via crafted network packets. The issue stems from insecure parsing of incoming data over Wi-Fi communication.
-      </p>
-
-      <p>
-        Security researchers have warned that this bug may allow remote control of user devices, potentially leading to serious privacy and data compromise — especially on jailbroken devices. Apple has yet to respond regarding the flaw.
-      </p>
-
-      <p>
-        Until patched, users are strongly advised to uninstall or disable the app and block it via firewall or network controls.
-      </p>
-    </article>
-
-    <aside>
-      <h2>🔍 Recent Posts</h2>
-      <ul>
-        <li><a href="#">Android RAT Hidden in VPN App</a></li>
-        <li><a href="#">Zero-Day in Signal Desktop</a></li>
-        <li><a href="#">New Spyware Targeting iOS 17</a></li>
-      </ul>
-
-      <h2>📱 Follow Us</h2>
-      <div class="social">
-        <a href="#">GitHub</a>
-        <a href="#">Instagram</a>
-        <a href="#">Telegram</a>
-      </div>
-    </aside>
-  </main>
-
-  <footer>
-    © 2025 Mobile Hacker | Ethical Hacking News & Research
-  </footer>
+  <script>
+    function toggleSidebar() {
+      document.getElementById("sidebar").classList.toggle("open");
+    }
+  </script>
 </body>
 </html>
