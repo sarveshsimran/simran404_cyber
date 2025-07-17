@@ -1,73 +1,92 @@
 body {
   margin: 0;
-  font-family: 'Courier New', monospace;
-  background-color: #0d0d0d;
-  color: #f1f1f1;
-  display: flex;
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #0f0f0f;
+  color: #ffffff;
 }
 
-.sidebar {
-  width: 200px;
-  background-color: #1a1a1a;
-  height: 100vh;
-  padding: 20px;
-  box-shadow: 2px 0 10px #00ff99;
-  position: fixed;
-}
-
-.sidebar h2 {
-  color: #00ff99;
+/* Top bar */
+.top-bar {
+  background: #111;
+  padding: 15px;
   text-align: center;
-  margin-bottom: 30px;
+  border-bottom: 1px solid #444;
+  position: fixed;
+  width: 100%;
+  z-index: 10;
+}
+
+/* Sidebar */
+.sidebar {
+  position: fixed;
+  top: 65px;
+  left: -220px;
+  width: 200px;
+  height: 100%;
+  background-color: #1a1a1a;
+  padding-top: 20px;
+  transition: 0.3s;
+  z-index: 9;
 }
 
 .sidebar a {
+  padding: 10px 20px;
   display: block;
-  color: #ccc;
+  color: white;
   text-decoration: none;
-  padding: 10px;
-  border-left: 3px solid transparent;
   transition: 0.3s;
 }
 
 .sidebar a:hover {
-  color: #00ff99;
-  border-left: 3px solid #00ff99;
-  background-color: #262626;
+  background-color: #333;
 }
 
-.main-content {
-  margin-left: 220px;
-  padding: 30px;
+/* Menu Button */
+.menu-btn {
+  font-size: 30px;
+  cursor: pointer;
+  position: fixed;
+  top: 70px;
+  left: 10px;
+  z-index: 11;
 }
 
-.site-title {
-  background-color: #111;
+/* Content Area */
+.content {
+  margin-top: 120px;
   padding: 20px;
-  text-align: center;
-  border: 2px solid #00ff99;
-  margin-bottom: 30px;
+  margin-left: 0;
+  transition: 0.3s;
 }
 
-.site-title h1 {
-  color: #00ff99;
-  font-size: 24px;
-  margin: 0;
+/* Section */
+.section {
+  display: none;
+  animation: fadeIn 0.5s ease-in-out;
 }
 
-h2 {
-  color: #00ff99;
-  border-bottom: 2px solid #00ff99;
-  padding-bottom: 5px;
-  margin-top: 40px;
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
 }
 
-ul {
-  list-style: none;
-  padding-left: 0;
+/* Show section when active */
+.section.active {
+  display: block;
 }
 
-ul li::before {
-  content: "➤ ";
-  color: #00ff99;
+/* Responsive */
+@media (max-width: 768px) {
+  .sidebar {
+    width: 180px;
+  }
+
+  .menu-btn {
+    top: 65px;
+    left: 5px;
+  }
+
+  .content {
+    padding: 10px;
+  }
 }
