@@ -2,34 +2,61 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>SIMRAN 404 CYBER</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Simran404 Cyber</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <div class="sidebar" id="sidebar">
-    <button class="close-btn" onclick="closeSidebar()">×</button>
-    <a href="#">Home</a>
-    <a href="#">About</a>
-    <a href="#">Cyber Attack</a>
-    <a href="#">Rootless NetHunter</a>
-    <a href="#">My Tools</a>
-    <a href="#">Contact</a>
-  </div>
+  <!-- Header with hamburger and title -->
+  <header>
+    <div class="menu-btn" onclick="toggleSidebar()">☰</div>
+    <h1>@simran4040cyberx</h1>
+  </header>
 
-  <div class="content">
-    <button class="open-btn" onclick="openSidebar()">☰ Menu</button>
-    <h1>Welcome to SIMRAN 404 CYBER</h1>
-    <p>This is your hacking tools and knowledge base website.</p>
-  </div>
+  <!-- Sidebar -->
+  <nav class="sidebar" id="sidebar">
+    <ul>
+      <li><a href="#about" onclick="toggleSidebar()">About</a></li>
+      <li><a href="#attack" onclick="toggleSidebar()">Cyber Attack</a></li>
+      <li><a href="#net" onclick="toggleSidebar()">Rootless NetHunter</a></li>
+      <li><a href="#tool" onclick="toggleSidebar()">My Tool</a></li>
+      <li><a href="#contact" onclick="toggleSidebar()">Contact</a></li>
+    </ul>
+  </nav>
 
+  <!-- Main content area -->
+  <main>
+    <section id="about">
+      <h2>About</h2>
+      <p>Welcome to Simran404 Cyber World.</p>
+    </section>
+
+    <section id="attack">
+      <h2>Cyber Attack</h2>
+      <p>Information on cybersecurity awareness.</p>
+    </section>
+
+    <section id="net">
+      <h2>Rootless NetHunter</h2>
+      <p>Learn how to use NetHunter tools without root.</p>
+    </section>
+
+    <section id="tool">
+      <h2>My Tool</h2>
+      <p>List of tools created by Simran404.</p>
+    </section>
+
+    <section id="contact">
+      <h2>Contact</h2>
+      <p>Email: sarveshjatav738@gmail.com</p>
+    </section>
+  </main>
+
+  <!-- JS -->
   <script>
-    function openSidebar() {
-      document.getElementById("sidebar").style.left = "0";
-    }
-
-    function closeSidebar() {
-      document.getElementById("sidebar").style.left = "-250px";
+    function toggleSidebar() {
+      const sidebar = document.getElementById("sidebar");
+      sidebar.classList.toggle("active");
     }
   </script>
 </body>
