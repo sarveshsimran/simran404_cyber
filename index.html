@@ -1,3 +1,227 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Neon Matrix</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+            color: #00ff00;
+            font-family: 'Courier New', monospace;
+            background-color: black;
+            position: relative;
+        }
+
+        #matrix {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            opacity: 0.15;
+        }
+
+        .content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 3rem;
+            border-bottom: 1px solid #00ff00;
+            padding-bottom: 2rem;
+        }
+
+        h1 {
+            font-size: 3rem;
+            margin-bottom: 0.5rem;
+            color: #00ff00;
+            text-shadow: 0 0 10px #00ff00;
+        }
+
+        h2 {
+            color: #00ff0080;
+            font-size: 1.5rem;
+            margin-top: 0;
+        }
+
+        .card {
+            background-color: rgba(0, 0, 0, 0.7);
+            border: 1px solid #00ff00;
+            border-radius: 5px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 0 15px rgba(0, 255, 0, 0.3);
+        }
+
+        .card h3 {
+            margin-top: 0;
+            color: #00ff00;
+        }
+
+        .card p {
+            line-height: 1.6;
+            color: #00ff00cc;
+        }
+
+        .flex-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2rem;
+        }
+
+        .col {
+            flex: 1;
+            min-width: 250px;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 3rem;
+            padding-top: 2rem;
+            border-top: 1px solid #00ff00;
+            color: #00ff0080;
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2rem;
+            }
+            
+            .content {
+                padding: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <canvas id="matrix"></canvas>
+    
+    <div class="content">
+        <header>
+            <h1>NEO MATRIX</h1>
+            <h2>SYSTEM ACCESS INTERFACE</h2>
+        </header>
+
+        <div class="flex-grid">
+            <div class="col">
+                <div class="card">
+                    <h3>SYSTEM STATUS</h3>
+                    <p>
+                        Core systems operational at 98.7% efficiency. Critical processes running smoothly across all sectors.
+                        Network encryption protocols active. AI monitoring systems engaged.
+                    </p>
+                </div>
+                
+                <div class="card">
+                    <h3>SECURITY ALERT</h3>
+                    <p>
+                        Multiple unauthorized access attempts detected and neutralized. Firewalls reinforced.
+                        Encryption key rotation completed ahead of schedule.
+                    </p>
+                </div>
+            </div>
+            
+            <div class="col">
+                <div class="card">
+                    <h3>DATA STREAMS</h3>
+                    <p>
+                        Processing 4.7TB of streaming data per second. Network latency below acceptable thresholds.
+                        All nodes reporting optimal performance metrics.
+                    </p>
+                </div>
+                
+                <div class="card">
+                    <h3>ADMIN ACCESS</h3>
+                    <p>
+                        Secure login required for elevated privileges. Biometric verification standing by.
+                        Terminal session timeout in T-15:00.
+                    </p>
+                </div>
+            </div>
+        </div>
+        
+        <footer>
+            MATRIX OPERATIONS CENTER © 2023
+        </footer>
+    </div>
+
+    <script>
+        const canvas = document.getElementById('matrix');
+        const ctx = canvas.getContext('2d');
+        
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+        
+        const chars = "01アイウエオカキクケコサシスセソタチツテトナニヌネノハヒフヘホマミムメモヤユヨラリルレロワヲン";
+        const fontSize = 16;
+        const columns = canvas.width / fontSize;
+        
+        // Create array of drops for each column
+        const drops = [];
+        for(let i = 0; i < columns; i++) {
+            drops[i] = 1; 
+        }
+        
+        function draw() {
+            // Black background with opacity to create trail effect
+            ctx.fillStyle = 'rgba(0, 0, 0, 0.05)';
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+            
+            ctx.fillStyle = '#00ff00';
+            ctx.font = fontSize + 'px monospace';
+            
+            // Draw the characters
+            for(let i = 0; i < drops.length; i++) {
+                const text = chars[Math.floor(Math.random() * chars.length)];
+                
+                // Add randomness to y position
+                const y = drops[i] * fontSize;
+                const x = i * fontSize;
+                
+                ctx.fillText(text, x, y);
+                
+                // Randomly reset drops to top of screen
+                if(y > canvas.height && Math.random() > 0.975) {
+                    drops[i] = 0;
+                }
+                
+                drops[i]++;
+            }
+        }
+        
+        // Handle window resize
+        window.addEventListener('resize', function() {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        });
+        
+        // Animation loop (adjust 30 to change speed - higher is faster)
+        setInterval(draw, 30);
+    </script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
