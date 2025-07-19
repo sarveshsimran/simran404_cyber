@@ -220,6 +220,411 @@
 
 
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CyberSec Pro - Ethical Hacking & Bug Bounty</title>
+    <style>
+        :root {
+            --primary: #0275d8;
+            --primary-dark: #025aa5;
+            --dark: #292b2c;
+            --darker: #1a1a1a;
+            --light: #f7f7f7;
+            --danger: #d9534f;
+            --warning: #f0ad4e;
+            --success: #5cb85c;
+            --info: #5bc0de;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Courier New', monospace;
+        }
+
+        body {
+            background-color: var(--darker);
+            color: var(--light);
+            display: flex;
+            min-height: 100vh;
+        }
+
+        /* Sidebar styling */
+        .sidebar {
+            width: 250px;
+            background-color: var(--dark);
+            padding: 20px;
+            position: fixed;
+            height: 100vh;
+            overflow-y: auto;
+            border-right: 1px solid #444;
+        }
+
+        .sidebar-header {
+            margin-bottom: 30px;
+            text-align: center;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #444;
+        }
+
+        .sidebar-header img {
+            width: 80px;
+            height: 80px;
+            margin-bottom: 10px;
+        }
+
+        .nav-btn {
+            display: block;
+            width: 100%;
+            padding: 12px 15px;
+            margin-bottom: 10px;
+            background-color: var(--primary);
+            color: white;
+            border: none;
+            text-align: left;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: all 0.3s ease;
+        }
+
+        .nav-btn:hover {
+            background-color: var(--primary-dark);
+            transform: translateX(5px);
+        }
+
+        .nav-btn.active {
+            background-color: var(--danger);
+        }
+
+        /* Main content */
+        .main-content {
+            margin-left: 250px;
+            padding: 30px;
+            width: calc(100% - 250px);
+        }
+
+        .content-section {
+            display: none;
+            animation: fadeIn 0.5s ease;
+            background-color: var(--dark);
+            padding: 30px;
+            border-radius: 5px;
+            margin-bottom: 30px;
+            border: 1px solid #444;
+        }
+
+        .content-section.active {
+            display: block;
+        }
+
+        h1, h2, h3 {
+            color: var(--primary);
+            margin-bottom: 20px;
+        }
+
+        p {
+            line-height: 1.6;
+            margin-bottom: 15px;
+        }
+
+        .card {
+            background-color: rgba(0, 0, 0, 0.2);
+            padding: 20px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            border-left: 4px solid var(--primary);
+        }
+
+        .card h3 {
+            color: var(--info);
+        }
+
+        .highlight {
+            background-color: rgba(0, 0, 0, 0.3);
+            padding: 2px 5px;
+            border-radius: 3px;
+            color: var(--warning);
+            font-family: monospace;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .sidebar {
+                width: 100%;
+                height: auto;
+                position: relative;
+            }
+            .main-content {
+                margin-left: 0;
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Sidebar Navigation -->
+    <aside class="sidebar">
+        <div class="sidebar-header">
+            <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/665a7761-d1f9-4b8b-ac5f-88942ae71fa0.png" alt="CyberSec Pro logo featuring a shield with binary code background in glowing blue and green colors" />
+            <h2>CyberSec Pro</h2>
+        </div>
+        
+        <button class="nav-btn active" data-target="overview">Overview</button>
+        <button class="nav-btn" data-target="ethical-hacking">Ethical Hacking</button>
+        <button class="nav-btn" data-target="penetration-testing">Penetration Testing</button>
+        <button class="nav-btn" data-target="bug-bounty">Bug Bounty</button>
+        <button class="nav-btn" data-target="tools">Hacking Tools</button>
+        <button class="nav-btn" data-target="resources">Resources</button>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Overview Section -->
+        <section id="overview" class="content-section active">
+            <h1>Welcome to CyberSec Pro</h1>
+            <p>Your premier resource for ethical hacking, penetration testing, and bug bounty programs. We provide expert knowledge, tools, and techniques to help you secure systems and find vulnerabilities responsibly.</p>
+            
+            <div class="card">
+                <h3>Why Cybersecurity Matters</h3>
+                <p>In today's digital world, cyber threats are evolving at an unprecedented rate. Our mission is to:</p>
+                <ul style="margin-left: 20px; margin-bottom: 15px;">
+                    <li>Educate the next generation of cybersecurity professionals</li>
+                    <li>Promote ethical hacking practices</li>
+                    <li>Provide real-world penetration testing scenarios</li>
+                    <li>Connect skilled researchers with bug bounty programs</li>
+                </ul>
+            </div>
+
+            <div class="card">
+                <h3>Getting Started</h3>
+                <p>Begin your cybersecurity journey by exploring our resources:</p>
+                <ul style="margin-left: 20px; margin-bottom: 15px;">
+                    <li>Learn the basics of ethical hacking</li>
+                    <li>Understand different types of penetration tests</li>
+                    <li>Discover how to participate in bug bounty programs</li>
+                    <li>Explore our recommended tools and resources</li>
+                </ul>
+            </div>
+
+            <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/8a9c6195-4928-4431-92ef-aa2675f9d195.png" alt="Cybersecurity concept illustration showing a hacker with hoodie typing on laptop with security shield and lock icons floating in the background" style="width: 100%; border-radius: 5px; margin-top: 20px;" />
+        </section>
+
+        <!-- Ethical Hacking Section -->
+        <section id="ethical-hacking" class="content-section">
+            <h1>Ethical Hacking</h1>
+            <p>Ethical hacking involves authorized attempts to gain unauthorized access to computer systems, applications, or data to identify vulnerabilities that malicious hackers could exploit.</p>
+            
+            <div class="card">
+                <h3>Types of Ethical Hackers</h3>
+                <p>Different roles in ethical hacking:</p>
+                <ul style="margin-left: 20px; margin-bottom: 15px;">
+                    <li><span class="highlight">White Hat Hackers</span>: Security professionals who help organizations</li>
+                    <li><span class="highlight">Black Hat Hackers</span>: Malicious hackers (what we defend against)</li>
+                    <li><span class="highlight">Grey Hat Hackers</span>: Somewhere in between</li>
+                </ul>
+            </div>
+
+            <div class="card">
+                <h3>Common Attack Vectors</h3>
+                <p>Popular methods used in ethical hacking assessments:</p>
+                <ul style="margin-left: 20px; margin-bottom: 15px;">
+                    <li>Social Engineering (Phishing, Pretexting)</li>
+                    <li>Network Scanning and Enumeration</li>
+                    <li>Web Application Attacks (SQLi, XSS, CSRF)</li>
+                    <li>Privilege Escalation Techniques</li>
+                    <li>Password Cracking</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Penetration Testing Section -->
+        <section id="penetration-testing" class="content-section">
+            <h1>Penetration Testing</h1>
+            <p>Penetration testing (pentesting) is a simulated cyber attack against your computer system to check for exploitable vulnerabilities.</p>
+            
+            <div class="card">
+                <h3>Penetration Testing Methodology</h3>
+                <ol style="margin-left: 20px; margin-bottom: 15px;">
+                    <li><span class="highlight">Planning</span>: Define scope and goals</li>
+                    <li><span class="highlight">Reconnaissance</span>: Gather intelligence</li>
+                    <li><span class="highlight">Discovery</span>: Scan and enumerate</li>
+                    <li><span class="highlight">Attack</span>: Exploit vulnerabilities</li>
+                    <li><span class="highlight">Reporting</span>: Document findings</li>
+                </ol>
+            </div>
+
+            <div class="card">
+                <h3>Types of Penetration Tests</h3>
+                <p>Different approaches to pentesting:</p>
+                <ul style="margin-left: 20px; margin-bottom: 15px;">
+                    <li>Network Services Testing</li>
+                    <li>Web Application Testing</li>
+                    <li>Wireless Security Testing</li>
+                    <li>Social Engineering Tests</li>
+                    <li>Physical Security Tests</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Bug Bounty Section -->
+        <section id="bug-bounty" class="content-section">
+            <h1>Bug Bounty Programs</h1>
+            <p>Bug bounty programs reward researchers for finding and reporting security vulnerabilities to organizations.</p>
+            
+            <div class="card">
+                <h3>Popular Bug Bounty Platforms</h3>
+                <ul style="margin-left: 20px; margin-bottom: 15px;">
+                    <li>HackerOne</li>
+                    <li>Bugcrowd</li>
+                    <li>Synack</li>
+                    <li>Open Bug Bounty</li>
+                </ul>
+            </div>
+
+            <div class="card">
+                <h3>How to Start in Bug Bounties</h3>
+                <p>Steps to become a successful bug bounty hunter:</p>
+                <ol style="margin-left: 20px; margin-bottom: 15px;">
+                    <li>Learn web and application security fundamentals</li>
+                    <li>Practice on legal platforms like Hacker101, PentesterLab</li>
+                    <li>Choose beginner-friendly programs (e.g., those with private invitations)</li>
+                    <li>Start with simple vulnerabilities (XSS, IDOR, CSRF)</li>
+                    <li>Document everything clearly in your reports</li>
+                </ol>
+            </div>
+        </section>
+
+        <!-- Tools Section -->
+        <section id="tools" class="content-section">
+            <h1>Essential Hacking Tools</h1>
+            <p>A collection of essential tools for ethical hacking and penetration testing.</p>
+            
+            <div class="card">
+                <h3>Network Scanning & Enumeration</h3>
+                <ul style="margin-left: 20px; margin-bottom: 15px;">
+                    <li><span class="highlight">Nmap</span>: Network mapping tool</li>
+                    <li><span class="highlight">Wireshark</span>: Packet analyzer</li>
+                    <li><span class="highlight">Netcat</span>: Swiss army knife of networking</li>
+                </ul>
+            </div>
+
+            <div class="card">
+                <h3>Web Application Testing</h3>
+                <ul style="margin-left: 20px; margin-bottom: 15px;">
+                    <li><span class="highlight">Burp Suite</span>: Web proxy</li>
+                    <li><span class="highlight">OWASP ZAP</span>: Open source web scanner</li>
+                    <li><span class="highlight">SQLmap</span>: Automated SQL injection</li>
+                </ul>
+            </div>
+
+            <div class="card">
+                <h3>Password Cracking</h3>
+                <ul style="margin-left: 20px; margin-bottom: 15px;">
+                    <li><span class="highlight">John the Ripper</span>: Password cracker</li>
+                    <li><span class="highlight">Hashcat</span>: Advanced password recovery</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Resources Section -->
+        <section id="resources" class="content-section">
+            <h1>Learning Resources</h1>
+            <p>Expand your cybersecurity knowledge with these resources.</p>
+            
+            <div class="card">
+                <h3>Books</h3>
+                <ul style="margin-left: 20px; margin-bottom: 15px;">
+                    <li>The Web Application Hacker's Handbook</li>
+                    <li>Hacking: The Art of Exploitation</li>
+                    <li>Penetration Testing: A Hands-On Introduction</li>
+                </ul>
+            </div>
+
+            <div class="card">
+                <h3>Online Courses</h3>
+                <ul style="margin-left: 20px; margin-bottom: 15px;">
+                    <li>Offensive Security Certified Professional (OSCP)</li>
+                    <li>eLearnSecurity eJPT</li>
+                    <li>Bugcrowd University</li>
+                </ul>
+            </div>
+
+            <div class="card">
+                <h3>Practice Platforms</h3>
+                <ul style="margin-left: 20px; margin-bottom: 15px;">
+                    <li>Hack The Box</li>
+                    <li>TryHackMe</li>
+                    <li>OverTheWire</li>
+                    <li>Vulnhub</li>
+                </ul>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Get all navigation buttons and content sections
+            const navButtons = document.querySelectorAll('.nav-btn');
+            const contentSections = document.querySelectorAll('.content-section');
+            
+            // Add click event listeners to each button
+            navButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    // Remove active class from all buttons and sections
+                    navButtons.forEach(btn => btn.classList.remove('active'));
+                    contentSections.forEach(section => section.classList.remove('active'));
+                    
+                    // Add active class to clicked button
+                    this.classList.add('active');
+                    
+                    // Show corresponding section
+                    const targetSection = document.getElementById(this.dataset.target);
+                    if (targetSection) {
+                        targetSection.classList.add('active');
+                    }
+                });
+            });
+
+            // Make sure overview is visible by default if no hash in URL
+            if (!window.location.hash) {
+                document.querySelector('.nav-btn[data-target="overview"]').click();
+            } else {
+                const target = window.location.hash.substring(1);
+                const btn = document.querySelector(`.nav-btn[data-target="${target}"]`);
+                if (btn) btn.click();
+            }
+        });
+    </script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 <!DOCTYPE html>
