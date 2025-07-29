@@ -602,11 +602,31 @@ exploit</pre>
             });
         });
         
+        // Close sidebar when clicking outside of it
+        document.addEventListener('click', (e) => {
+            if (sidebar.classList.contains('open') && 
+                !sidebar.contains(e.target) && 
+                e.target !== sidebarToggle) {
+                sidebar.classList.remove('open');
+            }
+        });
+
         // Responsive adjustments
         window.addEventListener('resize', () => {
             canvas.width = window.innerWidth;
             canvas.height = window.innerHeight;
         });
+    // Copy to clipboard function
+        function copyToClipboard(button) {
+            const codeBlock = button.parentElement;
+            const text = codeBlock.querySelector('pre').textContent;
+            navigator.clipboard.writeText(text).then(() => {
+                button.textContent = 'Copied!';
+                setTimeout(() => {
+                    button.textContent = 'Copy';
+                }, 2000);
+            });
+        }
     </script>
 </body>
 </html>
