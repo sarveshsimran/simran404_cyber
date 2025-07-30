@@ -98,7 +98,7 @@
                 </div>
             </div>
         </div>
-        <div class="hidden mobile-menu bg-gray-900 w-full md:hidden">
+        <div class="hidden mobile-menu bg-gray-900 w-full md:hidden border-t border-gray-700">
             <ul class="pt-2">
                 <li><a href="#home" class="block px-6 py-4 text-gray-300 hover:bg-gray-800 transition duration-300">Home</a></li>
                 <li><a href="#tools" class="block px-6 py-4 text-gray-300 hover:bg-gray-800 transition duration-300">Tools</a></li>
@@ -432,7 +432,7 @@
                 </div>
                 <div class="md:w-1/2">
                     <div class="flex flex-col items-center">
-    <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/c923ccfa-f3cd-46b7-ad2e-4c01b88f0d2d.png" alt="Sarvesh Bharti - Cybersecurity Expert" class="w-48 h-48 rounded-full border-4 border-emerald-400 shadow-xl mb-4">
+    <img src="https://i.postimg.cc/pXsMB3H6/IMG-20250728-212019.jpg" alt="Sarvesh Bharti - Cybersecurity Expert" class="w-48 h-48 rounded-full border-4 border-emerald-400 shadow-xl mb-4">
     <p class="text-xl text-white">Sarvesh Bharti</p>
     <p class="text-gray-400">Founder & Security Researcher</p>
 </div>
@@ -745,7 +745,7 @@
                         <ol class="list-decimal list-inside space-y-2 text-gray-300">
                             <li>Open Terminal</li>
                             <li>Find your interface name: <code class="bg-gray-800 px-2 py-1 rounded">networksetup -listallhardwareports</code></li>
-                            <li>Generate a random MAC: <code class="bg-gray-800 px-2 py-1 rounded">openssl rand -hex 6 | sed 's/\\(..\\)/\1:/g; s/.$//'</code></li>
+                            <li>Generate a random MAC: <code class="bg-gray-800 px-2 py-1 rounded">openssl rand -hex 6 | sed 's/\\$..\\$/\1:/g; s/.$//'</code></li>
                             <li>Disconnect from current Wi-Fi network</li>
                             <li>Change MAC: <code class="bg-gray-800 px-2 py-1 rounded">sudo ifconfig INTERFACE ether XX:XX:XX:XX:XX:XX</code></li>
                             <li>Reconnect to Wi-Fi</li>
@@ -781,4 +781,3 @@
     </script>
 </body>
 </html>
-
