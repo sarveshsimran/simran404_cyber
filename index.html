@@ -1,11 +1,612 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>SIMRAN 404</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CyberSecurity Hub | Ethical Hacking & Bug Bounty</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=VT323&display=swap');
+        
+        body {
+            font-family: 'Space Mono', monospace;
+            background-color: #0a0a0a;
+            color: #00ff41;
+            overflow-x: hidden;
+            position: relative;
+        }
+        
+        .matrix-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            opacity: 0.1;
+            pointer-events: none;
+        }
+        
+        .sidebar {
+            transform: translateX(-100%);
+            transition: transform 0.3s ease;
+        }
+        
+        .sidebar.open {
+            transform: translateX(0);
+        }
+        
+        .content-section {
+            display: none;
+        }
+        
+        .content-section.active {
+            display: block;
+            animation: fadeIn 0.5s ease;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        .glow-text {
+            text-shadow: 0 0 10px #00ff41, 0 0 20px #00ff41;
+        }
+        
+        .btn-hover {
+            transition: all 0.3s ease;
+        }
+        
+        .btn-hover:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 255, 65, 0.3);
+        }
+        
+        .code-block {
+            background-color: #111;
+            border-left: 3px solid #00ff41;
+        }
+    </style>
 </head>
-<body style="background:black;color:lime;text-align:center;font-family:monospace;">
-  <h1>🚀 SIMRAN 404 Website Live 🚀</h1>
-  <p>Welcome to my official GitHub Pages site!</p>
+<body>
+    <!-- Matrix Background Canvas -->
+    <canvas id="matrix" class="matrix-bg"></canvas>
+    
+    <!-- Sidebar Toggle Button -->
+    <button id="sidebarToggle" class="fixed top-4 left-4 z-50 bg-black text-green-400 p-2 rounded-md border border-green-400 btn-hover">
+        â˜° Menu
+    </button>
+    
+    <!-- Sidebar -->
+    <div id="sidebar" class="sidebar fixed top-0 left-0 w-64 h-full bg-black text-green-400 p-4 border-r border-green-400 z-40 overflow-y-auto">
+        <div class="text-center mb-8">
+            <h2 class="text-2xl font-bold glow-text">CyberSecurity Hub</h2>
+            <p class="text-sm">by SARVESH NHARTI</p>
+        </div>
+        
+        <div class="space-y-2">
+            <button data-section="intro" class="w-full py-2 px-4 bg-transparent border border-green-400 rounded-md text-left btn-hover">Introduction</button>
+            <button data-section="ethicalHacking" class="w-full py-2 px-4 bg-transparent border border-green-400 rounded-md text-left btn-hover">Ethical Hacking</button>
+            <button data-section="penTesting" class="w-full py-2 px-4 bg-transparent border border-green-400 rounded-md text-left btn-hover">Penetration Testing</button>
+            <button data-section="bugBounty" class="w-full py-2 px-4 bg-transparent border border-green-400 rounded-md text-left btn-hover">Bug Bounty</button>
+            <button data-section="tools" class="w-full py-2 px-4 bg-transparent border border-green-400 rounded-md text-left btn-hover">Essential Tools</button>
+            <button data-section="methodologies" class="w-full py-2 px-4 bg-transparent border border-green-400 rounded-md text-left btn-hover">Methodologies</button>
+            <button data-section="certifications" class="w-full py-2 px-4 bg-transparent border border-green-400 rounded-md text-left btn-hover">Certifications</button>
+            <button data-section="resources" class="w-full py-2 px-4 bg-transparent border border-green-400 rounded-md text-left btn-hover">Learning Resources</button>
+            <button data-section="legal" class="w-full py-2 px-4 bg-transparent border border-green-400 rounded-md text-left btn-hover">Legal Aspects</button>
+            <button data-section="community" class="w-full py-2 px-4 bg-transparent border border-green-400 rounded-md text-left btn-hover">Community</button>
+            <button data-section="about" class="w-full py-2 px-4 bg-transparent border border-green-400 rounded-md text-left btn-hover">About Me</button>
+        </div>
+        
+        <div class="mt-8 text-center text-xs">
+            <p>simran404cyberx</p>
+        </div>
+    </div>
+    
+    <!-- Main Content -->
+    <main class="min-h-screen flex flex-col items-center justify-center p-4 pt-20">
+        <div class="w-full max-w-4xl mx-auto">
+            <!-- Introduction Section -->
+            <section id="intro" class="content-section active">
+                <div class="text-center mb-8">
+                    <h1 class="text-4xl font-bold mb-2 glow-text">CyberSecurity Hub</h1>
+                    <p class="text-xl mb-4">Your comprehensive guide to Ethical Hacking, Penetration Testing & Bug Bounty</p>
+                    <p class="text-sm">Developed by SARVESH NHARTI</p>
+                    <p class="text-xs mt-2">simran404cyberx</p>
+                </div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8">
+                    <div class="p-4 border border-green-400 rounded-md">
+                        <h3 class="text-xl font-bold mb-2">What is Ethical Hacking?</h3>
+                        <p>Ethical hacking involves an authorized attempt to gain unauthorized access to a computer system, application, or data.</p>
+                    </div>
+                    <div class="p-4 border border-green-400 rounded-md">
+                        <h3 class="text-xl font-bold mb-2">Penetration Testing</h3>
+                        <p>A simulated cyber attack against your computer system to check for exploitable vulnerabilities.</p>
+                    </div>
+                </div>
+                
+                <div class="text-center">
+                    <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/5f065b03-febc-4fdd-9e26-2b49bcc1e49b.png" alt="Digital security concept with glowing padlock and binary code background" class="mx-auto rounded-md mb-4" />
+                    <p class="text-sm">Explore the different sections using the menu to learn more about cybersecurity.</p>
+                </div>
+            </section>
+            
+            <!-- Ethical Hacking Section -->
+            <section id="ethicalHacking" class="content-section">
+                <h2 class="text-3xl font-bold mb-6 text-center glow-text">Ethical Hacking</h2>
+                
+                <div class="mb-8">
+                    <h3 class="text-xl font-bold mb-2">Definition</h3>
+                    <p class="mb-4">Ethical hacking, also known as penetration testing or white-hat hacking, involves the same tools, tricks, and techniques that hackers use, but with one major difference: Ethical hacking is performed with the target's permission.</p>
+                    
+                    <h3 class="text-xl font-bold mb-2">Types of Hackers</h3>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-4">
+                        <div class="p-4 border border-green-400 rounded-md">
+                            <h4 class="font-bold">White Hat</h4>
+                            <p>Ethical hackers who work to improve security by finding vulnerabilities.</p>
+                        </div>
+                        <div class="p-4 border border-green-400 rounded-md">
+                            <h4 class="font-bold">Black Hat</h4>
+                            <p>Malicious hackers who exploit vulnerabilities for personal gain.</p>
+                        </div>
+                        <div class="p-4 border border-green-400 rounded-md">
+                            <h4 class="font-bold">Grey Hat</h4>
+                            <p>Hackers who may violate laws but don't have malicious intent.</p>
+                        </div>
+                    </div>
+                    
+                    <h3 class="text-xl font-bold mb-2">Ethical Hacking Process</h3>
+                    <ol class="list-decimal pl-6 mb-4 space-y-2">
+                        <li>Reconnaissance (Information Gathering)</li>
+                        <li>Scanning (Identifying Open Ports and Services)</li>
+                        <li>Gaining Access (Exploiting Vulnerabilities)</li>
+                        <li>Maintaining Access (Creating Backdoors)</li>
+                        <li>Covering Tracks (Clearing Logs)</li>
+                    </ol>
+                    
+                    <div class="code-block p-4 rounded-md mb-4">
+                        <h4 class="font-bold mb-2">Example Reconnaissance Command:</h4>
+                        <pre class="font-mono text-sm">nmap -sV -O target.com</pre>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- Penetration Testing Section -->
+            <section id="penTesting" class="content-section">
+                <h2 class="text-3xl font-bold mb-6 text-center glow-text">Penetration Testing</h2>
+                
+                <div class="mb-8">
+                    <h3 class="text-xl font-bold mb-2">What is Penetration Testing?</h3>
+                    <p class="mb-4">Penetration testing is a simulated cyber attack against your computer system to check for exploitable vulnerabilities. In the context of web application security, penetration testing is commonly used to augment a web application firewall (WAF).</p>
+                    
+                    <h3 class="text-xl font-bold mb-2">Types of Penetration Tests</h3>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+                        <div class="p-4 border border-green-400 rounded-md">
+                            <h4 class="font-bold">Black Box Testing</h4>
+                            <p>Tester has no prior knowledge of the system being tested.</p>
+                        </div>
+                        <div class="p-4 border border-green-400 rounded-md">
+                            <h4 class="font-bold">White Box Testing</h4>
+                            <p>Tester has complete knowledge of the system being tested.</p>
+                        </div>
+                        <div class="p-4 border border-green-400 rounded-md">
+                            <h4 class="font-bold">Gray Box Testing</h4>
+                            <p>Tester has partial knowledge of the system being tested.</p>
+                        </div>
+                        <div class="p-4 border border-green-400 rounded-md">
+                            <h4 class="font-bold">Red Team Exercises</h4>
+                            <p>Simulated real-world attacks with multiple vectors.</p>
+                        </div>
+                    </div>
+                    
+                    <h3 class="text-xl font-bold mb-2">Penetration Testing Methodology</h3>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+                        <div>
+                            <h4 class="font-bold mb-2">OWASP Testing Guide</h4>
+                            <p>The Open Web Application Security Project (OWASP) provides a comprehensive testing guide for web applications.</p>
+                        </div>
+                        <div>
+                            <h4 class="font-bold mb-2">PTES Standard</h4>
+                            <p>The Penetration Testing Execution Standard provides a common language and scope for performing penetration tests.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="code-block p-4 rounded-md mb-4">
+                        <h4 class="font-bold mb-2">Example Metasploit Command:</h4>
+                        <pre class="font-mono text-sm">msfconsole
+use exploit/multi/handler
+set payload windows/meterpreter/reverse_tcp
+set LHOST your_ip
+set LPORT 4444
+exploit</pre>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- Bug Bounty Section -->
+            <section id="bugBounty" class="content-section">
+                <h2 class="text-3xl font-bold mb-6 text-center glow-text">Bug Bounty Programs</h2>
+                
+                <div class="mb-8">
+                    <h3 class="text-xl font-bold mb-2">What is a Bug Bounty?</h3>
+                    <p class="mb-4">A bug bounty program is a deal offered by many websites, organizations, and software developers by which individuals can receive recognition and compensation for reporting bugs, especially those pertaining to security exploits and vulnerabilities.</p>
+                    
+                    <h3 class="text-xl font-bold mb-2">Popular Bug Bounty Platforms</h3>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-4">
+                        <div class="p-4 border border-green-400 rounded-md">
+                            <h4 class="font-bold">HackerOne</h4>
+                            <p>One of the largest bug bounty platforms with programs from companies like Google, GitHub, and more.</p>
+                        </div>
+                        <div class="p-4 border border-green-400 rounded-md">
+                            <h4 class="font-bold">Bugcrowd</h4>
+                            <p>Another major platform hosting bug bounty programs for various organizations.</p>
+                        </div>
+                        <div class="p-4 border border-green-400 rounded-md">
+                            <h4 class="font-bold">Synack</h4>
+                            <p>An invite-only bug bounty platform with vetted researchers.</p>
+                        </div>
+                    </div>
+                    
+                    <h3 class="text-xl font-bold mb-2">Getting Started with Bug Bounty</h3>
+                    <ol class="list-decimal pl-6 mb-4 space-y-2">
+                        <li>Learn the basics of web application security</li>
+                        <li>Understand common vulnerabilities (OWASP Top 10)</li>
+                        <li>Practice on intentionally vulnerable applications</li>
+                        <li>Start with small scope programs</li>
+                        <li>Write clear and detailed reports</li>
+                    </ol>
+                    
+                    <div class="code-block p-4 rounded-md mb-4">
+                        <h4 class="font-bold mb-2">Example Vulnerability Report Structure:</h4>
+                        <pre class="font-mono text-sm">1. Title: Brief description
+2. Description: Detailed explanation
+3. Steps to Reproduce: Clear reproduction steps
+4. Impact: Potential consequences
+5. Suggested Fix: Recommended solution
+6. References: Any supporting materials</pre>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- Tools Section -->
+            <section id="tools" class="content-section">
+                <h2 class="text-3xl font-bold mb-6 text-center glow-text">Essential Tools</h2>
+                
+                <div class="mb-8">
+                    <h3 class="text-xl font-bold mb-2">Reconnaissance Tools</h3>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+                        <div class="p-4 border border-green-400 rounded-md">
+                            <h4 class="font-bold">Nmap</h4>
+                            <p>Network mapper for discovering hosts and services on a network.</p>
+                        </div>
+                        <div class="p-4 border border-green-400 rounded-md">
+                            <h4 class="font-bold">Recon-ng</h4>
+                            <p>Web reconnaissance framework with multiple modules.</p>
+                        </div>
+                    </div>
+                    
+                    <h3 class="text-xl font-bold mb-2">Vulnerability Scanners</h3>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+                        <div class="p-4 border border-green-400 rounded-md">
+                            <h4 class="font-bold">Nessus</h4>
+                            <p>Comprehensive vulnerability scanner with extensive plugin library.</p>
+                        </div>
+                        <div class="p-4 border border-green-400 rounded-md">
+                            <h4 class="font-bold">OpenVAS</h4>
+                            <p>Open-source vulnerability scanner and manager.</p>
+                        </div>
+                    </div>
+                    
+                    <h3 class="text-xl font-bold mb-2">Exploitation Tools</h3>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+                        <div class="p-4 border border-green-400 rounded-md">
+                            <h4 class="font-bold">Metasploit Framework</h4>
+                            <p>Penetration testing platform with exploit development tools.</p>
+                        </div>
+                        <div class="p-4 border border-green-400 rounded-md">
+                            <h4 class="font-bold">Burp Suite</h4>
+                            <p>Web application security testing platform.</p>
+                        </div>
+                    </div>
+                    
+                    <h3 class="text-xl font-bold mb-2">Post-Exploitation Tools</h3>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+                        <div class="p-4 border border-green-400 rounded-md">
+                            <h4 class="font-bold">Mimikatz</h4>
+                            <p>Credential extraction tool for Windows environments.</p>
+                        </div>
+                        <div class="p-4 border border-green-400 rounded-md">
+                            <h4 class="font-bold">Cobalt Strike</h4>
+                            <p>Post-exploitation framework for red team operations.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- Methodologies Section -->
+            <section id="methodologies" class="content-section">
+                <h2 class="text-3xl font-bold mb-6 text-center glow-text">Methodologies</h2>
+                
+                <div class="mb-8">
+                    <h3 class="text-xl font-bold mb-2">OWASP Testing Guide</h3>
+                    <p class="mb-4">The OWASP Testing Guide provides a comprehensive framework for testing the security of web applications and services.</p>
+                    
+                    <h3 class="text-xl font-bold mb-2">PTES (Penetration Testing Execution Standard)</h3>
+                    <p class="mb-4">The PTES defines seven stages of penetration testing: Pre-engagement Interactions, Intelligence Gathering, Threat Modeling, Vulnerability Analysis, Exploitation, Post Exploitation, and Reporting.</p>
+                    
+                    <h3 class="text-xl font-bold mb-2">NIST Cybersecurity Framework</h3>
+                    <p class="mb-4">The NIST Cybersecurity Framework provides a policy framework of computer security guidance for how private sector organizations can assess and improve their ability to prevent, detect, and respond to cyber attacks.</p>
+                    
+                    <h3 class="text-xl font-bold mb-2">MITRE ATT&CK Framework</h3>
+                    <p class="mb-4">MITRE ATT&CK is a globally-accessible knowledge base of adversary tactics and techniques based on real-world observations.</p>
+                </div>
+            </section>
+            
+            <!-- Certifications Section -->
+            <section id="certifications" class="content-section">
+                <h2 class="text-3xl font-bold mb-6 text-center glow-text">Certifications</h2>
+                
+                <div class="mb-8">
+                    <h3 class="text-xl font-bold mb-2">Entry-Level Certifications</h3>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+                        <div class="p-4 border border-green-400 rounded-md">
+                            <h4 class="font-bold">CEH (Certified Ethical Hacker)</h4>
+                            <p>Focuses on ethical hacking tools and techniques.</p>
+                        </div>
+                        <div class="p-4 border border-green-400 rounded-md">
+                            <h4 class="font-bold">CompTIA Security+</h4>
+                            <p>General cybersecurity certification covering basic concepts.</p>
+                        </div>
+                    </div>
+                    
+                    <h3 class="text-xl font-bold mb-2">Intermediate Certifications</h3>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+                        <div class="p-4 border border-green-400 rounded-md">
+                            <h4 class="font-bold">OSCP (Offensive Security Certified Professional)</h4>
+                            <p>Hands-on penetration testing certification.</p>
+                        </div>
+                        <div class="p-4 border border-green-400 rounded-md">
+                            <h4 class="font-bold">CISSP (Certified Information Systems Security Professional)</h4>
+                            <p>Management-focused security certification.</p>
+                        </div>
+                    </div>
+                    
+                    <h3 class="text-xl font-bold mb-2">Advanced Certifications</h3>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+                        <div class="p-4 border border-green-400 rounded-md">
+                            <h4 class="font-bold">OSCE (Offensive Security Certified Expert)</h4>
+                            <p>Advanced exploitation techniques certification.</p>
+                        </div>
+                        <div class="p-4 border border-green-400 rounded-md">
+                            <h4 class="font-bold">GXPN (GIAC Exploit Researcher and Advanced Penetration Tester)</h4>
+                            <p>Advanced penetration testing and exploit development.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- Resources Section -->
+            <section id="resources" class="content-section">
+                <h2 class="text-3xl font-bold mb-6 text-center glow-text">Learning Resources</h2>
+                
+                <div class="mb-8">
+                    <h3 class="text-xl font-bold mb-2">Online Learning Platforms</h3>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+                        <div class="p-4 border border-green-400 rounded-md">
+                            <h4 class="font-bold">Offensive Security</h4>
+                            <p>Provider of the OSCP and other security certifications.</p>
+                        </div>
+                        <div class="p-4 border border-green-400 rounded-md">
+                            <h4 class="font-bold">PentesterLab</h4>
+                            <p>Hands-on web application security exercises.</p>
+                        </div>
+                    </div>
+                    
+                    <h3 class="text-xl font-bold mb-2">Practice Platforms</h3>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+                        <div class="p-4 border border-green-400 rounded-md">
+                            <h4 class="font-bold">Hack The Box</h4>
+                            <p>Online platform to test and advance your skills in penetration testing.</p>
+                        </div>
+                        <div class="p-4 border border-green-400 rounded-md">
+                            <h4 class="font-bold">TryHackMe</h4>
+                            <p>Learning platform with guided paths and virtual rooms.</p>
+                        </div>
+                    </div>
+                    
+                    <h3 class="text-xl font-bold mb-2">Books</h3>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+                        <div class="p-4 border border-green-400 rounded-md">
+                            <h4 class="font-bold">The Web Application Hacker's Handbook</h4>
+                            <p>Comprehensive guide to web application security.</p>
+                        </div>
+                        <div class="p-4 border border-green-400 rounded-md">
+                            <h4 class="font-bold">Penetration Testing: A Hands-On Introduction to Hacking</h4>
+                            <p>Practical guide to penetration testing techniques.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- Legal Section -->
+            <section id="legal" class="content-section">
+                <h2 class="text-3xl font-bold mb-6 text-center glow-text">Legal Aspects</h2>
+                
+                <div class="mb-8">
+                    <h3 class="text-xl font-bold mb-2">Authorization</h3>
+                    <p class="mb-4">Always obtain written permission before testing any system. Unauthorized access is illegal and can result in severe penalties.</p>
+                    
+                    <h3 class="text-xl font-bold mb-2">Laws to Be Aware Of</h3>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+                        <div class="p-4 border border-green-400 rounded-md">
+                            <h4 class="font-bold">Computer Fraud and Abuse Act (CFAA)</h4>
+                            <p>US federal law that prohibits unauthorized access to computers.</p>
+                        </div>
+                        <div class="p-4 border border-green-400 rounded-md">
+                            <h4 class="font-bold">General Data Protection Regulation (GDPR)</h4>
+                            <p>EU regulation on data protection and privacy.</p>
+                        </div>
+                    </div>
+                    
+                    <h3 class="text-xl font-bold mb-2">Responsible Disclosure</h3>
+                    <p class="mb-4">When discovering vulnerabilities, follow responsible disclosure practices by notifying the vendor and allowing reasonable time for fixes before public disclosure.</p>
+                    
+                    <h3 class="text-xl font-bold mb-2">Bug Bounty Legal Considerations</h3>
+                    <p class="mb-4">Always read and understand the terms of any bug bounty program before participating. Some programs may have specific rules about testing methods.</p>
+                </div>
+            </section>
+            
+            <!-- Community Section -->
+            <section id="community" class="content-section">
+                <h2 class="text-3xl font-bold mb-6 text-center glow-text">Community</h2>
+                
+                <div class="mb-8">
+                    <h3 class="text-xl font-bold mb-2">Online Communities</h3>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+                        <div class="p-4 border border-green-400 rounded-md">
+                            <h4 class="font-bold">Reddit</h4>
+                            <p>Subreddits like r/netsec, r/cybersecurity, and r/ethicalhacking.</p>
+                        </div>
+                        <div class="p-4 border border-green-400 rounded-md">
+                            <h4 class="font-bold">Discord</h4>
+                            <p>Various cybersecurity-focused Discord servers.</p>
+                        </div>
+                    </div>
+                    
+                    <h3 class="text-xl font-bold mb-2">Conferences</h3>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+                        <div class="p-4 border border-green-400 rounded-md">
+                            <h4 class="font-bold">DEF CON</h4>
+                            <p>One of the world's largest hacker conventions.</p>
+                        </div>
+                        <div class="p-4 border border-green-400 rounded-md">
+                            <h4 class="font-bold">Black Hat</h4>
+                            <p>Professional cybersecurity conference series.</p>
+                        </div>
+                    </div>
+                    
+                    <h3 class="text-xl font-bold mb-2">Local Meetups</h3>
+                    <p class="mb-4">Many cities have local cybersecurity meetups and groups where professionals and enthusiasts gather to share knowledge.</p>
+                    
+                    <h3 class="text-xl font-bold mb-2">Twitter</h3>
+                    <p class="mb-4">Follow cybersecurity professionals and organizations on Twitter for the latest news and discussions.</p>
+                </div>
+            </section>
+
+            <!-- About Section -->
+            <section id="about" class="content-section">
+                <h2 class="text-3xl font-bold mb-6 text-center glow-text">About Me</h2>
+                
+                <div class="mb-8">
+                    <div class="text-center mb-6">
+                        <img src="https://i.postimg.cc/pXsMB3H6/IMG-20250728-212019.jpg." alt="Profile photo" class="mx-auto rounded-full mb-4">
+                        <h3 class="text-2xl font-bold">SARVESH BHARTI</h3>
+                        <p class="text-lg">Cybersecurity Professional</p>
+                    </div>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+                        <div class="p-4 border border-green-400 rounded-md">
+                            <h4 class="text-xl font-bold mb-2">Contact Information</h4>
+                            <p><strong>Email:</strong> [sarveshjatav738@gmail.com]</p>
+                            <p><strong>Website:</strong> [.   ]</p>
+                            <p><strong>GitHub:</strong> [Your GitHub Profile]</p>
+                        </div>
+                        
+                        <div class="p-4 border border-green-400 rounded-md">
+                            <h4 class="text-xl font-bold mb-2">Biodata</h4>
+                            <p><strong>Specialization:</strong> Ethical Hacking, Penetration Testing</p>
+                            <p><strong>Experience:</strong> [Years] Years in Cybersecurity</p>
+                            <p><strong>Certifications:</strong> [List Certifications]</p>
+                        </div>
+                    </div>
+                    
+                    <div class="p-4 border border-green-400 rounded-md">
+                        <h4 class="text-xl font-bold mb-2">About My Work</h4>
+                        <p>[Your brief bio/introduction about your cybersecurity work and experience]</p>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+    
+    <script>
+        // Matrix Background Effect
+        const canvas = document.getElementById('matrix');
+        const ctx = canvas.getContext('2d');
+        
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+        
+        const katakana = 'ã‚¢ã‚¡ã‚«ã‚µã‚¿ãƒŠãƒãƒžãƒ¤ãƒ£ãƒ©ãƒ¯ã‚¬ã‚¶ãƒ€ãƒãƒ‘ã‚¤ã‚£ã‚­ã‚·ãƒãƒ‹ãƒ’ãƒŸãƒªãƒ°ã‚®ã‚¸ãƒ‚ãƒ“ãƒ”ã‚¦ã‚¥ã‚¯ã‚¹ãƒ„ãƒŒãƒ•ãƒ ãƒ¦ãƒ¥ãƒ«ã‚°ã‚ºãƒ–ãƒ…ãƒ—ã‚¨ã‚§ã‚±ã‚»ãƒ†ãƒãƒ˜ãƒ¡ãƒ¬ãƒ±ã‚²ã‚¼ãƒ‡ãƒ™ãƒšã‚ªã‚©ã‚³ã‚½ãƒˆãƒŽãƒ›ãƒ¢ãƒ¨ãƒ§ãƒ­ãƒ²ã‚´ã‚¾ãƒ‰ãƒœãƒãƒ´ãƒƒãƒ³';
+        const latin = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+        const nums = '0123456789';
+        const symbols = '!"#$%&\'()*+,-./:;<=>?@[\\]^_`{|}~';
+        
+        const alphabet = katakana + latin + nums + symbols;
+        
+        const fontSize = 16;
+        const columns = canvas.width / fontSize;
+        
+        const rainDrops = [];
+        
+        for (let x = 0; x < columns; x++) {
+            rainDrops[x] = 1;
+        }
+        
+        const draw = () => {
+            ctx.fillStyle = 'rgba(0, 0, 0, 0.05)';
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+            
+            ctx.fillStyle = '#00ff41';
+            ctx.font = fontSize + 'px monospace';
+            
+            for (let i = 0; i < rainDrops.length; i++) {
+                const text = alphabet.charAt(Math.floor(Math.random() * alphabet.length));
+                ctx.fillText(text, i * fontSize, rainDrops[i] * fontSize);
+                
+                if (rainDrops[i] * fontSize > canvas.height && Math.random() > 0.975) {
+                    rainDrops[i] = 0;
+                }
+                rainDrops[i]++;
+            }
+        };
+        
+        setInterval(draw, 30);
+        
+        // Sidebar Toggle
+        const sidebarToggle = document.getElementById('sidebarToggle');
+        const sidebar = document.getElementById('sidebar');
+        
+        sidebarToggle.addEventListener('click', () => {
+            sidebar.classList.toggle('open');
+        });
+        
+        // Section Navigation
+        const sectionButtons = document.querySelectorAll('[data-section]');
+        const sections = document.querySelectorAll('.content-section');
+        
+        sectionButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                const targetSection = button.getAttribute('data-section');
+                
+                sections.forEach(section => {
+                    section.classList.remove('active');
+                });
+                
+                document.getElementById(targetSection).classList.add('active');
+                
+                // Scroll to top
+                window.scrollTo(0, 0);
+            });
+        });
+        
+        // Responsive adjustments
+        window.addEventListener('resize', () => {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        });
+    </script>
 </body>
 </html>
