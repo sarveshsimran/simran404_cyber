@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SARVESHCYBERX - Cybersecurity & Ethical Hacking</title>
+    <title>simran404cyberx - Cybersecurity by Sarvesh Bharti</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
@@ -50,6 +50,26 @@
             left: 0;
             z-index: -1;
         }
+        
+        /* Mobile menu animation */
+        .mobile-menu {
+            max-height: 0;
+            transition: max-height 0.3s ease-out;
+        }
+        
+        .mobile-menu:not(.hidden) {
+            max-height: 500px;
+            transition: max-height 0.5s ease-in;
+        }
+        
+        @keyframes slideIn {
+            from { transform: translateX(-100%); }
+            to { transform: translateX(0); }
+        }
+        
+        .animate-slide-in {
+            animation: slideIn 0.3s ease-out;
+        }
     </style>
 </head>
 <body>
@@ -60,7 +80,7 @@
                 <div class="flex space-x-7">
                     <div>
                         <a href="#" class="flex items-center py-4 px-2">
-                            <span class="font-bold text-2xl text-transparent bg-clip-text bg-gradient-to-r from-indigo-500 to-emerald-400">SARVESHCYBERX</span>
+                            <span class="font-bold text-2xl text-transparent bg-clip-text bg-gradient-to-r from-indigo-500 to-emerald-400">simran404cyberx</span>
                         </a>
                     </div>
                 </div>
@@ -72,19 +92,19 @@
                     <a href="#about" class="nav-item py-4 px-2 text-gray-300 hover:text-emerald-400 transition duration-300">About</a>
                 </div>
                 <div class="md:hidden flex items-center">
-                    <button class="outline-none mobile-menu-button">
-                        <i class="fas fa-bars text-white text-xl"></i>
+                    <button class="outline-none mobile-menu-button px-4 py-2">
+                        <i class="fas fa-bars text-white text-2xl transition duration-300"></i>
                     </button>
                 </div>
             </div>
         </div>
-        <div class="hidden mobile-menu">
-            <ul>
-                <li><a href="#home" class="block text-sm px-2 py-4 hover:bg-gray-800 transition duration-300">Home</a></li>
-                <li><a href="#tools" class="block text-sm px-2 py-4 hover:bg-gray-800 transition duration-300">Tools</a></li>
-                <li><a href="#learn" class="block text-sm px-2 py-4 hover:bg-gray-800 transition duration-300">Learn</a></li>
-                <li><a href="#news" class="block text-sm px-2 py-4 hover:bg-gray-800 transition duration-300">News</a></li>
-                <li><a href="#about" class="block text-sm px-2 py-4 hover:bg-gray-800 transition duration-300">About</a></li>
+        <div class="hidden mobile-menu bg-gray-900 w-full md:hidden">
+            <ul class="pt-2">
+                <li><a href="#home" class="block px-6 py-4 text-gray-300 hover:bg-gray-800 transition duration-300">Home</a></li>
+                <li><a href="#tools" class="block px-6 py-4 text-gray-300 hover:bg-gray-800 transition duration-300">Tools</a></li>
+                <li><a href="#learn" class="block px-6 py-4 text-gray-300 hover:bg-gray-800 transition duration-300">Learn</a></li>
+                <li><a href="#news" class="block px-6 py-4 text-gray-300 hover:bg-gray-800 transition duration-300">News</a></li>
+                <li><a href="#about" class="block px-6 py-4 text-gray-300 hover:bg-gray-800 transition duration-300">About</a></li>
             </ul>
         </div>
     </nav>
@@ -96,7 +116,8 @@
             <div class="flex flex-col md:flex-row items-center">
                 <div class="md:w-1/2 text-center md:text-left mb-10 md:mb-0">
                     <div class="typewriter">
-                        <h1 class="text-4xl md:text-6xl font-bold mb-6 text-white">SARVESHCYBERX</h1>
+                        <h1 class="text-4xl md:text-6xl font-bold mb-6 text-white">simran404cyberx</h1>
+<p class="text-xl md:text-2xl text-emerald-400 mb-2">By Sarvesh Bharti</p>
                     </div>
                     <p class="text-xl md:text-2xl text-gray-300 mb-8">Your Ultimate Cybersecurity & Ethical Hacking Companion</p>
                     <div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4 justify-center md:justify-start">
@@ -410,7 +431,11 @@
                     </div>
                 </div>
                 <div class="md:w-1/2">
-                    <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/3ed9fd6a-b17c-4f9a-8e9a-4f78045bdeaf.png" alt="Team of diverse cybersecurity professionals working together in a modern office" class="rounded-lg shadow-xl" />
+                    <div class="flex flex-col items-center">
+    <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/c923ccfa-f3cd-46b7-ad2e-4c01b88f0d2d.png" alt="Sarvesh Bharti - Cybersecurity Expert" class="w-48 h-48 rounded-full border-4 border-emerald-400 shadow-xl mb-4">
+    <p class="text-xl text-white">Sarvesh Bharti</p>
+    <p class="text-gray-400">Founder & Security Researcher</p>
+</div>
                 </div>
             </div>
 
@@ -429,7 +454,8 @@
         <div class="container mx-auto px-4">
             <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
                 <div class="md:col-span-2">
-                    <h3 class="text-xl font-bold text-white mb-6">SARVESHCYBERX</h3>
+                    <h3 class="text-xl font-bold text-white mb-6">simran404cyberx</h3>
+<p class="text-gray-400">By Sarvesh Bharti</p>
                     <p class="mb-6">Your trusted cybersecurity companion providing tools, tutorials, and news to help you navigate the digital world safely.</p>
                     <div class="flex space-x-4">
                         <a href="#" class="text-gray-400 hover:text-emerald-400 transition duration-300">
@@ -466,7 +492,7 @@
                 </div>
             </div>
             <div class="border-t border-gray-800 mt-12 pt-8 text-center">
-                <p>© 2023 SARVESHCYBERX. All rights reserved.</p>
+                <p>© 2023 simran404cyberx | Sarvesh Bharti. All rights reserved.</p>
             </div>
         </div>
     </footer>
@@ -474,11 +500,14 @@
     <!-- JavaScript -->
     <script>
         // Mobile menu toggle
+        // Mobile menu toggle
         const mobileMenuButton = document.querySelector('.mobile-menu-button');
         const mobileMenu = document.querySelector('.mobile-menu');
         
-        mobileMenuButton.addEventListener('click', () => {
+        mobileMenuButton.addEventListener('click', function() {
+            this.classList.toggle('text-emerald-400');
             mobileMenu.classList.toggle('hidden');
+            mobileMenu.classList.toggle('animate-slide-in');
         });
 
         // Smooth scrolling for navigation links
