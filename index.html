@@ -3,430 +3,542 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>simran404cyberx - Cybersecurity Portal</title>
+    <title>simran404cyberx | Ethical Hacking Academy</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
-    <style>
-        :root {
-            --primary: #0f1923;
-            --secondary: #13212e;
-            --accent: #13f1fc;
-            --text: #e8f1f2;
-        }
-        
-        body {
-            font-family: 'Roboto', sans-serif;
-            background-color: var(--primary);
-            color: var(--text);
-            margin: 0;
-            padding: 0;
-            overflow-x: hidden;
-        }
-        
-        .header-name {
-            font-family: 'Orbitron', sans-serif;
-            background: linear-gradient(90deg, var(--accent), #0056b3, var(--accent));
-            background-size: 200% auto;
-            -webkit-background-clip: text;
-            background-clip: text;
-            -webkit-text-fill-color: transparent;
-            animation: shine 3s linear infinite;
-        }
-        
-        @keyframes shine {
-            to {
-                background-position: 200% center;
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        cyberblue: '#0033A0',
+                        cyberteal: '#2BD2FF',
+                        cyberdark: '#121827',
+                        cyberpurple: '#6941C6',
+                        cybergray: '#1F2A37'
+                    }
+                }
             }
         }
-        
-        .sidebar-btn {
-            background: linear-gradient(to right, #1a5632, #2e7d32);
-            color: white;
-            margin: 8px 0;
+    </script>
+    <style>
+        /* Name animation */
+        @keyframes typing-animation {
+            0% { opacity: 0; }
+            5% { opacity: 1; }
+            50% { opacity: 1; }
+            55% { opacity: 0; }
+            100% { opacity: 0; }
         }
-        .sidebar-btn:hover {
-            box-shadow: 0 0 15px #4CAF50;
-            transform: translateX(5px);
+        .hacker-name {
+            font-size: 3.5rem;
+            font-weight: bold;
+            font-family: 'Courier New', monospace;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            margin: 0;
+            position: relative;
+            line-height: 0.7;
+            height: 3.5rem;
+            overflow: hidden;
         }
+        .hacker-name span {
+            animation: typing-animation 8s infinite;
+            display: inline-block;
+            min-width: 0.3em;
+        }
+        /* SARVESH letters */
+        .hacker-name:first-child span:nth-child(1) { animation-delay: 0.1s }
+        .hacker-name:first-child span:nth-child(2) { animation-delay: 0.4s }
+        .hacker-name:first-child span:nth-child(3) { animation-delay: 0.7s }
+        .hacker-name:first-child span:nth-child(4) { animation-delay: 1.0s }
+        .hacker-name:first-child span:nth-child(5) { animation-delay: 1.3s }
+        .hacker-name:first-child span:nth-child(6) { animation-delay: 1.6s }
+        .hacker-name:first-child span:nth-child(7) { animation-delay: 1.9s }
         
-        .content-section {
+        /* BHARTI letters */
+        .hacker-name:last-child span:nth-child(1) { animation-delay: 2.5s }
+        .hacker-name:last-child span:nth-child(2) { animation-delay: 2.8s }
+        .hacker-name:last-child span:nth-child(3) { animation-delay: 3.1s }
+        .hacker-name:last-child span:nth-child(4) { animation-delay: 3.4s }
+        .hacker-name:last-child span:nth-child(5) { animation-delay: 3.7s }
+        .hacker-name:last-child span:nth-child(6) { animation-delay: 4.0s }
+        .subtitle {
+            color: #2bd2ff;
+            font-size: 1.5rem;
+            margin-top: 0.5rem;
+            text-shadow: 0 0 5px #2bd2ff;
+        }
+        .hexagon-bg {
+            background-image: url('https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/d519e78d-c8fb-4391-9308-0bf7ec4feac6.png');
+            background-size: cover;
+            opacity: 0.1;
+        }
+        .card-hover {
             transition: all 0.3s ease;
         }
-        
-        .tool-card:hover {
+        .card-hover:hover {
             transform: translateY(-5px);
-            box-shadow: 0 10px 20px rgba(19, 241, 252, 0.2);
+            box-shadow: 0 10px 25px rgba(43, 210, 255, 0.3);
         }
-        
-        .hacker-badge {
-            border-left: 3px solid;
-            border-image: linear-gradient(to bottom, var(--accent), transparent) 1;
+        .terminal {
+            font-family: 'Courier New', monospace;
+            background-color: rgb(18, 24, 39);
+            color: #2BD2FF;
         }
     </style>
 </head>
-<body class="min-h-screen flex flex-col">
-    <!-- Header Section -->
-    <header class="bg-gradient-to-r from-gray-900 to-gray-800 py-6 px-4 shadow-lg">
-        <div class="container mx-auto text-center">
-            <h1 class="header-name text-5xl md:text-6xl font-bold mb-2">Sarvesh Bharti</h1>
-            <h2 class="text-xl md:text-2xl text-gray-300 font-mono">simran404cyberx</h2>
+<body class="bg-cyberdark text-white">
+    <!-- Navigation -->
+    <nav class="bg-cyberdark border-b border-gray-800 py-4 sticky top-0 z-50">
+        <div class="container mx-auto px-6 flex justify-between items-center">
+            <div class="flex items-center space-x-4">
+                <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/22dbc644-8ad8-4e2a-8dab-eb6fc3a9e352.png" alt="simran404cyberx logo" class="h-10">
+                <span class="text-xl font-bold text-cyberteal">simran404cyberx</span>
+            </div>
+            <div class="hidden md:flex space-x-8">
+                <a href="#courses" class="hover:text-cyberteal transition">Courses</a>
+                <a href="#resources" class="hover:text-cyberteal transition">Resources</a>
+                <a href="#labs" class="hover:text-cyberteal transition">Virtual Labs</a>
+                <a href="#about" class="hover:text-cyberteal transition">About</a>
+            </div>
+            <button class="md:hidden">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                </svg>
+            </button>
         </div>
-    </header>
+    </nav>
 
-    <!-- Main Content Area -->
-    <div class="flex flex-1" style="margin-left: 16rem">
-        <!-- Sidebar Navigation -->
-        <aside class="w-64 bg-gray-800 p-4 fixed h-full z-10 hidden md:block overflow-y-auto">
-            <nav>
-                <div class="space-y-2">
-                    <button onclick="showSection('section1')" class="sidebar-btn w-full py-3 px-4 bg-gray-700 hover:bg-gray-600 rounded-lg text-left font-medium transition-all duration-300">
-                        Button 1
-                    </button>
-                    <button onclick="showSection('section2')" class="sidebar-btn w-full py-3 px-4 bg-gray-700 hover:bg-gray-600 rounded-lg text-left font-medium transition-all duration-300">
-                        Button 2
-                    </button>
-                    <button onclick="showSection('section3')" class="sidebar-btn w-full py-3 px-4 bg-gray-700 hover:bg-gray-600 rounded-lg text-left font-medium transition-all duration-300">
-                        Button 3
-                    </button>
-                    <button onclick="showSection('section4')" class="sidebar-btn w-full py-3 px-4 bg-gray-700 hover:bg-gray-600 rounded-lg text-left font-medium transition-all duration-300">
-                        Button 4: Red Hat Hackers
-                    </button>
-                    <button onclick="showSection('section5')" class="sidebar-btn w-full py-3 px-4 bg-gray-700 hover:bg-gray-600 rounded-lg text-left font-medium transition-all duration-300">
-                        Button 5: Grey Hat Hackers
-                    </button>
-                    <button onclick="showSection('section6')" class="sidebar-btn w-full py-3 px-4 bg-gray-700 hover:bg-gray-600 rounded-lg text-left font-medium transition-all duration-300">
-                        Button 6: Common Hacking Tools
-                    </button>
-                    <button onclick="showSection('section7')" class="sidebar-btn w-full py-3 px-4 bg-gray-700 hover:bg-gray-600 rounded-lg text-left font-medium transition-all duration-300">
-                        Button 7: Network Security
-                    </button>
-                    <button onclick="showSection('section8')" class="sidebar-btn w-full py-3 px-4 bg-gray-700 hover:bg-gray-600 rounded-lg text-left font-medium transition-all duration-300">
-                        Button 8: Cyber Warfare
-                    </button>
-                    <button onclick="showSection('section9')" class="sidebar-btn w-full py-3 px-4 bg-gray-700 hover:bg-gray-600 rounded-lg text-left font-medium transition-all duration-300">
-                        Button 9: Social Engineering
-                    </button>
-                    <button onclick="showSection('section10')" class="sidebar-btn w-full py-3 px-4 bg-gray-700 hover:bg-gray-600 rounded-lg text-left font-medium transition-all duration-300">
-                        Button 10: Malware Analysis
-                    </button>
-                    <button onclick="showSection('section11')" class="sidebar-btn w-full py-3 px-4 bg-gray-700 hover:bg-gray-600 rounded-lg text-left font-medium transition-all duration-300">
-                        Button 11: Encryption
-                    </button>
-                    <button onclick="showSection('section12')" class="sidebar-btn w-full py-3 px-4 bg-gray-700 hover:bg-gray-600 rounded-lg text-left font-medium transition-all duration-300">
-                        Button 12: Cyber Laws
-                    </button>
-                    <button onclick="showSection('section13')" class="sidebar-btn w-full py-3 px-4 bg-gray-700 hover:bg-gray-600 rounded-lg text-left font-medium transition-all duration-300">
-                        Button 13: Digital Forensics
-                    </button>
-                    <button onclick="showSection('section14')" class="sidebar-btn w-full py-3 px-4 bg-gray-700 hover:bg-gray-600 rounded-lg text-left font-medium transition-all duration-300">
-                        Button 14: Cybersecurity Careers
-                    </button>
-                    <button onclick="showSection('section15')" class="sidebar-btn w-full py-3 px-4 bg-gray-700 hover:bg-gray-600 rounded-lg text-left font-medium transition-all duration-300">
-                        Button 15: Terms & Conditions
-                    </button>
+    <!-- Hero Section -->
+    <section class="relative overflow-hidden">
+        <div class="absolute inset-0 hexagon-bg"></div>
+        <div class="relative container mx-auto px-6 py-16">
+            <div class="max-w-3xl text-center">
+                <div class="flex flex-col items-center">
+                    <div class="hacker-name">
+                        <span>S</span>
+                        <span>A</span>
+                        <span>R</span>
+                        <span>V</span>
+                        <span>E</span>
+                        <span>S</span>
+                        <span>H</span>
+                    </div>
+                    <div class="hacker-name">
+                        <span>B</span>
+                        <span>H</span>
+                        <span>A</span>
+                        <span>R</span>
+                        <span>T</span>
+                        <span>I</span>
+                    </div>
                 </div>
-            </nav>
-        </aside>
+                <div class="subtitle">simran404cyberx</div>
+                <h1 class="text-4xl md:text-6xl font-bold mb-6">
+                    <span class="text-white">Master Cybersecurity</span>
+                    <span class="text-cyberteal block">Ethically</span>
+                </h1>
+                <p class="text-xl text-gray-300 mb-8">Learn to protect systems, detect vulnerabilities, and think like a hacker with our hands-on courses in ethical hacking and cyber defense.</p>
+                <div class="flex flex-wrap gap-4">
+                    <a href="#courses" class="bg-cyberteal hover:bg-cyberblue text-cyberdark font-bold py-3 px-6 rounded-lg transition">Explore Courses</a>
+                    <a href="#labs" class="border border-cyberteal hover:bg-cybergray text-cyberteal font-bold py-3 px-6 rounded-lg transition">Try Free Labs</a>
+                </div>
+            </div>
+        </div>
+    </section>
 
-        <!-- Mobile Menu Button -->
-        <button id="mobileMenuBtn" class="md:hidden fixed top-20 right-4 bg-gray-800 p-3 rounded-lg shadow-lg z-50">
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
-            </svg>
-        </button>
+    <!-- Stats Section -->
+    <section class="bg-cybergray py-12">
+        <div class="container mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 text-center">
+                <div class="p-6">
+                    <div class="text-4xl font-bold text-cyberteal">250+</div>
+                    <div class="text-gray-300 mt-2">Happy Students</div>
+                </div>
+                <div class="p-6">
+                    <div class="text-4xl font-bold text-cyberteal">35+</div>
+                    <div class="text-gray-300 mt-2">Hands-On Labs</div>
+                </div>
+                <div class="p-6">
+                    <div class="text-4xl font-bold text-cyberteal">98%</div>
+                    <div class="text-gray-300 mt-2">Success Rate</div>
+                </div>
+                <div class="p-6">
+                    <div class="text-4xl font-bold text-cyberteal">24/7</div>
+                    <div class="text-gray-300 mt-2">Support</div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-        <!-- Main Content -->
-        <main class="flex-1 p-6">
-            <!-- Default Hero Section -->
-            <section id="defaultSection" class="content-section">
-                <div class="max-w-4xl mx-auto text-center">
-                    <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/569bf819-a716-4ce9-b892-aff742e1c9e8.png" alt="Futuristic cybersecurity concept with digital lock and binary code background" class="rounded-lg mb-8 w-full shadow-xl" />
-                    <h2 class="text-3xl font-bold text-gray-200 mb-4">Welcome to simran404cyberx</h2>
-                    <p class="text-xl text-gray-400 mb-6">Your comprehensive resource for cybersecurity knowledge and ethical hacking information</p>
-                    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-8">
-                        <div class="bg-gray-800 p-6 rounded-lg tool-card transition-all duration-300">
-                            <h3 class="text-xl font-semibold mb-3">Ethical Hacking</h3>
-                            <p class="text-gray-400">Learn legal hacking techniques to improve security</p>
-                        </div>
-                        <div class="bg-gray-800 p-6 rounded-lg tool-card transition-all duration-300">
-                            <h3 class="text-xl font-semibold mb-3">Cyber Defense</h3>
-                            <p class="text-gray-400">Protect yourself and your organization from threats</p>
-                        </div>
-                        <div class="bg-gray-800 p-6 rounded-lg tool-card transition-all duration-300">
-                            <h3 class="text-xl font-semibold mb-3">Security Tools</h3>
-                            <p class="text-gray-400">Master the essential tools used by professionals</p>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <!-- Section 1: Ethical Hacking -->
-            <section id="section1" class="content-section hidden max-w-4xl mx-auto">
-                <!-- Add empty space equivalent to 500 words -->
-                <div class="mb-8 p-6 bg-gray-800 rounded-lg">
-                    <p style="color: #777; font-size: 1.5rem;">Content area for Button 1</p>
-                </div>
-                <h2 class="text-3xl font-bold text-gray-200 mb-6">Ethical Hacking</h2>
-                <p class="text-gray-400 mb-6">Ethical hacking involves authorized attempts to bypass system security to identify vulnerabilities that could be exploited by malicious hackers.</p>
-                
-                <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/ee0c68c7-cc19-4570-b7f5-0f0d22160364.png" alt="Security expert analyzing network vulnerabilities in a high-tech control room" class="rounded-lg mb-6 w-full" />
-                
-                <div class="grid md:grid-cols-2 gap-6 mb-8">
-                    <div class="bg-gray-800 p-6 rounded-lg">
-                        <h3 class="text-xl font-semibold mb-3 text-gray-200">Key Principles</h3>
-                        <ul class="list-disc pl-5 text-gray-400 space-y-2">
-                            <li>Always work with explicit permission</li>
-                            <li>Document all findings and processes</li>
-                            <li>Respect privacy and data confidentiality</li>
-                            <li>Report all vulnerabilities discovered</li>
-                            <li>Never exceed authorized boundaries</li>
-                        </ul>
-                    </div>
-                    <div class="bg-gray-800 p-6 rounded-lg">
-                        <h3 class="text-xl font-semibold mb-3 text-gray-200">Ethical Hacking Phases</h3>
-                        <ol class="list-decimal pl-5 text-gray-400 space-y-2">
-                            <li>Reconnaissance (Information Gathering)</li>
-                            <li>Scanning (Discovering Open Ports/Services)</li>
-                            <li>Gaining Access</li>
-                            <li>Maintaining Access</li>
-                            <li>Covering Tracks (for defense)</li>
-                        </ol>
-                    </div>
-                </div>
-                
-                <div class="bg-gray-800 p-6 rounded-lg">
-                    <h3 class="text-xl font-semibold mb-3 text-gray-200">Certifications</h3>
-                    <div class="grid md:grid-cols-2 gap-4">
-                        <div class="hacker-badge pl-4">
-                            <h4 class="font-medium text-gray-200">CEH (Certified Ethical Hacker)</h4>
-                            <p class="text-gray-400 text-sm">EC-Council's flagship certification covering penetration testing methodology.</p>
-                        </div>
-                        <div class="hacker-badge pl-4">
-                            <h4 class="font-medium text-gray-200">OSCP (Offensive Security Certified Professional)</h4>
-                            <p class="text-gray-400 text-sm">Hands-on penetration testing certification requiring practical exam.</p>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <!-- Section 2: Black Hat Hackers -->
-            <section id="section2" class="content-section hidden max-w-4xl mx-auto">
-                <h2 class="text-3xl font-bold text-gray-200 mb-6">Black Hat Hackers</h2>
-                <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/900bc789-3c79-49f6-a918-4ff23f9ae25e.png" alt="Shadowy figure wearing a hoodie typing on laptop in dark room with red code reflections" class="rounded-lg mb-6 w-full" />
-                
-                <div class="bg-red-900/30 p-6 rounded-lg mb-6">
-                    <h3 class="text-xl font-semibold mb-3 text-gray-200">Definition</h3>
-                    <p class="text-gray-400">Black hat hackers are individuals who compromise computer systems with malicious intent - to steal sensitive data, disrupt services, or for personal financial gain. Their activities are illegal and punishable by law.</p>
-                </div>
-                
-                <div class="grid md:grid-cols-2 gap-6 mb-8">
-                    <div class="bg-gray-800 p-6 rounded-lg">
-                        <h3 class="text-xl font-semibold mb-3 text-gray-200">Common Tactics</h3>
-                        <ul class="list-disc pl-5 text-gray-400 space-y-2">
-                            <li>Exploiting software vulnerabilities</li>
-                            <li>Phishing and social engineering</li>
-                            <li>Distributed Denial of Service (DDoS)</li>
-                            <li>Malware distribution (viruses, worms, trojans)</li>
-                            <li>SQL injection and other web attacks</li>
-                        </ul>
-                    </div>
-                    <div class="bg-gray-800 p-6 rounded-lg">
-                        <h3 class="text-xl font-semibold mb-3 text-gray-200">Notorious Cases</h3>
-                        <ul class="list-disc pl-5 text-gray-400 space-y-2">
-                            <li>WannaCry ransomware attack (2017)</li>
-                            <li>Equifax data breach (2017)</li>
-                            <li>Sony Pictures hack (2014)</li>
-                            <li>Yahoo data breaches (2013-2014)</li>
-                            <li>Colonial Pipeline ransomware attack (2021)</li>
-                        </ul>
-                    </div>
-                </div>
-                
-                <div class="bg-gray-800 p-6 rounded-lg">
-                    <h3 class="text-xl font-semibold mb-3 text-gray-200">Protection Measures</h3>
-                    <p class="text-gray-400 mb-4">Defending against black hat hackers requires a multi-layered approach:</p>
-                    <ul class="list-disc pl-5 text-gray-400 space-y-2">
-                        <li>Regular software updates and patches</li>
-                        <li>Strong, unique passwords with 2FA</li>
-                        <li>Employee cybersecurity training</li>
-                        <li>Network monitoring and intrusion detection</li>
-                        <li>Regular security audits and penetration testing</li>
-                    </ul>
-                </div>
-            </section>
-
-            <!-- Section 3: White Hat Hackers -->
-            <section id="section3" class="content-section hidden max-w-4xl mx-auto">
-                <h2 class="text-3xl font-bold text-gray-200 mb-6">White Hat Hackers</h2>
-                <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/3aa22290-d9cd-4a73-912d-7cdc89ce803d.png" alt="Security professional in office analyzing network traffic on multiple monitors with green digital overlays" class="rounded-lg mb-6 w-full" />
-                
-                <div class="bg-green-900/30 p-6 rounded-lg mb-6">
-                    <h3 class="text-xl font-semibold mb-3 text-gray-200">Definition</h3>
-                    <p class="text-gray-400">White hat hackers are cybersecurity professionals who use their skills to identify vulnerabilities in systems with the owner's permission, helping to strengthen security rather than exploit weaknesses.</p>
-                </div>
-                
-                <div class="grid md:grid-cols-2 gap-6 mb-8">
-                    <div class="bg-gray-800 p-6 rounded-lg">
-                        <h3 class="text-xl font-semibold mb-3 text-gray-200">Common Activities</h3>
-                        <ul class="list-disc pl-5 text-gray-400 space-y-2">
-                            <li>Penetration testing (ethical hacking)</li>
-                            <li>Vulnerability assessments</li>
-                            <li>Security code reviews</li>
-                            <li>Security training and awareness programs</li>
-                            <li>Incident response and forensics</li>
-                        </ul>
-                    </div>
-                    <div class="bg-gray-800 p-6 rounded-lg">
-                        <h3 class="text-xl font-semibold mb-3 text-gray-200">Career Paths</h3>
-                        <ul class="list-disc pl-5 text-gray-400 space-y-2">
-                            <li>Penetration Tester</li>
-                            <li>Security Consultant</li>
-                            <li>Security Architect</li>
-                            <li>Security Analyst</li>
-                            <li>Chief Information Security Officer (CISO)</li>
-                        </ul>
-                    </div>
-                </div>
-                
-                <div class="bg-gray-800 p-6 rounded-lg">
-                    <h3 class="text-xl font-semibold mb-3 text-gray-200">Bug Bounty Programs</h3>
-                    <p class="text-gray-400 mb-4">Many organizations run bug bounty programs that pay white hat hackers for legally discovering and reporting security flaws:</p>
-                    <div class="grid md:grid-cols-3 gap-4">
-                        <div class="border-l-2 border-green-500 pl-3">
-                            <h4 class="font-medium text-gray-200">HackerOne</h4>
-                            <p class="text-gray-400 text-sm">Platform connecting businesses with penetration testers.</p>
-                        </div>
-                        <div class="border-l-2 border-green-500 pl-3">
-                            <h4 class="font-medium text-gray-200">Bugcrowd</h4>
-                            <p class="text-gray-400 text-sm">Crowdsourced security testing platform.</p>
-                        </div>
-                        <div class="border-l-2 border-green-500 pl-3">
-                            <h4 class="font-medium text-gray-200">Google VRP</h4>
-                            <p class="text-gray-400 text-sm">Google's Vulnerability Reward Program.</p>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <!-- Sections 4-14 would follow similar structure -->
-            <!-- Placeholder sections that can be filled with similar detailed content -->
-            <section id="section4" class="content-section hidden max-w-4xl mx-auto">
-                <h2 class="text-3xl font-bold text-gray-200 mb-6">Red Hat Hackers</h2>
-                <p class="text-gray-400">Write your data here about red hat hackers.</p>
-            </section>
+    <!-- Courses Section -->
+    <section id="courses" class="py-20 bg-cyberdark">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-bold">Our Cybersecurity Courses</h2>
+                <p class="text-gray-400 mt-4 max-w-2xl mx-auto">From beginner to professional level training in ethical hacking and cyber defense.</p>
+            </div>
             
-            <section id="section5" class="content-section hidden max-w-4xl mx-auto">
-                <h2 class="text-3xl font-bold text-gray-200 mb-6">Grey Hat Hackers</h2>
-                <p class="text-gray-400">Write your data here about grey hat hackers.</p>
-            </section>
-            
-            <!-- Common Hacking Tools Section -->
-            <section id="section6" class="content-section hidden max-w-4xl mx-auto">
-                <h2 class="text-3xl font-bold text-gray-200 mb-6">Common Hacking Tools</h2>
-                <p class="text-gray-400">Write your data here about common hacking tools including:</p>
-                <ul class="list-disc pl-5 text-gray-400 mt-4 space-y-2">
-                    <li>Nmap - Network scanning</li>
-                    <li>Metasploit - Penetration testing framework</li>
-                    <li>Wireshark - Packet analyzer</li>
-                    <li>Burp Suite - Web application testing</li>
-                    <li>John the Ripper - Password cracking</li>
-                    <li>Kali Linux - Security OS</li>
-                </ul>
-            </section>
-            
-            <!-- Section 15: Terms & Conditions -->
-            <section id="section15" class="content-section hidden max-w-4xl mx-auto">
-                <h2 class="text-3xl font-bold text-gray-200 mb-6">Terms & Conditions</h2>
-                <div class="bg-gray-800 p-6 rounded-lg">
-                    <h3 class="text-xl font-semibold mb-4 text-gray-200">Disclaimer</h3>
-                    <p class="text-gray-400 mb-4">
-                        The information provided on this website is for educational and informational purposes only. 
-                        The content is not intended to be used for illegal activities. The author and website owner 
-                        cannot be held responsible for any misuse of the information provided.
-                    </p>
-                    
-                    <h3 class="text-xl font-semibold mb-4 text-gray-200">Use of Information</h3>
-                    <p class="text-gray-400 mb-4">
-                        All security and penetration testing information should only be used on systems you own or have 
-                        explicit permission to test. Unauthorized system access is illegal and punishable by law.
-                    </p>
-                    
-                    <h3 class="text-xl font-semibold mb-4 text-gray-200">Copyright</h3>
-                    <p class="text-gray-400">
-                        All content, unless otherwise noted, is property of simran404cyberx and Sarvesh Bharti. 
-                        Reproduction or distribution of content without permission is prohibited.
-                    </p>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Course 1 -->
+                <div class="bg-cybergray p-6 rounded-xl card-hover">
+                    <div class="mb-4">
+                        <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/5e3730c0-c6bc-48f4-ab55-b5ba3cb42ff6.png" alt="Abstract representation of ethical hacking with network connections and shield symbol" class="w-full rounded-lg">
+                    </div>
+                    <div>
+                        <div class="flex justify-between items-center">
+                            <h3 class="text-xl font-bold">Ethical Hacking Fundamentals</h3>
+                            <span class="text-cyberteal font-medium">Beginner</span>
+                        </div>
+                        <p class="text-gray-400 mt-2">Learn penetration testing and vulnerability assessment techniques.</p>
+                        <div class="mt-4 flex items-center justify-between">
+                            <span class="text-cyberteal font-medium">4 Weeks</span>
+                            <button class="bg-cyberteal hover:bg-cyberblue text-cyberdark px-4 py-2 rounded-lg font-medium">Enroll Now</button>
+                        </div>
+                    </div>
                 </div>
-            </section>
-        </main>
-    </div>
+                
+                <!-- Course 2 -->
+                <div class="bg-cybergray p-6 rounded-xl card-hover">
+                    <div class="mb-4">
+                        <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/82b40965-310c-4859-84f9-7fe1eae4caff.png" alt="3D network security diagram showing firewalls and protection layers" class="w-full rounded-lg">
+                    </div>
+                    <div>
+                        <div class="flex justify-between items-center">
+                            <h3 class="text-xl font-bold">Network Security & Defense</h3>
+                            <span class="text-purple-500 font-medium">Intermediate</span>
+                        </div>
+                        <p class="text-gray-400 mt-2">Master network monitoring, intrusion detection, and firewall configuration.</p>
+                        <div class="mt-4 flex items-center justify-between">
+                            <span class="text-purple-500 font-medium">6 Weeks</span>
+                            <button class="bg-cyberteal hover:bg-cyberblue text-cyberdark px-4 py-2 rounded-lg font-medium">Enroll Now</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Course 3 -->
+                <div class="bg-cybergray p-6 rounded-xl card-hover">
+                    <div class="mb-4">
+                        <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/46665016-2b5b-49b4-b100-0c1a9dc26fe4.png" alt="Digital forensics workspace with computer screens showing data analysis tools" class="w-full rounded-lg">
+                    </div>
+                    <div>
+                        <div class="flex justify-between items-center">
+                            <h3 class="text-xl font-bold">Digital Forensics</h3>
+                            <span class="text-cyberteal font-medium">Advanced</span>
+                        </div>
+                        <p class="text-gray-400 mt-2">Investigate cyber crimes and recover digital evidence like a professional.</p>
+                        <div class="mt-4 flex items-center justify-between">
+                            <span class="text-cyberteal font-medium">8 Weeks</span>
+                            <button class="bg-cyberteal hover:bg-cyberblue text-cyberdark px-4 py-2 rounded-lg font-medium">Enroll Now</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Interactive Terminal Demo -->
+    <section id="labs" class="py-20 bg-cyberpurple">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold">Hands-On Learning Environment</h2>
+                <p class="text-gray-300 mt-4 max-w-2xl mx-auto">Try our virtual lab environment to practice your skills safely.</p>
+            </div>
+            
+            <div class="max-w-4xl mx-auto bg-black rounded-xl overflow-hidden">
+                <div class="flex bg-cyberdark p-3 items-center">
+                    <div class="flex space-x-2 mr-4">
+                        <div class="w-3 h-3 rounded-full bg-red-500"></div>
+                        <div class="w-3 h-3 rounded-full bg-yellow-500"></div>
+                        <div class="w-3 h-3 rounded-full bg-green-500"></div>
+                    </div>
+                    <div class="text-gray-400 text-sm">root@cyberlab:~</div>
+                </div>
+                <div class="terminal p-6 h-64 overflow-y-auto">
+                    <div id="terminal-output" class="whitespace-pre-wrap">
+<span class="text-green-400">Welcome to CyberGuard Academy Virtual Lab</span>
+<span class="text-white">Type 'help' to see available commands</span>
+
+<span class="text-cyberteal">root@cyberlab:~$</span> <span id="last-command"></span>
+                    </div>
+                    <div class="flex items-center mt-2">
+                        <span class="text-cyberteal">root@cyberlab:~$</span>
+                        <input type="text" id="terminal-input" class="flex-1 bg-transparent border-none outline-none text-white ml-2" autocomplete="off" placeholder="type 'help' for commands...">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Resources Section -->
+    <section id="resources" class="py-20 bg-cyberdark">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-bold">Cybersecurity Resources</h2>
+                <p class="text-gray-400 mt-4 max-w-2xl mx-auto">Essential tools and references for ethical hackers and security professionals.</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Resource 1 -->
+                <div class="bg-cybergray p-6 rounded-xl card-hover">
+                    <div class="mb-4">
+                        <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/bde5369e-0ff9-4e48-a3c1-2822bd5d48ac.png" alt="Collection of cybersecurity tools on a digital interface" class="w-full rounded-lg">
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-bold mb-2">Penetration Testing Toolkit</h3>
+                        <p class="text-gray-400 mb-4">Collection of essential tools for vulnerability assessment and penetration testing.</p>
+                        <ul class="space-y-2 text-gray-300">
+                            <li>- Kali Linux Environment</li>
+                            <li>- Metasploit Framework</li>
+                            <li>- Burp Suite Community</li>
+                            <li>- Wireshark</li>
+                        </ul>
+                        <button class="mt-4 text-cyberteal hover:underline">Download Toolkit</button>
+                    </div>
+                </div>
+                
+                <!-- Resource 2 -->
+                <div class="bg-cybergray p-6 rounded-xl card-hover">
+                    <div class="mb-4">
+                        <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/2c2eee3b-adf6-42d4-84b0-3baa83575e6f.png" alt="Digital cheat sheets with commands and shortcuts for cybersecurity tools" class="w-full rounded-lg">
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-bold mb-2">Command Cheat Sheets</h3>
+                        <p class="text-gray-400 mb-4">Quick reference guides for popular cybersecurity tools and programming languages.</p>
+                        <ul class="space-y-2 text-gray-300">
+                            <li>- Nmap Commands</li>
+                            <li>- Linux Terminal</li>
+                            <li>- Python for Security</li>
+                            <li>- SQL Injection</li>
+                        </ul>
+                        <button class="mt-4 text-cyberteal hover:underline">View All Cheat Sheets</button>
+                    </div>
+                </div>
+                
+                <!-- Resource 3 -->
+                <div class="bg-cybergray p-6 rounded-xl card-hover">
+                    <div class="mb-4">
+                        <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/6b2a133a-1944-4f8e-bb35-a60f4c414f41.png" alt="Capture the flag competition environment with hackers working together" class="w-full rounded-lg">
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-bold mb-2">Capture The Flag Challenges</h3>
+                        <p class="text-gray-400 mb-4">Practice your skills with our collection of CTF challenges and walkthroughs.</p>
+                        <ul class="space-y-2 text-gray-300">
+                            <li>- Web Exploitation</li>
+                            <li>- Reverse Engineering</li>
+                            <li>- Cryptography</li>
+                            <li>- Forensics</li>
+                        </ul>
+                        <button class="mt-4 text-cyberteal hover:underline">Start Challenges</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-20 bg-cybergray">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-bold">About CyberGuard Academy</h2>
+                <p class="text-gray-400 mt-4 max-w-2xl mx-auto">Our mission is to train the next generation of ethical hackers and cybersecurity professionals.</p>
+            </div>
+            
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <div>
+                    <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/762700a5-cd05-4622-a7af-b36f951d697e.png" alt="Diverse team of cybersecurity professionals working in a modern office environment" class="w-full rounded-lg">
+                </div>
+                <div>
+                    <h3 class="text-2xl font-bold mb-6">Who We Are</h3>
+                    <p class="text-gray-300 mb-4">CyberGuard Academy was founded in 2015 by a team of cybersecurity experts who saw the growing need for practical, hands-on training in ethical hacking and cyber defense.</p>
+                    <p class="text-gray-300 mb-4">Our instructors are active professionals in the field, bringing real-world experience and up-to-date knowledge to our courses and labs.</p>
+                    <p class="text-gray-300 mb-6">We're committed to promoting ethical hacking practices and helping to close the cybersecurity skills gap by making quality training accessible to everyone.</p>
+                    <div class="flex flex-wrap gap-4">
+                        <div class="bg-cyberdark p-4 rounded-lg">
+                            <div class="text-cyberteal text-2xl font-bold">50+</div>
+                            <div class="text-gray-300">Years Combined Experience</div>
+                        </div>
+                        <div class="bg-cyberdark p-4 rounded-lg">
+                            <div class="text-cyberteal text-2xl font-bold">100%</div>
+                            <div class="text-gray-300">Ethical Focus</div>
+                        </div>
+                        <div class="bg-cyberdark p-4 rounded-lg">
+                            <div class="text-cyberteal text-2xl font-bold">24/7</div>
+                            <div class="text-gray-300">Mentor Support</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter -->
+    <section class="py-16 bg-cyberblue">
+        <div class="container mx-auto px-6 text-center">
+            <h2 class="text-3xl font-bold mb-6">Stay Updated on Cybersecurity</h2>
+            <p class="text-gray-300 max-w-2xl mx-auto mb-8">Subscribe to our newsletter for the latest security news, course updates, and free resources.</p>
+            <div class="max-w-md mx-auto flex">
+                <input type="email" placeholder="Your email address" class="flex-1 px-4 py-3 rounded-l-lg focus:outline-none text-gray-900">
+                <button class="bg-cyberteal hover:bg-cyberdark text-cyberdark hover:text-white px-6 py-3 rounded-r-lg font-bold transition">Subscribe</button>
+            </div>
+        </div>
+    </section>
 
     <!-- Footer -->
-    <footer class="bg-green-900 py-8 px-6 mt-8">
-        <div class="max-w-6xl mx-auto">
-            <div class="flex flex-col md:flex-row justify-between items-center mb-8">
-                <div class="flex items-center mb-4 md:mb-0">
-                    <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/08e8652a-23ce-4856-b234-b6c1edd96d07.png" alt="Profile portrait of Sarvesh Bharti, cybersecurity expert" class="rounded-full h-16 w-16 object-cover mr-4" />
-                    <div>
-                        <h3 class="text-xl font-bold text-gray-200">Sarvesh Bharti</h3>
-                        <p class="text-gray-400">Cybersecurity Specialist</p>
+    <footer class="bg-cyberdark py-12">
+        <div class="container mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-12">
+                <div>
+                    <div class="flex items-center space-x-4 mb-4">
+                        <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/c8445471-c0e0-46ec-a9cb-2db3c58c1d39.png" alt="CyberGuard Academy small logo for footer section" class="h-8">
+                        <span class="text-xl font-bold text-cyberteal">CyberGuard</span>
                     </div>
+                    <p class="text-gray-400">The leading academy for ethical hacking and cybersecurity training.</p>
                 </div>
                 
-                <div class="flex space-x-4">
-                    <a href="#" class="bg-gray-800 p-3 rounded-full hover:bg-gray-700 transition-colors">
-                        <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/381bf648-a105-4c35-a71c-d327d38fbf6d.png" alt="Twitter icon" />
-                    </a>
-                    <a href="#" class="bg-gray-800 p-3 rounded-full hover:bg-gray-700 transition-colors">
-                        <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/2798457e-4e5f-4a59-aab7-186d5d0c8e4e.png" alt="LinkedIn icon" />
-                    </a>
-                    <a href="#" class="bg-gray-800 p-3 rounded-full hover:bg-gray-700 transition-colors">
-                        <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/b6c7faaf-ce1f-4c06-897d-46bc61fd2f29.png" alt="GitHub icon" />
-                    </a>
-                    <a href="#" class="bg-gray-800 p-3 rounded-full hover:bg-gray-700 transition-colors">
-                        <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/173fa4f9-b105-4423-857f-bdfaf4e0893b.png" alt="Email icon" />
-                    </a>
+                <div>
+                    <h4 class="text-lg font-bold mb-4">Quick Links</h4>
+                    <ul class="space-y-2 text-gray-400">
+                        <li><a href="#" class="hover:text-cyberteal transition">Home</a></li>
+                        <li><a href="#courses" class="hover:text-cyberteal transition">Courses</a></li>
+                        <li><a href="#resources" class="hover:text-cyberteal transition">Resources</a></li>
+                        <li><a href="#about" class="hover:text-cyberteal transition">About Us</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="text-lg font-bold mb-4">Legal</h4>
+                    <ul class="space-y-2 text-gray-400">
+                        <li><a href="#" class="hover:text-cyberteal transition">Terms of Service</a></li>
+                        <li><a href="#" class="hover:text-cyberteal transition">Privacy Policy</a></li>
+                        <li><a href="#" class="hover:text-cyberteal transition">Code of Ethics</a></li>
+                        <li><a href="#" class="hover:text-cyberteal transition">Responsible Disclosure</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="text-lg font-bold mb-4">Contact</h4>
+                    <ul class="space-y-2 text-gray-400">
+                        <li><a href="mailto:info@cyberguard.academy" class="hover:text-cyberteal transition">info@cyberguard.academy</a></li>
+                        <li>+1 (555) 123-4567</li>
+                        <li>123 Security Ave, Cyberspace</li>
+                    </ul>
                 </div>
             </div>
             
-            <div class="border-t border-gray-800 pt-6">
-                <p class="text-center text-gray-500 text-sm">
-                    © 2023 simran404cyberx. All rights reserved. | 
-                    <a href="#" class="hover:text-gray-400">Privacy Policy</a> | 
-                    <a href="#" class="hover:text-gray-400">Terms of Service</a>
-                </p>
+            <div class="border-t border-gray-800 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center">
+                <div class="text-gray-500 mb-4 md:mb-0">
+                    © 2023 simran404cyberx. All rights reserved.
+                </div>
+                <div class="flex space-x-6">
+                    <a href="#" aria-label="Twitter">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-gray-400 hover:text-cyberteal" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z"/>
+                        </svg>
+                    </a>
+                    <a href="#" aria-label="GitHub">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-gray-400 hover:text-cyberteal" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                        </svg>
+                    </a>
+                    <a href="#" aria-label="LinkedIn">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-gray-400 hover:text-cyberteal" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+                        </svg>
+                    </a>
+                </div>
             </div>
         </div>
     </footer>
 
+    <!-- Terminal Script -->
     <script>
-        // Mobile menu toggle functionality
-        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
-        const sidebar = document.querySelector('aside');
-        
-        mobileMenuBtn.addEventListener('click', () => {
-            sidebar.classList.toggle('hidden');
-        });
-        
-        // Function to show selected section and hide others
-        function showSection(sectionId) {
-            // Hide all content sections
-            document.querySelectorAll('.content-section').forEach(section => {
-                section.classList.add('hidden');
+        document.addEventListener('DOMContentLoaded', function() {
+            // Animated name typing effect
+            const name = "SARVESH BHARTI";
+            const hateChars = ['R', 'A'];
+            const colors = ['#2BD2FF', '#00FF00', '#FF00FF', '#FFFF00'];
+            const animatedName = document.getElementById('animated-name');
+            let html = '';
+            
+            for (let i = 0; i < name.length; i++) {
+                const char = name[i];
+                const color = colors[Math.floor(Math.random() * colors.length)];
+                if (hateChars.includes(char)) {
+                    html += `<span style="color: #FF0000;">HATE</span>`;
+                } else if (char === ' ') {
+                    html += ' ';
+                } else {
+                    html += `<span onclick="this.style.color='${color}'">${char}</span>`;
+                }
+            }
+            animatedName.innerHTML = html;
+            const terminalInput = document.getElementById('terminal-input');
+            const terminalOutput = document.getElementById('terminal-output');
+            
+            terminalInput.addEventListener('keydown', function(e) {
+                if (e.key === 'Enter') {
+                    const command = terminalInput.value.trim();
+                    terminalInput.value = '';
+                    
+                    // Display the command in output
+                    document.getElementById('last-command').textContent = command;
+                    
+                    // Process command
+                    let response = '<span class="text-white">Unknown command. Type "help" for available commands.</span>';
+                    
+                    if (command === 'help') {
+                        response = `
+<span class="text-green-400">Available commands:</span>
+<span class="text-white">- help: Show this help message</span>
+<span class="text-white">- whoami: Learn about the user</span>
+<span class="text-white">- echo [text]: Repeat the text back</span>
+<span class="text-white">- scan [ip]: Simulate port scanning</span>
+<span class="text-white">- clear: Clear terminal</span>
+`;
+                    } else if (command === 'whoami') {
+                        response = '<span class="text-white">You are a cybersecurity student using the CyberGuard Academy virtual lab.</span>';
+                    } else if (command.startsWith('echo ')) {
+                        const text = command.substring(5);
+                        response = `<span class="text-white">${text}</span>`;
+                    } else if (command.startsWith('scan ')) {
+                        const ip = command.substring(5);
+                        if (ip.match(/^\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}$/)) {
+                            response = `<span class="text-green-400">Scanning ${ip}...</span>
+<span class="text-white">PORT     STATE    SERVICE</span>
+<span class="text-white">22/tcp   open     ssh</span>
+<span class="text-white">80/tcp   open     http</span>
+<span class="text-white">443/tcp  open     https</span>
+<span class="text-white">3389/tcp filtered ms-wbt-server</span>
+<span class="text-white">Scan completed in 3.42 seconds</span>`;
+                        } else {
+                            response = '<span class="text-red-400">Invalid IP address format. Try something like 192.168.1.1</span>';
+                        }
+                    } else if (command === 'clear') {
+                        terminalOutput.innerHTML = `
+<span class="text-green-400">Welcome to CyberGuard Academy Virtual Lab</span>
+<span class="text-white">Type 'help' to see available commands</span>
+
+<span class="text-cyberteal">root@cyberlab:~$</span> <span id="last-command"></span>`;
+                        return;
+                    }
+                    
+                    // Add new output
+                    const newOutput = document.createElement('div');
+                    newOutput.innerHTML = `
+<span class="text-cyberteal">root@cyberlab:~$</span> ${command}
+${response}
+
+<span class="text-cyberteal">root@cyberlab:~$</span> <span id="last-command"></span>`;
+                    terminalOutput.innerHTML = newOutput.innerHTML;
+                    
+                    // Auto-scroll to bottom
+                    terminalOutput.scrollTop = terminalOutput.scrollHeight;
+                }
             });
             
-            // Show the selected section
-            document.getElementById(sectionId).classList.remove('hidden');
-            
-            // Close mobile menu if open
-            if (!sidebar.classList.contains('hidden')) {
-                sidebar.classList.add('hidden');
-            }
-        }
-        
-        // Initialize with default section visible
-        document.addEventListener('DOMContentLoaded', () => {
-            document.getElementById('defaultSection').classList.remove('hidden');
+            // Focus terminal input
+            terminalInput.focus();
         });
     </script>
 </body>
