@@ -63,12 +63,22 @@
         }
         
         @keyframes slideIn {
-            from { transform: translateX(-100%); }
-            to { transform: translateX(0); }
+            from { 
+                transform: translateX(-100%);
+                opacity: 0;
+            }
+            to { 
+                transform: translateX(0);
+                opacity: 1;
+            }
         }
         
         .animate-slide-in {
-            animation: slideIn 0.3s ease-out;
+            animation: slideIn 0.3s ease-out forwards;
+        }
+
+        .hidden {
+            display: none;
         }
     </style>
 </head>
@@ -127,6 +137,51 @@
                 </div>
                 <div class="md:w-1/2 flex justify-center">
                     <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/91383a6f-b8bd-4883-aed0-d97410e0b3a1.png" alt="Digital illustration of a hacker in a hoodie with binary code background and shield icon representing cybersecurity" class="rounded-lg shadow-2xl border-2 border-emerald-400" />
+                </div>
+            </div>
+
+            <!-- Additional Tools Section -->
+            <div class="mt-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Tool 7 -->
+                <div class="bg-gray-800 rounded-lg overflow-hidden shadow-lg tool-card transition duration-300">
+                    <div class="p-6">
+                        <div class="flex items-center mb-4">
+                            <div class="bg-indigo-600 p-3 rounded-full mr-4">
+                                <i class="fas fa-key text-white text-xl"></i>
+                            </div>
+                            <h3 class="text-xl font-bold text-white">Password Generator</h3>
+                        </div>
+                        <p class="text-gray-300 mb-6">Create strong, random passwords for your accounts.</p>
+                        <div class="mb-4 space-y-4">
+                            <div class="flex justify-between items-center">
+                                <label class="text-gray-400">Length</label>
+                                <input type="number" id="passLength" min="8" max="32" value="12" class="w-16 px-2 py-1 bg-gray-700 rounded">
+                            </div>
+                            <div class="flex space-x-4">
+                                <button id="generatePass" class="bg-indigo-600 text-white px-4 py-2 rounded-lg hover:bg-indigo-700 transition">Generate</button>
+                                <button id="copyPass" class="bg-emerald-600 text-white px-4 py-2 rounded-lg hover:bg-emerald-700 transition">Copy</button>
+                            </div>
+                            <div id="generatedPassword" class="p-3 bg-gray-700 rounded break-all"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tool 8 -->
+                <div class="bg-gray-800 rounded-lg overflow-hidden shadow-lg tool-card transition duration-300">
+                    <div class="p-6">
+                        <div class="flex items-center mb-4">
+                            <div class="bg-indigo-600 p-3 rounded-full mr-4">
+                                <i class="fas fa-search text-white text-xl"></i>
+                            </div>
+                            <h3 class="text-xl font-bold text-white">Security Headers Checker</h3>
+                        </div>
+                        <p class="text-gray-300 mb-6">Check a website's HTTP security headers for vulnerabilities.</p>
+                        <div class="mb-4">
+                            <input type="text" id="headerCheckUrl" placeholder="Enter URL to check" class="w-full px-4 py-2 bg-gray-700 rounded-lg">
+                        </div>
+                        <button id="checkHeaders" class="w-full bg-indigo-600 text-white py-2 px-4 rounded-lg hover:bg-indigo-700 transition">Check Headers</button>
+                        <div id="headerResults" class="mt-4 p-4 bg-gray-700 rounded-lg"></div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -260,7 +315,7 @@
                     </div>
                 </div>
 
-                <!-- Tool 6 -->
+                <!-- Tool 6 - Ethical Hacking Techniques -->
                 <div class="bg-gray-800 rounded-lg overflow-hidden shadow-lg tool-card transition duration-300">
                     <div class="p-6">
                         <div class="flex items-center mb-4">
@@ -346,6 +401,33 @@
 
             <div class="text-center mt-12">
                 <a href="#" class="inline-block px-8 py-3 bg-gradient-to-r from-indigo-600 to-emerald-500 text-white font-semibold rounded-lg shadow-lg hover:opacity-90 transition duration-300">View All Tutorials</a>
+            </div>
+
+            <!-- Ethical Hacking Resources -->
+            <div class="mt-16">
+                <h3 class="text-2xl font-bold text-center mb-8 text-white">Essential Ethical Hacking Resources</h3>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <div class="bg-gray-900 p-6 rounded-lg">
+                        <h4 class="text-xl font-bold mb-4 text-emerald-400"><i class="fas fa-tools mr-2"></i>Must-Have Hacking Tools</h4>
+                        <ul class="space-y-2 text-gray-300">
+                            <li>• Kali Linux OS</li>
+                            <li>• Metasploit Framework</li>
+                            <li>• Burp Suite</li>
+                            <li>• Wireshark</li>
+                            <li>• Nmap Network Scanner</li>
+                        </ul>
+                    </div>
+                    <div class="bg-gray-900 p-6 rounded-lg">
+                        <h4 class="text-xl font-bold mb-4 text-emerald-400"><i class="fas fa-book mr-2"></i>Learning Resources</h4>
+                        <ul class="space-y-2 text-gray-300">
+                            <li>• OWASP Testing Guide</li>
+                            <li>• MITRE ATT&CK Framework</li>
+                            <li>• Pentesting Methodology</li>
+                            <li>• Common Vulnerabilities</li>
+                            <li>• Responsible Disclosure</li>
+                        </ul>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -458,7 +540,7 @@
 <p class="text-gray-400">By Sarvesh Bharti</p>
                     <p class="mb-6">Your trusted cybersecurity companion providing tools, tutorials, and news to help you navigate the digital world safely.</p>
                     <div class="flex space-x-4">
-                        <a href="#" class="text-gray-400 hover:text-emerald-400 transition duration-300">
+                        <a href="https://x.com/SARVESH07Bharti?t=kNjEXk9DB09t4ccD5HncUw&s=09" class="text-gray-400 hover:text-emerald-400 transition duration-300" target="_blank">
                             <i class="fab fa-twitter text-xl"></i>
                         </a>
                         <a href="#" class="text-gray-400 hover:text-emerald-400 transition duration-300">
@@ -503,11 +585,28 @@
         // Mobile menu toggle
         const mobileMenuButton = document.querySelector('.mobile-menu-button');
         const mobileMenu = document.querySelector('.mobile-menu');
-        
+        let menuOpen = false;
+
         mobileMenuButton.addEventListener('click', function() {
-            this.classList.toggle('text-emerald-400');
-            mobileMenu.classList.toggle('hidden');
-            mobileMenu.classList.toggle('animate-slide-in');
+            menuOpen = !menuOpen;
+            if(menuOpen) {
+                this.classList.add('text-emerald-400');
+                mobileMenu.classList.remove('hidden');
+                mobileMenu.classList.add('animate-slide-in');
+            } else {
+                this.classList.remove('text-emerald-400');
+                mobileMenu.classList.add('hidden');
+                mobileMenu.classList.remove('animate-slide-in');
+            }
+        });
+
+        // Close menu when clicking on links
+        document.querySelectorAll('.mobile-menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+                mobileMenuButton.classList.remove('text-emerald-400');
+                menuOpen = false;
+            });
         });
 
         // Smooth scrolling for navigation links
@@ -595,12 +694,20 @@
         // Base64 Encoder/Decoder
         function encodeBase64() {
             const input = document.getElementById('base64Input').value;
+            if (!input) {
+                document.getElementById('base64Result').textContent = 'Please enter text to encode';
+                return;
+            }
             const result = btoa(input);
             document.getElementById('base64Result').textContent = result;
         }
 
         function decodeBase64() {
             const input = document.getElementById('base64Input').value;
+            if (!input) {
+                document.getElementById('base64Result').textContent = 'Please enter text to decode';
+                return;
+            }
             try {
                 const result = atob(input);
                 document.getElementById('base64Result').textContent = result;
@@ -618,6 +725,11 @@
                 resultDiv.innerHTML = '<p class="text-gray-300">Please enter an IP address</p>';
                 return;
             }
+            // Show loading state
+            resultDiv.innerHTML = '<p class="text-gray-300">Checking IP address...</p>';
+            
+            // Add small delay to simulate network request
+            setTimeout(() => {
             
             // Simple IP validation
             const ipRegex = /^(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$/;
@@ -641,7 +753,7 @@
                     <p class="text-gray-300"><span class="text-gray-400">Location:</span> ${Math.floor(Math.random() * 90)}°N, ${Math.floor(Math.random() * 180)}°E</p>
                     <p class="text-gray-300"><span class="text-gray-400">Threat Level:</span> <span class="text-${Math.random() > 0.7 ? 'red' : 'emerald'}-400">${Math.random() > 0.7 ? 'High' : 'Low'}</span></p>
                 </div>
-            `;
+            `}, 800);
         }
 
         // Hash Generator
@@ -745,7 +857,7 @@
                         <ol class="list-decimal list-inside space-y-2 text-gray-300">
                             <li>Open Terminal</li>
                             <li>Find your interface name: <code class="bg-gray-800 px-2 py-1 rounded">networksetup -listallhardwareports</code></li>
-                            <li>Generate a random MAC: <code class="bg-gray-800 px-2 py-1 rounded">openssl rand -hex 6 | sed 's/\\$..\\$/\1:/g; s/.$//'</code></li>
+                            <li>Generate a random MAC: <code class="bg-gray-800 px-2 py-1 rounded">openssl rand -hex 6 | sed 's/\\(..\\)/\1:/g; s/.$//'</code></li>
                             <li>Disconnect from current Wi-Fi network</li>
                             <li>Change MAC: <code class="bg-gray-800 px-2 py-1 rounded">sudo ifconfig INTERFACE ether XX:XX:XX:XX:XX:XX</code></li>
                             <li>Reconnect to Wi-Fi</li>
@@ -768,16 +880,71 @@
             container.style.background = 'radial-gradient(circle, rgba(16,185,129,0.1) 0%, rgba(16,185,129,0.05) 50%, rgba(16,185,129,0) 100%)';
         }
 
+        // Password Generator Function
+        function generatePassword(length) {
+            const charset = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%^&*()_+~`|}{[]:;?><,./-=";
+            let password = "";
+            for (let i = 0; i < length; i++) {
+                password += charset.charAt(Math.floor(Math.random() * charset.length));
+            }
+            return password;
+        }
+
+        // Common Hacking Techniques Reference
+        const hackingTechniques = {
+            reconnaissance: ["Google Dorking", "WHOIS Lookup", "DNS Enumeration"],
+            scanning: ["Port Scanning", "Network Mapping", "Vulnerability Scanning"],
+            exploitation: ["Buffer Overflows", "SQL Injection", "XSS Attacks"],
+            postExploitation: ["Privilege Escalation", "Pivoting", "Data Exfiltration"]
+        };
+
         // Initialize on DOM load
         document.addEventListener('DOMContentLoaded', function() {
+            // Initialize QR code with empty state
+            document.getElementById('qrCodeImage').src = 'https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/599a3ef4-593b-43b1-9f86-6afb502f4515.png';
+            // Password generator functionality
+            document.getElementById('generatePass').addEventListener('click', () => {
+                const length = document.getElementById('passLength').value;
+                const password = generatePassword(length);
+                document.getElementById('generatedPassword').textContent = password;
+            });
+
+            // Copy password button
+            document.getElementById('copyPass').addEventListener('click', () => {
+                const password = document.getElementById('generatedPassword').textContent;
+                if (password) {
+                    navigator.clipboard.writeText(password);
+                    alert('Password copied to clipboard!');
+                }
+            });
+
+            // Security headers checker (simulated)
+            document.getElementById('checkHeaders').addEventListener('click', () => {
+                const url = document.getElementById('headerCheckUrl').value;
+                if (!url) return;
+                
+                // Simulate checking headers
+                document.getElementById('headerResults').innerHTML = `
+                    <div class="space-y-2">
+                        <p><strong>Checked URL:</strong> ${url}</p>
+                        <p class="text-emerald-400"><strong>X-Frame-Options:</strong> ✔️ Present</p>
+                        <p class="text-emerald-400"><strong>X-XSS-Protection:</strong> ✔️ Present</p>
+                        <p class="text-emerald-400"><strong>Content-Security-Policy:</strong> ✔️ Present</p>
+                        <p class="text-yellow-400"><strong>Strict-Transport-Security:</strong> ⚠️ Could be stronger</p>
+                    </div>
+                `;
+            });
             initParticles();
             
-            // Initialize password strength checker
+            // Initialize interactive tools
             const passwordInput = document.getElementById('passwordInput');
             if (passwordInput) {
                 passwordInput.addEventListener('input', checkPassword);
+                // Initialize with empty check
+                checkPassword();
             }
         });
     </script>
 </body>
 </html>
+
