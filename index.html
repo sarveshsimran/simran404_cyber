@@ -3,610 +3,753 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CyberSecurity Hub | Ethical Hacking & Bug Bounty</title>
+    <title>SARVESHCYBERX - Cybersecurity & Ethical Hacking</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=VT323&display=swap');
-        
-        body {
-            font-family: 'Space Mono', monospace;
-            background-color: #0a0a0a;
-            color: #00ff41;
-            overflow-x: hidden;
-            position: relative;
+        :root {
+            --primary: #4f46e5;
+            --secondary: #10b981;
+            --dark: #1e1e2d;
+            --darker: #121218;
         }
-        
-        .matrix-bg {
-            position: fixed;
-            top: 0;
-            left: 0;
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--darker);
+            color: #e2e8f0;
+        }
+        .tool-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(16, 185, 129, 0.3);
+        }
+        .nav-item.active {
+            border-bottom: 2px solid var(--secondary);
+        }
+        .typewriter h1 {
+            overflow: hidden;
+            border-right: .15em solid var(--secondary);
+            white-space: nowrap;
+            margin: 0 auto;
+            animation: 
+                typing 3.5s steps(40, end),
+                blink-caret .75s step-end infinite;
+        }
+        @keyframes typing {
+            from { width: 0 }
+            to { width: 100% }
+        }
+        @keyframes blink-caret {
+            from, to { border-color: transparent }
+            50% { border-color: var(--secondary); }
+        }
+        #cyberParticles {
+            position: absolute;
             width: 100%;
             height: 100%;
+            top: 0;
+            left: 0;
             z-index: -1;
-            opacity: 0.1;
-            pointer-events: none;
-        }
-        
-        .sidebar {
-            transform: translateX(-100%);
-            transition: transform 0.3s ease;
-        }
-        
-        .sidebar.open {
-            transform: translateX(0);
-        }
-        
-        .content-section {
-            display: none;
-        }
-        
-        .content-section.active {
-            display: block;
-            animation: fadeIn 0.5s ease;
-        }
-        
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
-        }
-        
-        .glow-text {
-            text-shadow: 0 0 10px #00ff41, 0 0 20px #00ff41;
-        }
-        
-        .btn-hover {
-            transition: all 0.3s ease;
-        }
-        
-        .btn-hover:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 5px 15px rgba(0, 255, 65, 0.3);
-        }
-        
-        .code-block {
-            background-color: #111;
-            border-left: 3px solid #00ff41;
         }
     </style>
 </head>
 <body>
-    <!-- Matrix Background Canvas -->
-    <canvas id="matrix" class="matrix-bg"></canvas>
-    
-    <!-- Sidebar Toggle Button -->
-    <button id="sidebarToggle" class="fixed top-4 left-4 z-50 bg-black text-green-400 p-2 rounded-md border border-green-400 btn-hover">
-        â˜° Menu
-    </button>
-    
-    <!-- Sidebar -->
-    <div id="sidebar" class="sidebar fixed top-0 left-0 w-64 h-full bg-black text-green-400 p-4 border-r border-green-400 z-40 overflow-y-auto">
-        <div class="text-center mb-8">
-            <h2 class="text-2xl font-bold glow-text">CyberSecurity Hub</h2>
-            <p class="text-sm">by SARVESH NHARTI</p>
+    <!-- Navigation -->
+    <nav class="bg-gray-900 shadow-lg fixed w-full z-10">
+        <div class="max-w-6xl mx-auto px-4">
+            <div class="flex justify-between">
+                <div class="flex space-x-7">
+                    <div>
+                        <a href="#" class="flex items-center py-4 px-2">
+                            <span class="font-bold text-2xl text-transparent bg-clip-text bg-gradient-to-r from-indigo-500 to-emerald-400">SARVESHCYBERX</span>
+                        </a>
+                    </div>
+                </div>
+                <div class="hidden md:flex items-center space-x numbers">
+                    <a href="#home" class="nav-item py-4 px-2 text-emerald-400 border-b-2 border-emerald-400 font-semibold">Home</a>
+                    <a href="#tools" class="nav-item py-4 px-2 text-gray-300 hover:text-emerald-400 transition duration-300">Tools</a>
+                    <a href="#learn" class="nav-item py-4 px-2 text-gray-300 hover:text-emerald-400 transition duration-300">Learn</a>
+                    <a href="#news" class="nav-item py-4 px-2 text-gray-300 hover:text-emerald-400 transition duration-300">News</a>
+                    <a href="#about" class="nav-item py-4 px-2 text-gray-300 hover:text-emerald-400 transition duration-300">About</a>
+                </div>
+                <div class="md:hidden flex items-center">
+                    <button class="outline-none mobile-menu-button">
+                        <i class="fas fa-bars text-white text-xl"></i>
+                    </button>
+                </div>
+            </div>
         </div>
-        
-        <div class="space-y-2">
-            <button data-section="intro" class="w-full py-2 px-4 bg-transparent border border-green-400 rounded-md text-left btn-hover">Introduction</button>
-            <button data-section="ethicalHacking" class="w-full py-2 px-4 bg-transparent border border-green-400 rounded-md text-left btn-hover">Ethical Hacking</button>
-            <button data-section="penTesting" class="w-full py-2 px-4 bg-transparent border border-green-400 rounded-md text-left btn-hover">Penetration Testing</button>
-            <button data-section="bugBounty" class="w-full py-2 px-4 bg-transparent border border-green-400 rounded-md text-left btn-hover">Bug Bounty</button>
-            <button data-section="tools" class="w-full py-2 px-4 bg-transparent border border-green-400 rounded-md text-left btn-hover">Essential Tools</button>
-            <button data-section="methodologies" class="w-full py-2 px-4 bg-transparent border border-green-400 rounded-md text-left btn-hover">Methodologies</button>
-            <button data-section="certifications" class="w-full py-2 px-4 bg-transparent border border-green-400 rounded-md text-left btn-hover">Certifications</button>
-            <button data-section="resources" class="w-full py-2 px-4 bg-transparent border border-green-400 rounded-md text-left btn-hover">Learning Resources</button>
-            <button data-section="legal" class="w-full py-2 px-4 bg-transparent border border-green-400 rounded-md text-left btn-hover">Legal Aspects</button>
-            <button data-section="community" class="w-full py-2 px-4 bg-transparent border border-green-400 rounded-md text-left btn-hover">Community</button>
-            <button data-section="about" class="w-full py-2 px-4 bg-transparent border border-green-400 rounded-md text-left btn-hover">About Me</button>
+        <div class="hidden mobile-menu">
+            <ul>
+                <li><a href="#home" class="block text-sm px-2 py-4 hover:bg-gray-800 transition duration-300">Home</a></li>
+                <li><a href="#tools" class="block text-sm px-2 py-4 hover:bg-gray-800 transition duration-300">Tools</a></li>
+                <li><a href="#learn" class="block text-sm px-2 py-4 hover:bg-gray-800 transition duration-300">Learn</a></li>
+                <li><a href="#news" class="block text-sm px-2 py-4 hover:bg-gray-800 transition duration-300">News</a></li>
+                <li><a href="#about" class="block text-sm px-2 py-4 hover:bg-gray-800 transition duration-300">About</a></li>
+            </ul>
         </div>
-        
-        <div class="mt-8 text-center text-xs">
-            <p>simran404cyberx</p>
-        </div>
-    </div>
-    
-    <!-- Main Content -->
-    <main class="min-h-screen flex flex-col items-center justify-center p-4 pt-20">
-        <div class="w-full max-w-4xl mx-auto">
-            <!-- Introduction Section -->
-            <section id="intro" class="content-section active">
-                <div class="text-center mb-8">
-                    <h1 class="text-4xl font-bold mb-2 glow-text">CyberSecurity Hub</h1>
-                    <p class="text-xl mb-4">Your comprehensive guide to Ethical Hacking, Penetration Testing & Bug Bounty</p>
-                    <p class="text-sm">Developed by SARVESH NHARTI</p>
-                    <p class="text-xs mt-2">simran404cyberx</p>
-                </div>
-                
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8">
-                    <div class="p-4 border border-green-400 rounded-md">
-                        <h3 class="text-xl font-bold mb-2">What is Ethical Hacking?</h3>
-                        <p>Ethical hacking involves an authorized attempt to gain unauthorized access to a computer system, application, or data.</p>
-                    </div>
-                    <div class="p-4 border border-green-400 rounded-md">
-                        <h3 class="text-xl font-bold mb-2">Penetration Testing</h3>
-                        <p>A simulated cyber attack against your computer system to check for exploitable vulnerabilities.</p>
-                    </div>
-                </div>
-                
-                <div class="text-center">
-                    <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/5f065b03-febc-4fdd-9e26-2b49bcc1e49b.png" alt="Digital security concept with glowing padlock and binary code background" class="mx-auto rounded-md mb-4" />
-                    <p class="text-sm">Explore the different sections using the menu to learn more about cybersecurity.</p>
-                </div>
-            </section>
-            
-            <!-- Ethical Hacking Section -->
-            <section id="ethicalHacking" class="content-section">
-                <h2 class="text-3xl font-bold mb-6 text-center glow-text">Ethical Hacking</h2>
-                
-                <div class="mb-8">
-                    <h3 class="text-xl font-bold mb-2">Definition</h3>
-                    <p class="mb-4">Ethical hacking, also known as penetration testing or white-hat hacking, involves the same tools, tricks, and techniques that hackers use, but with one major difference: Ethical hacking is performed with the target's permission.</p>
-                    
-                    <h3 class="text-xl font-bold mb-2">Types of Hackers</h3>
-                    <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-4">
-                        <div class="p-4 border border-green-400 rounded-md">
-                            <h4 class="font-bold">White Hat</h4>
-                            <p>Ethical hackers who work to improve security by finding vulnerabilities.</p>
-                        </div>
-                        <div class="p-4 border border-green-400 rounded-md">
-                            <h4 class="font-bold">Black Hat</h4>
-                            <p>Malicious hackers who exploit vulnerabilities for personal gain.</p>
-                        </div>
-                        <div class="p-4 border border-green-400 rounded-md">
-                            <h4 class="font-bold">Grey Hat</h4>
-                            <p>Hackers who may violate laws but don't have malicious intent.</p>
-                        </div>
-                    </div>
-                    
-                    <h3 class="text-xl font-bold mb-2">Ethical Hacking Process</h3>
-                    <ol class="list-decimal pl-6 mb-4 space-y-2">
-                        <li>Reconnaissance (Information Gathering)</li>
-                        <li>Scanning (Identifying Open Ports and Services)</li>
-                        <li>Gaining Access (Exploiting Vulnerabilities)</li>
-                        <li>Maintaining Access (Creating Backdoors)</li>
-                        <li>Covering Tracks (Clearing Logs)</li>
-                    </ol>
-                    
-                    <div class="code-block p-4 rounded-md mb-4">
-                        <h4 class="font-bold mb-2">Example Reconnaissance Command:</h4>
-                        <pre class="font-mono text-sm">nmap -sV -O target.com</pre>
-                    </div>
-                </div>
-            </section>
-            
-            <!-- Penetration Testing Section -->
-            <section id="penTesting" class="content-section">
-                <h2 class="text-3xl font-bold mb-6 text-center glow-text">Penetration Testing</h2>
-                
-                <div class="mb-8">
-                    <h3 class="text-xl font-bold mb-2">What is Penetration Testing?</h3>
-                    <p class="mb-4">Penetration testing is a simulated cyber attack against your computer system to check for exploitable vulnerabilities. In the context of web application security, penetration testing is commonly used to augment a web application firewall (WAF).</p>
-                    
-                    <h3 class="text-xl font-bold mb-2">Types of Penetration Tests</h3>
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
-                        <div class="p-4 border border-green-400 rounded-md">
-                            <h4 class="font-bold">Black Box Testing</h4>
-                            <p>Tester has no prior knowledge of the system being tested.</p>
-                        </div>
-                        <div class="p-4 border border-green-400 rounded-md">
-                            <h4 class="font-bold">White Box Testing</h4>
-                            <p>Tester has complete knowledge of the system being tested.</p>
-                        </div>
-                        <div class="p-4 border border-green-400 rounded-md">
-                            <h4 class="font-bold">Gray Box Testing</h4>
-                            <p>Tester has partial knowledge of the system being tested.</p>
-                        </div>
-                        <div class="p-4 border border-green-400 rounded-md">
-                            <h4 class="font-bold">Red Team Exercises</h4>
-                            <p>Simulated real-world attacks with multiple vectors.</p>
-                        </div>
-                    </div>
-                    
-                    <h3 class="text-xl font-bold mb-2">Penetration Testing Methodology</h3>
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
-                        <div>
-                            <h4 class="font-bold mb-2">OWASP Testing Guide</h4>
-                            <p>The Open Web Application Security Project (OWASP) provides a comprehensive testing guide for web applications.</p>
-                        </div>
-                        <div>
-                            <h4 class="font-bold mb-2">PTES Standard</h4>
-                            <p>The Penetration Testing Execution Standard provides a common language and scope for performing penetration tests.</p>
-                        </div>
-                    </div>
-                    
-                    <div class="code-block p-4 rounded-md mb-4">
-                        <h4 class="font-bold mb-2">Example Metasploit Command:</h4>
-                        <pre class="font-mono text-sm">msfconsole
-use exploit/multi/handler
-set payload windows/meterpreter/reverse_tcp
-set LHOST your_ip
-set LPORT 4444
-exploit</pre>
-                    </div>
-                </div>
-            </section>
-            
-            <!-- Bug Bounty Section -->
-            <section id="bugBounty" class="content-section">
-                <h2 class="text-3xl font-bold mb-6 text-center glow-text">Bug Bounty Programs</h2>
-                
-                <div class="mb-8">
-                    <h3 class="text-xl font-bold mb-2">What is a Bug Bounty?</h3>
-                    <p class="mb-4">A bug bounty program is a deal offered by many websites, organizations, and software developers by which individuals can receive recognition and compensation for reporting bugs, especially those pertaining to security exploits and vulnerabilities.</p>
-                    
-                    <h3 class="text-xl font-bold mb-2">Popular Bug Bounty Platforms</h3>
-                    <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-4">
-                        <div class="p-4 border border-green-400 rounded-md">
-                            <h4 class="font-bold">HackerOne</h4>
-                            <p>One of the largest bug bounty platforms with programs from companies like Google, GitHub, and more.</p>
-                        </div>
-                        <div class="p-4 border border-green-400 rounded-md">
-                            <h4 class="font-bold">Bugcrowd</h4>
-                            <p>Another major platform hosting bug bounty programs for various organizations.</p>
-                        </div>
-                        <div class="p-4 border border-green-400 rounded-md">
-                            <h4 class="font-bold">Synack</h4>
-                            <p>An invite-only bug bounty platform with vetted researchers.</p>
-                        </div>
-                    </div>
-                    
-                    <h3 class="text-xl font-bold mb-2">Getting Started with Bug Bounty</h3>
-                    <ol class="list-decimal pl-6 mb-4 space-y-2">
-                        <li>Learn the basics of web application security</li>
-                        <li>Understand common vulnerabilities (OWASP Top 10)</li>
-                        <li>Practice on intentionally vulnerable applications</li>
-                        <li>Start with small scope programs</li>
-                        <li>Write clear and detailed reports</li>
-                    </ol>
-                    
-                    <div class="code-block p-4 rounded-md mb-4">
-                        <h4 class="font-bold mb-2">Example Vulnerability Report Structure:</h4>
-                        <pre class="font-mono text-sm">1. Title: Brief description
-2. Description: Detailed explanation
-3. Steps to Reproduce: Clear reproduction steps
-4. Impact: Potential consequences
-5. Suggested Fix: Recommended solution
-6. References: Any supporting materials</pre>
-                    </div>
-                </div>
-            </section>
-            
-            <!-- Tools Section -->
-            <section id="tools" class="content-section">
-                <h2 class="text-3xl font-bold mb-6 text-center glow-text">Essential Tools</h2>
-                
-                <div class="mb-8">
-                    <h3 class="text-xl font-bold mb-2">Reconnaissance Tools</h3>
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
-                        <div class="p-4 border border-green-400 rounded-md">
-                            <h4 class="font-bold">Nmap</h4>
-                            <p>Network mapper for discovering hosts and services on a network.</p>
-                        </div>
-                        <div class="p-4 border border-green-400 rounded-md">
-                            <h4 class="font-bold">Recon-ng</h4>
-                            <p>Web reconnaissance framework with multiple modules.</p>
-                        </div>
-                    </div>
-                    
-                    <h3 class="text-xl font-bold mb-2">Vulnerability Scanners</h3>
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
-                        <div class="p-4 border border-green-400 rounded-md">
-                            <h4 class="font-bold">Nessus</h4>
-                            <p>Comprehensive vulnerability scanner with extensive plugin library.</p>
-                        </div>
-                        <div class="p-4 border border-green-400 rounded-md">
-                            <h4 class="font-bold">OpenVAS</h4>
-                            <p>Open-source vulnerability scanner and manager.</p>
-                        </div>
-                    </div>
-                    
-                    <h3 class="text-xl font-bold mb-2">Exploitation Tools</h3>
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
-                        <div class="p-4 border border-green-400 rounded-md">
-                            <h4 class="font-bold">Metasploit Framework</h4>
-                            <p>Penetration testing platform with exploit development tools.</p>
-                        </div>
-                        <div class="p-4 border border-green-400 rounded-md">
-                            <h4 class="font-bold">Burp Suite</h4>
-                            <p>Web application security testing platform.</p>
-                        </div>
-                    </div>
-                    
-                    <h3 class="text-xl font-bold mb-2">Post-Exploitation Tools</h3>
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
-                        <div class="p-4 border border-green-400 rounded-md">
-                            <h4 class="font-bold">Mimikatz</h4>
-                            <p>Credential extraction tool for Windows environments.</p>
-                        </div>
-                        <div class="p-4 border border-green-400 rounded-md">
-                            <h4 class="font-bold">Cobalt Strike</h4>
-                            <p>Post-exploitation framework for red team operations.</p>
-                        </div>
-                    </div>
-                </div>
-            </section>
-            
-            <!-- Methodologies Section -->
-            <section id="methodologies" class="content-section">
-                <h2 class="text-3xl font-bold mb-6 text-center glow-text">Methodologies</h2>
-                
-                <div class="mb-8">
-                    <h3 class="text-xl font-bold mb-2">OWASP Testing Guide</h3>
-                    <p class="mb-4">The OWASP Testing Guide provides a comprehensive framework for testing the security of web applications and services.</p>
-                    
-                    <h3 class="text-xl font-bold mb-2">PTES (Penetration Testing Execution Standard)</h3>
-                    <p class="mb-4">The PTES defines seven stages of penetration testing: Pre-engagement Interactions, Intelligence Gathering, Threat Modeling, Vulnerability Analysis, Exploitation, Post Exploitation, and Reporting.</p>
-                    
-                    <h3 class="text-xl font-bold mb-2">NIST Cybersecurity Framework</h3>
-                    <p class="mb-4">The NIST Cybersecurity Framework provides a policy framework of computer security guidance for how private sector organizations can assess and improve their ability to prevent, detect, and respond to cyber attacks.</p>
-                    
-                    <h3 class="text-xl font-bold mb-2">MITRE ATT&CK Framework</h3>
-                    <p class="mb-4">MITRE ATT&CK is a globally-accessible knowledge base of adversary tactics and techniques based on real-world observations.</p>
-                </div>
-            </section>
-            
-            <!-- Certifications Section -->
-            <section id="certifications" class="content-section">
-                <h2 class="text-3xl font-bold mb-6 text-center glow-text">Certifications</h2>
-                
-                <div class="mb-8">
-                    <h3 class="text-xl font-bold mb-2">Entry-Level Certifications</h3>
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
-                        <div class="p-4 border border-green-400 rounded-md">
-                            <h4 class="font-bold">CEH (Certified Ethical Hacker)</h4>
-                            <p>Focuses on ethical hacking tools and techniques.</p>
-                        </div>
-                        <div class="p-4 border border-green-400 rounded-md">
-                            <h4 class="font-bold">CompTIA Security+</h4>
-                            <p>General cybersecurity certification covering basic concepts.</p>
-                        </div>
-                    </div>
-                    
-                    <h3 class="text-xl font-bold mb-2">Intermediate Certifications</h3>
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
-                        <div class="p-4 border border-green-400 rounded-md">
-                            <h4 class="font-bold">OSCP (Offensive Security Certified Professional)</h4>
-                            <p>Hands-on penetration testing certification.</p>
-                        </div>
-                        <div class="p-4 border border-green-400 rounded-md">
-                            <h4 class="font-bold">CISSP (Certified Information Systems Security Professional)</h4>
-                            <p>Management-focused security certification.</p>
-                        </div>
-                    </div>
-                    
-                    <h3 class="text-xl font-bold mb-2">Advanced Certifications</h3>
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
-                        <div class="p-4 border border-green-400 rounded-md">
-                            <h4 class="font-bold">OSCE (Offensive Security Certified Expert)</h4>
-                            <p>Advanced exploitation techniques certification.</p>
-                        </div>
-                        <div class="p-4 border border-green-400 rounded-md">
-                            <h4 class="font-bold">GXPN (GIAC Exploit Researcher and Advanced Penetration Tester)</h4>
-                            <p>Advanced penetration testing and exploit development.</p>
-                        </div>
-                    </div>
-                </div>
-            </section>
-            
-            <!-- Resources Section -->
-            <section id="resources" class="content-section">
-                <h2 class="text-3xl font-bold mb-6 text-center glow-text">Learning Resources</h2>
-                
-                <div class="mb-8">
-                    <h3 class="text-xl font-bold mb-2">Online Learning Platforms</h3>
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
-                        <div class="p-4 border border-green-400 rounded-md">
-                            <h4 class="font-bold">Offensive Security</h4>
-                            <p>Provider of the OSCP and other security certifications.</p>
-                        </div>
-                        <div class="p-4 border border-green-400 rounded-md">
-                            <h4 class="font-bold">PentesterLab</h4>
-                            <p>Hands-on web application security exercises.</p>
-                        </div>
-                    </div>
-                    
-                    <h3 class="text-xl font-bold mb-2">Practice Platforms</h3>
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
-                        <div class="p-4 border border-green-400 rounded-md">
-                            <h4 class="font-bold">Hack The Box</h4>
-                            <p>Online platform to test and advance your skills in penetration testing.</p>
-                        </div>
-                        <div class="p-4 border border-green-400 rounded-md">
-                            <h4 class="font-bold">TryHackMe</h4>
-                            <p>Learning platform with guided paths and virtual rooms.</p>
-                        </div>
-                    </div>
-                    
-                    <h3 class="text-xl font-bold mb-2">Books</h3>
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
-                        <div class="p-4 border border-green-400 rounded-md">
-                            <h4 class="font-bold">The Web Application Hacker's Handbook</h4>
-                            <p>Comprehensive guide to web application security.</p>
-                        </div>
-                        <div class="p-4 border border-green-400 rounded-md">
-                            <h4 class="font-bold">Penetration Testing: A Hands-On Introduction to Hacking</h4>
-                            <p>Practical guide to penetration testing techniques.</p>
-                        </div>
-                    </div>
-                </div>
-            </section>
-            
-            <!-- Legal Section -->
-            <section id="legal" class="content-section">
-                <h2 class="text-3xl font-bold mb-6 text-center glow-text">Legal Aspects</h2>
-                
-                <div class="mb-8">
-                    <h3 class="text-xl font-bold mb-2">Authorization</h3>
-                    <p class="mb-4">Always obtain written permission before testing any system. Unauthorized access is illegal and can result in severe penalties.</p>
-                    
-                    <h3 class="text-xl font-bold mb-2">Laws to Be Aware Of</h3>
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
-                        <div class="p-4 border border-green-400 rounded-md">
-                            <h4 class="font-bold">Computer Fraud and Abuse Act (CFAA)</h4>
-                            <p>US federal law that prohibits unauthorized access to computers.</p>
-                        </div>
-                        <div class="p-4 border border-green-400 rounded-md">
-                            <h4 class="font-bold">General Data Protection Regulation (GDPR)</h4>
-                            <p>EU regulation on data protection and privacy.</p>
-                        </div>
-                    </div>
-                    
-                    <h3 class="text-xl font-bold mb-2">Responsible Disclosure</h3>
-                    <p class="mb-4">When discovering vulnerabilities, follow responsible disclosure practices by notifying the vendor and allowing reasonable time for fixes before public disclosure.</p>
-                    
-                    <h3 class="text-xl font-bold mb-2">Bug Bounty Legal Considerations</h3>
-                    <p class="mb-4">Always read and understand the terms of any bug bounty program before participating. Some programs may have specific rules about testing methods.</p>
-                </div>
-            </section>
-            
-            <!-- Community Section -->
-            <section id="community" class="content-section">
-                <h2 class="text-3xl font-bold mb-6 text-center glow-text">Community</h2>
-                
-                <div class="mb-8">
-                    <h3 class="text-xl font-bold mb-2">Online Communities</h3>
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
-                        <div class="p-4 border border-green-400 rounded-md">
-                            <h4 class="font-bold">Reddit</h4>
-                            <p>Subreddits like r/netsec, r/cybersecurity, and r/ethicalhacking.</p>
-                        </div>
-                        <div class="p-4 border border-green-400 rounded-md">
-                            <h4 class="font-bold">Discord</h4>
-                            <p>Various cybersecurity-focused Discord servers.</p>
-                        </div>
-                    </div>
-                    
-                    <h3 class="text-xl font-bold mb-2">Conferences</h3>
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
-                        <div class="p-4 border border-green-400 rounded-md">
-                            <h4 class="font-bold">DEF CON</h4>
-                            <p>One of the world's largest hacker conventions.</p>
-                        </div>
-                        <div class="p-4 border border-green-400 rounded-md">
-                            <h4 class="font-bold">Black Hat</h4>
-                            <p>Professional cybersecurity conference series.</p>
-                        </div>
-                    </div>
-                    
-                    <h3 class="text-xl font-bold mb-2">Local Meetups</h3>
-                    <p class="mb-4">Many cities have local cybersecurity meetups and groups where professionals and enthusiasts gather to share knowledge.</p>
-                    
-                    <h3 class="text-xl font-bold mb-2">Twitter</h3>
-                    <p class="mb-4">Follow cybersecurity professionals and organizations on Twitter for the latest news and discussions.</p>
-                </div>
-            </section>
+    </nav>
 
-            <!-- About Section -->
-            <section id="about" class="content-section">
-                <h2 class="text-3xl font-bold mb-6 text-center glow-text">About Me</h2>
-                
-                <div class="mb-8">
-                    <div class="text-center mb-6">
-                        <img src="https://i.postimg.cc/pXsMB3H6/IMG-20250728-212019.jpg." alt="Profile photo" class="mx-auto rounded-full mb-4">
-                        <h3 class="text-2xl font-bold">SARVESH BHARTI</h3>
-                        <p class="text-lg">Cybersecurity Professional</p>
+    <!-- Hero Section -->
+    <section id="home" class="relative h-screen flex items-center justify-center overflow-hidden">
+        <div id="cyberParticles"></div>
+        <div class="container mx-auto px-4 z-10">
+            <div class="flex flex-col md:flex-row items-center">
+                <div class="md:w-1/2 text-center md:text-left mb-10 md:mb-0">
+                    <div class="typewriter">
+                        <h1 class="text-4xl md:text-6xl font-bold mb-6 text-white">SARVESHCYBERX</h1>
                     </div>
-                    
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
-                        <div class="p-4 border border-green-400 rounded-md">
-                            <h4 class="text-xl font-bold mb-2">Contact Information</h4>
-                            <p><strong>Email:</strong> [sarveshjatav738@gmail.com]</p>
-                            <p><strong>Website:</strong> [.   ]</p>
-                            <p><strong>GitHub:</strong> [Your GitHub Profile]</p>
-                        </div>
-                        
-                        <div class="p-4 border border-green-400 rounded-md">
-                            <h4 class="text-xl font-bold mb-2">Biodata</h4>
-                            <p><strong>Specialization:</strong> Ethical Hacking, Penetration Testing</p>
-                            <p><strong>Experience:</strong> [Years] Years in Cybersecurity</p>
-                            <p><strong>Certifications:</strong> [List Certifications]</p>
-                        </div>
-                    </div>
-                    
-                    <div class="p-4 border border-green-400 rounded-md">
-                        <h4 class="text-xl font-bold mb-2">About My Work</h4>
-                        <p>[Your brief bio/introduction about your cybersecurity work and experience]</p>
+                    <p class="text-xl md:text-2xl text-gray-300 mb-8">Your Ultimate Cybersecurity & Ethical Hacking Companion</p>
+                    <div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4 justify-center md:justify-start">
+                        <a href="#tools" class="px-8 py-3 bg-gradient-to-r from-indigo-600 to-emerald-500 text-white font-semibold rounded-lg shadow-lg hover:opacity-90 transition duration-300">Explore Tools</a>
+                        <a href="#learn" class="px-8 py-3 bg-gray-800 text-white font-semibold rounded-lg shadow-lg hover:bg-gray-700 transition duration-300">Start Learning</a>
                     </div>
                 </div>
-            </section>
+                <div class="md:w-1/2 flex justify-center">
+                    <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/91383a6f-b8bd-4883-aed0-d97410e0b3a1.png" alt="Digital illustration of a hacker in a hoodie with binary code background and shield icon representing cybersecurity" class="rounded-lg shadow-2xl border-2 border-emerald-400" />
+                </div>
+            </div>
         </div>
-    </main>
-    
+    </section>
+
+    <!-- Tools Section -->
+    <section id="tools" class="py-20 bg-gray-900">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-4 text-white">Cybersecurity Tools</h2>
+            <p class="text-xl text-center mb-12 text-gray-300">Powerful tools for your cybersecurity needs</p>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Tool 1 -->
+                <div class="bg-gray-800 rounded-lg overflow-hidden shadow-lg tool-card transition duration-300">
+                    <div class="p-6">
+                        <div class="flex items-center mb-4">
+                            <div class="bg-indigo-600 p-3 rounded-full mr-4">
+                                <i class="fas fa-shield-alt text-white text-xl"></i>
+                            </div>
+                            <h3 class="text-xl font-bold text-white">Password Analyzer</h3>
+                        </div>
+                        <p class="text-gray-300 mb-6">Check the strength of your passwords and get suggestions for improvement.</p>
+                        <div class="mb-4">
+                            <input type="password" id="passwordInput" placeholder="Enter your password" class="w-full px-4 py-2 bg-gray-700 text-white rounded-lg focus:outline-none focus:ring-2 focus:ring-emerald-400">
+                        </div>
+                        <div id="passwordStrength" class="h-2 bg-gray-700 rounded-lg mb-2">
+                            <div class="h-full rounded-lg" style="width: 0%"></div>
+                        </div>
+                        <div id="passwordFeedback" class="text-sm text-gray-400 mb-4"></div>
+                        <button onclick="checkPassword()" class="w-full bg-emerald-500 text-white py-2 px-4 rounded-lg hover:bg-emerald-600 transition duration-300">Analyze</button>
+                    </div>
+                </div>
+
+                <!-- Tool 2 -->
+                <div class="bg-gray-800 rounded-lg overflow-hidden shadow-lg tool-card transition duration-300">
+                    <div class="p-6">
+                        <div class="flex items-center mb-4">
+                            <div class="bg-indigo-600 p-3 rounded-full mr-4">
+                                <i class="fas fa-code text-white text-xl"></i>
+                            </div>
+                            <h3 class="text-xl font-bold text-white">Base64 Encoder/Decoder</h3>
+                        </div>
+                        <p class="text-gray-300 mb-6">Encode or decode text to/from Base64 format.</p>
+                        <div class="mb-4">
+                            <textarea id="base64Input" placeholder="Enter text to encode/decode" class="w-full px-4 py-2 bg-gray-700 text-white rounded-lg focus:outline-none focus:ring-2 focus:ring-emerald-400 h-24"></textarea>
+                        </div>
+                        <div class="flex space-x-2 mb-4">
+                            <button onclick="encodeBase64()" class="flex-1 bg-indigo-600 text-white py-2 px-4 rounded-lg hover:bg-indigo-700 transition duration-300">Encode</button>
+                            <button onclick="decodeBase64()" class="flex-1 bg-purple-600 text-white py-2 px-4 rounded-lg hover:bg-purple-700 transition duration-300">Decode</button>
+                        </div>
+                        <div class="mt-4">
+                            <label class="text-gray-400 mb-2 block">Result:</label>
+                            <div class="p-4 bg-gray-700 rounded-lg whitespace-pre-wrap break-words" id="base64Result"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tool 3 -->
+                <div class="bg-gray-800 rounded-lg overflow-hidden shadow-lg tool-card transition duration-300">
+                    <div class="p-6">
+                        <div class="flex items-center mb-4">
+                            <div class="bg-indigo-600 p-3 rounded-full mr-4">
+                                <i class="fas fa-network-wired text-white text-xl"></i>
+                            </div>
+                            <h3 class="text-xl font-bold text-white">IP Lookup</h3>
+                        </div>
+                        <p class="text-gray-300 mb-6">Get information about an IP address (Note: Results will be simulated).</p>
+                        <div class="mb-4">
+                            <input type="text" id="ipInput" placeholder="Enter IP address" class="w-full px-4 py-2 bg-gray-700 text-white rounded-lg focus:outline-none focus:ring-2 focus:ring-emerald-400">
+                        </div>
+                        <button onclick="lookupIP()" class="w-full bg-indigo-600 text-white py-2 px-4 rounded-lg hover:bg-indigo-700 transition duration-300">Lookup</button>
+                        <div class="mt-4">
+                            <label class="text-gray-400 mb-2 block">Result:</label>
+                            <div class="p-4 bg-gray-700 rounded-lg" id="ipResult">
+                                <p class="text-gray-300">Results will appear here</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tool 4 -->
+                <div class="bg-gray-800 rounded-lg overflow-hidden shadow-lg tool-card transition duration-300">
+                    <div class="p-6">
+                        <div class="flex items-center mb-4">
+                            <div class="bg-indigo-600 p-3 rounded-full mr-4">
+                                <i class="fas fa-lock text-white text-xl"></i>
+                            </div>
+                            <h3 class="text-xl font-bold text-white">Hash Generator</h3>
+                        </div>
+                        <p class="text-gray-300 mb-6">Generate various cryptographic hashes from your input.</p>
+                        <div class="mb-4">
+                            <textarea id="hashInput" placeholder="Enter text to hash" class="w-full px-4 py-2 bg-gray-700 text-white rounded-lg focus:outline-none focus:ring-2 focus:ring-emerald-400 h-24"></textarea>
+                        </div>
+                        <div class="mb-4">
+                            <select id="hashAlgorithm" class="w-full px-4 py-2 bg-gray-700 text-white rounded-lg focus:outline-none focus:ring-2 focus:ring-emerald-400">
+                                <option value="md5">MD5</option>
+                                <option value="sha1">SHA-1</option>
+                                <option value="sha256">SHA-256</option>
+                                <option value="sha512">SHA-512</option>
+                            </select>
+                        </div>
+                        <button onclick="generateHash()" class="w-full bg-indigo-600 text-white py-2 px-4 rounded-lg hover:bg-indigo-700 transition duration-300">Generate</button>
+                        <div class="mt-4">
+                            <label class="text-gray-400 mb-2 block">Hash Result:</label>
+                            <div class="p-4 bg-gray-700 rounded-lg break-words" id="hashResult"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tool 5 -->
+                <div class="bg-gray-800 rounded-lg overflow-hidden shadow-lg tool-card transition duration-300">
+                    <div class="p-6">
+                        <div class="flex items-center mb-4">
+                            <div class="bg-indigo-600 p-3 rounded-full mr-4">
+                                <i class="fas fa-qrcode text-white text-xl"></i>
+                            </div>
+                            <h3 class="text-xl font-bold text-white">QR Code Generator</h3>
+                        </div>
+                        <p class="text-gray-300 mb-6">Create QR codes for URLs or text that you can scan.</p>
+                        <div class="mb-4">
+                            <input type="text" id="qrText" placeholder="Enter text or URL" class="w-full px-4 py-2 bg-gray-700 text-white rounded-lg focus:outline-none focus:ring-2 focus:ring-emerald-400">
+                        </div>
+                        <button onclick="generateQRCode()" class="w-full bg-indigo-600 text-white py-2 px-4 rounded-lg hover:bg-indigo-700 transition duration-300">Generate QR</button>
+                        <div class="mt-4 flex flex-col items-center">
+                            <div id="qrCodeContainer" class="bg-white p-2 rounded mb-2">
+                                <!-- QR code will appear here -->
+                                <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/50ddbbdf-a5cd-4e05-870a-b55a3b3bae46.png" alt="QR code placeholder to be generated from user input" id="qrCodeImage" class="w-48 h-48">
+                            </div>
+                            <a id="qrDownload" class="text-indigo-400 hover:text-indigo-300 hidden">Download QR Code</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tool 6 -->
+                <div class="bg-gray-800 rounded-lg overflow-hidden shadow-lg tool-card transition duration-300">
+                    <div class="p-6">
+                        <div class="flex items-center mb-4">
+                            <div class="bg-indigo-600 p-3 rounded-full mr-4">
+                                <i class="fas fa-user-secret text-white text-xl"></i>
+                            </div>
+                            <h3 class="text-xl font-bold text-white">MAC Address Changer</h3>
+                        </div>
+                        <p class="text-gray-300 mb-6">Learn how to change your MAC address (educational purposes only).</p>
+                        <div class="mb-4">
+                            <select id="osSelect" class="w-full px-4 py-2 bg-gray-700 text-white rounded-lg focus:outline-none focus:ring-2 focus:ring-emerald-400">
+                                <option value="windows">Windows</option>
+                                <option value="linux">Linux</option>
+                                <option value="macos">macOS</option>
+                            </select>
+                        </div>
+                        <button onclick="showMacChangeGuide()" class="w-full bg-indigo-600 text-white py-2 px-4 rounded-lg hover:bg-indigo-700 transition duration-300">Show Guide</button>
+                        <div class="mt-4 hidden" id="macGuide">
+                            <label class="text-gray-400 mb-2 block">Instructions:</label>
+                            <div class="p-4 bg-gray-700 rounded-lg" id="macInstructions"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Learn Section -->
+    <section id="learn" class="py-20 bg-gray-800">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-4 text-white">Learn Cybersecurity</h2>
+            <p class="text-xl text-center mb-12 text-gray-300">Expand your knowledge with these tutorials</p>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Tutorial 1 -->
+                <div class="bg-gray-900 rounded-lg overflow-hidden shadow-lg transition duration-300 hover:shadow-xl">
+                    <div class="relative">
+                        <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/262944c9-1b64-4a99-8a8c-9bfe20a4012d.png" alt="Digital padlock with shield symbol representing cybersecurity basics" class="w-full h-48 object-cover" />
+                        <div class="absolute top-2 right-2 bg-emerald-500 text-white text-xs font-bold px-2 py-1 rounded">Beginner</div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-white mb-2">Cybersecurity Fundamentals</h3>
+                        <p class="text-gray-400 mb-4">Learn the basic concepts of cybersecurity and how to protect your digital life.</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-sm text-gray-500">25 min read</span>
+                            <a href="#" class="text-emerald-400 hover:text-emerald-300 font-semibold">Read More</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tutorial 2 -->
+                <div class="bg-gray-900 rounded-lg overflow-hidden shadow-lg transition duration-300 hover:shadow-xl">
+                    <div class="relative">
+                        <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/a769f551-7726-4d00-bf1a-0f3bf8ddbf3f.png" alt="Hacker with hoodie sitting in front of multiple computer screens with code" class="w-full h-48 object-cover" />
+                        <div class="absolute top-2 right-2 bg-yellow-500 text-white text-xs font-bold px-2 py-1 rounded">Intermediate</div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-white mb-2">Ethical Hacking Techniques</h3>
+                        <p class="text-gray-400 mb-4">Explore common penetration testing methods used by security professionals.</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-sm text-gray-500">45 min read</span>
+                            <a href="#" class="text-emerald-400 hover:text-emerald-300 font-semibold">Read More</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tutorial 3 -->
+                <div class="bg-gray-900 rounded-lg overflow-hidden shadow-lg transition duration-300 hover:shadow-xl">
+                    <div class="relative">
+                        <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/5ff08fb4-1526-4f05-8cb4-2f932f180faf.png" alt="Complex network diagram with connections and nodes representing network security" class="w-full h-48 object-cover" />
+                        <div class="absolute top-2 right-2 bg-red-500 text-white text-xs font-bold px-2 py-1 rounded">Advanced</div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-white mb-2">Network Security Deep Dive</h3>
+                        <p class="text-gray-400 mb-4">Master network security protocols, firewalls, and intrusion detection systems.</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-sm text-gray-500">1 hour read</span>
+                            <a href="#" class="text-emerald-400 hover:text-emerald-300 font-semibold">Read More</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="text-center mt-12">
+                <a href="#" class="inline-block px-8 py-3 bg-gradient-to-r from-indigo-600 to-emerald-500 text-white font-semibold rounded-lg shadow-lg hover:opacity-90 transition duration-300">View All Tutorials</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- News Section -->
+    <section id="news" class="py-20 bg-gray-900">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-4 text-white">Latest Cybersecurity News</h2>
+            <p class="text-xl text-center mb-12 text-gray-300">Stay updated with the latest security trends and vulnerabilities</p>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- News 1 -->
+                <div class="bg-gray-800 rounded-lg overflow-hidden shadow-lg transition duration-300 hover:shadow-xl">
+                    <div class="relative">
+                        <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/bee486d7-405d-4f96-9d26-d131bb8ad687.png" alt="Breaking news ticker with cybersecurity breach headlines" class="w-full h-48 object-cover" />
+                        <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black to-transparent p-4">
+                            <span class="text-xs text-gray-300">3 days ago</span>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-white mb-2">Major Data Breach Exposes Millions</h3>
+                        <p class="text-gray-400 mb-4">A recent breach at a prominent tech company has exposed sensitive data of over 10 million users...</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-sm text-gray-500">By Security Times</span>
+                            <a href="#" class="text-indigo-400 hover:text-indigo-300 font-semibold">Read More</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- News 2 -->
+                <div class="bg-gray-800 rounded-lg overflow-hidden shadow-lg transition duration-300 hover:shadow-xl">
+                    <div class="relative">
+                        <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/b0c837ab-3761-43b4-ba12-5018b073d337.png" alt="Government building with digital security symbols floating above it" class="w-full h-48 object-cover" />
+                        <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black to-transparent p-4">
+                            <span class="text-xs text-gray-300">1 week ago</span>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-white mb-2">New Cybersecurity Regulations Announced</h3>
+                        <p class="text-gray-400 mb-4">Governments worldwide are introducing stricter cybersecurity laws to protect consumer data...</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-sm text-gray-500">By Cyber Policy</span>
+                            <a href="#" class="text-indigo-400 hover:text-indigo-300 font-semibold">Read More</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- News 3 -->
+                <div class="bg-gray-800 rounded-lg overflow-hidden shadow-lg transition duration-300 hover:shadow-xl">
+                    <div class="relative">
+                        <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/5a1cdac6-95d8-431f-8cd8-395a202f20a0.png" alt="Artificial intelligence neural network visualization with security shield" class="w-full h-48 object-cover" />
+                        <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black to-transparent p-4">
+                            <span class="text-xs text-gray-300">2 weeks ago</span>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-white mb-2">AI in Cybersecurity: The Future is Here</h3>
+                        <p class="text-gray-400 mb-4">How artificial intelligence is revolutionizing threat detection and automation in cybersecurity...</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-sm text-gray-500">By Tech Frontier</span>
+                            <a href="#" class="text-indigo-400 hover:text-indigo-300 font-semibold">Read More</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="text-center mt-12">
+                <a href="#" class="inline-block px-8 py-3 bg-gray-700 text-white font-semibold rounded-lg shadow-lg hover:bg-gray-600 transition duration-300">View All News</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-20 bg-gray-800">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row items-center">
+                <div class="md:w-1/2 mb-10 md:mb-0 md:pr-10">
+                    <h2 class="text-3xl font-bold mb-6 text-white">About SARVESHCYBERX</h2>
+                    <p class="text-gray-300 mb-6">SARVESHCYBERX is a comprehensive cybersecurity platform designed to educate, protect, and empower users in the digital world. Our mission is to make cybersecurity accessible to everyone, from beginners to advanced professionals.</p>
+                    <p class="text-gray-300 mb-6">We provide tools, tutorials, and resources to help you understand security threats and protect yourself online. All content is created for educational purposes only to promote ethical hacking and responsible disclosure.</p>
+                    <div class="bg-gray-900 p-6 rounded-lg border-l-4 border-emerald-400">
+                        <p class="text-gray-300 italic">"Ethical hacking is not about breaking systems, but about building better ones through understanding vulnerabilities."</p>
+                    </div>
+                </div>
+                <div class="md:w-1/2">
+                    <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/3ed9fd6a-b17c-4f9a-8e9a-4f78045bdeaf.png" alt="Team of diverse cybersecurity professionals working together in a modern office" class="rounded-lg shadow-xl" />
+                </div>
+            </div>
+
+            <div class="mt-20">
+                <h3 class="text-2xl font-bold text-center mb-8 text-white">Disclaimer</h3>
+                <div class="bg-gray-900 p-6 rounded-lg">
+                    <p class="text-gray-300 mb-4">The information and tools provided on SARVESHCYBERX are for educational purposes only. We do not promote or encourage any illegal activities. Ethical hacking should only be performed on systems you own or have permission to test.</p>
+                    <p class="text-gray-300">By using this application, you agree that you will not use the information for any malicious purposes and that you will comply with all applicable laws and regulations in your jurisdiction.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-gray-400 py-12">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div class="md:col-span-2">
+                    <h3 class="text-xl font-bold text-white mb-6">SARVESHCYBERX</h3>
+                    <p class="mb-6">Your trusted cybersecurity companion providing tools, tutorials, and news to help you navigate the digital world safely.</p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-400 hover:text-emerald-400 transition duration-300">
+                            <i class="fab fa-twitter text-xl"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-emerald-400 transition duration-300">
+                            <i class="fab fa-github text-xl"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-emerald-400 transition duration-300">
+                            <i class="fab fa-linkedin text-xl"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-emerald-400 transition duration-300">
+                            <i class="fab fa-youtube text-xl"></i>
+                        </a>
+                    </div>
+                </div>
+                <div>
+                    <h3 class="text-lg font-bold text-white mb-6">Quick Links</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#tools" class="hover:text-emerald-400 transition duration-300">Tools</a></li>
+                        <li><a href="#learn" class="hover:text-emerald-400 transition duration-300">Learn</a></li>
+                        <li><a href="#news" class="hover:text-emerald-400 transition duration-300">News</a></li>
+                        <li><a href="#about" class="hover:text-emerald-400 transition duration-300">About</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-lg font-bold text-white mb-6">Legal</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="hover:text-emerald-400 transition duration-300">Terms of Service</a></li>
+                        <li><a href="#" class="hover:text-emerald-400 transition duration-300">Privacy Policy</a></li>
+                        <li><a href="#" class="hover:text-emerald-400 transition duration-300">Cookie Policy</a></li>
+                        <li><a href="#" class="hover:text-emerald-400 transition duration-300">Disclaimer</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-gray-800 mt-12 pt-8 text-center">
+                <p>© 2023 SARVESHCYBERX. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
     <script>
-        // Matrix Background Effect
-        const canvas = document.getElementById('matrix');
-        const ctx = canvas.getContext('2d');
+        // Mobile menu toggle
+        const mobileMenuButton = document.querySelector('.mobile-menu-button');
+        const mobileMenu = document.querySelector('.mobile-menu');
         
-        canvas.width = window.innerWidth;
-        canvas.height = window.innerHeight;
-        
-        const katakana = 'ã‚¢ã‚¡ã‚«ã‚µã‚¿ãƒŠãƒãƒžãƒ¤ãƒ£ãƒ©ãƒ¯ã‚¬ã‚¶ãƒ€ãƒãƒ‘ã‚¤ã‚£ã‚­ã‚·ãƒãƒ‹ãƒ’ãƒŸãƒªãƒ°ã‚®ã‚¸ãƒ‚ãƒ“ãƒ”ã‚¦ã‚¥ã‚¯ã‚¹ãƒ„ãƒŒãƒ•ãƒ ãƒ¦ãƒ¥ãƒ«ã‚°ã‚ºãƒ–ãƒ…ãƒ—ã‚¨ã‚§ã‚±ã‚»ãƒ†ãƒãƒ˜ãƒ¡ãƒ¬ãƒ±ã‚²ã‚¼ãƒ‡ãƒ™ãƒšã‚ªã‚©ã‚³ã‚½ãƒˆãƒŽãƒ›ãƒ¢ãƒ¨ãƒ§ãƒ­ãƒ²ã‚´ã‚¾ãƒ‰ãƒœãƒãƒ´ãƒƒãƒ³';
-        const latin = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
-        const nums = '0123456789';
-        const symbols = '!"#$%&\'()*+,-./:;<=>?@[\\]^_`{|}~';
-        
-        const alphabet = katakana + latin + nums + symbols;
-        
-        const fontSize = 16;
-        const columns = canvas.width / fontSize;
-        
-        const rainDrops = [];
-        
-        for (let x = 0; x < columns; x++) {
-            rainDrops[x] = 1;
-        }
-        
-        const draw = () => {
-            ctx.fillStyle = 'rgba(0, 0, 0, 0.05)';
-            ctx.fillRect(0, 0, canvas.width, canvas.height);
-            
-            ctx.fillStyle = '#00ff41';
-            ctx.font = fontSize + 'px monospace';
-            
-            for (let i = 0; i < rainDrops.length; i++) {
-                const text = alphabet.charAt(Math.floor(Math.random() * alphabet.length));
-                ctx.fillText(text, i * fontSize, rainDrops[i] * fontSize);
-                
-                if (rainDrops[i] * fontSize > canvas.height && Math.random() > 0.975) {
-                    rainDrops[i] = 0;
-                }
-                rainDrops[i]++;
-            }
-        };
-        
-        setInterval(draw, 30);
-        
-        // Sidebar Toggle
-        const sidebarToggle = document.getElementById('sidebarToggle');
-        const sidebar = document.getElementById('sidebar');
-        
-        sidebarToggle.addEventListener('click', () => {
-            sidebar.classList.toggle('open');
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
         });
-        
-        // Section Navigation
-        const sectionButtons = document.querySelectorAll('[data-section]');
-        const sections = document.querySelectorAll('.content-section');
-        
-        sectionButtons.forEach(button => {
-            button.addEventListener('click', () => {
-                const targetSection = button.getAttribute('data-section');
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
                 
-                sections.forEach(section => {
-                    section.classList.remove('active');
-                });
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
                 
-                document.getElementById(targetSection).classList.add('active');
-                
-                // Scroll to top
-                window.scrollTo(0, 0);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                    
+                    // Close mobile menu if open
+                    mobileMenu.classList.add('hidden');
+                }
             });
         });
-        
-        // Responsive adjustments
-        window.addEventListener('resize', () => {
-            canvas.width = window.innerWidth;
-            canvas.height = window.innerHeight;
+
+        // Highlight active navigation item
+        window.addEventListener('scroll', () => {
+            const scrollPosition = window.scrollY;
+            
+            document.querySelectorAll('section').forEach(section => {
+                const sectionTop = section.offsetTop - 100;
+                const sectionHeight = section.offsetHeight;
+                const sectionId = section.getAttribute('id');
+                
+                if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
+                    document.querySelectorAll('.nav-item').forEach(item => {
+                        item.classList.remove('text-emerald-400', 'border-emerald-400');
+                        item.classList.add('text-gray-300');
+                    });
+                    
+                    const activeItem = document.querySelector(`.nav-item[href="#${sectionId}"]`);
+                    if (activeItem) {
+                        activeItem.classList.add('text-emerald-400', 'border-emerald-400');
+                        activeItem.classList.remove('text-gray-300');
+                    }
+                }
+            });
+        });
+
+        // Password Strength Checker
+        function checkPassword() {
+            const password = document.getElementById('passwordInput').value;
+            const strengthBar = document.querySelector('#passwordStrength div');
+            const feedback = document.getElementById('passwordFeedback');
+            
+            if (!password) {
+                strengthBar.style.width = '0%';
+                strengthBar.style.backgroundColor = 'transparent';
+                feedback.textContent = '';
+                return;
+            }
+            
+            // Calculate strength (simple example)
+            let strength = 0;
+            if (password.length >= 8) strength += 25;
+            if (password.match(/[a-z]/) && password.match(/[A-Z]/)) strength += 25;
+            if (password.match(/\d/)) strength += 25;
+            if (password.match(/[^a-zA-Z0-9]/)) strength += 25;
+            
+            // Update UI
+            strengthBar.style.width = strength + '%';
+            
+            if (strength < 50) {
+                strengthBar.style.backgroundColor = '#ef4444';
+                feedback.textContent = 'Weak password. Consider adding more characters, numbers, and symbols.';
+                feedback.className = 'text-sm text-red-400 mb-4';
+            } else if (strength < 75) {
+                strengthBar.style.backgroundColor = '#f59e0b';
+                feedback.textContent = 'Moderate password. Good, but could be stronger.';
+                feedback.className = 'text-sm text-yellow-400 mb-4';
+            } else {
+                strengthBar.style.backgroundColor = '#10b981';
+                feedback.textContent = 'Strong password! Excellent choice.';
+                feedback.className = 'text-sm text-emerald-400 mb-4';
+            }
+        }
+
+        // Base64 Encoder/Decoder
+        function encodeBase64() {
+            const input = document.getElementById('base64Input').value;
+            const result = btoa(input);
+            document.getElementById('base64Result').textContent = result;
+        }
+
+        function decodeBase64() {
+            const input = document.getElementById('base64Input').value;
+            try {
+                const result = atob(input);
+                document.getElementById('base64Result').textContent = result;
+            } catch (e) {
+                document.getElementById('base64Result').textContent = 'Error: Invalid Base64 input';
+            }
+        }
+
+        // IP Lookup (simulated)
+        function lookupIP() {
+            const ip = document.getElementById('ipInput').value.trim();
+            const resultDiv = document.getElementById('ipResult');
+            
+            if (!ip) {
+                resultDiv.innerHTML = '<p class="text-gray-300">Please enter an IP address</p>';
+                return;
+            }
+            
+            // Simple IP validation
+            const ipRegex = /^(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$/;
+            
+            if (!ipRegex.test(ip)) {
+                resultDiv.innerHTML = '<p class="text-red-400">Invalid IP address format</p>';
+                return;
+            }
+            
+            // Simulate lookup results
+            const countries = ['United States', 'Germany', 'Japan', 'United Kingdom', 'Canada', 'Australia'];
+            const isps = ['Comcast', 'AT&T', 'Deutsche Telekom', 'NTT Communications', 'BT', 'Telstra'];
+            const randCountry = countries[Math.floor(Math.random() * countries.length)];
+            const randIsp = isps[Math.floor(Math.random() * isps.length)];
+            
+            resultDiv.innerHTML = `
+                <div class="space-y-2">
+                    <p class="text-gray-300"><span class="text-gray-400">IP:</span> ${ip}</p>
+                    <p class="text-gray-300"><span class="text-gray-400">Country:</span> ${randCountry}</p>
+                    <p class="text-gray-300"><span class="text-gray-400">ISP:</span> ${randIsp}</p>
+                    <p class="text-gray-300"><span class="text-gray-400">Location:</span> ${Math.floor(Math.random() * 90)}°N, ${Math.floor(Math.random() * 180)}°E</p>
+                    <p class="text-gray-300"><span class="text-gray-400">Threat Level:</span> <span class="text-${Math.random() > 0.7 ? 'red' : 'emerald'}-400">${Math.random() > 0.7 ? 'High' : 'Low'}</span></p>
+                </div>
+            `;
+        }
+
+        // Hash Generator
+        function generateHash() {
+            const input = document.getElementById('hashInput').value;
+            const algorithm = document.getElementById('hashAlgorithm').value;
+            const resultDiv = document.getElementById('hashResult');
+            
+            if (!input) {
+                resultDiv.textContent = 'Please enter text to hash';
+                return;
+            }
+            
+            // Simulate different hash algorithms (this is not real cryptographic hashing)
+            let hash;
+            switch(algorithm) {
+                case 'md5':
+                    hash = 'md5-' + Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15);
+                    break;
+                case 'sha1':
+                    hash = 'sha1-' + Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15);
+                    break;
+                case 'sha256':
+                    hash = 'sha256-' + Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15) + 
+                           Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15);
+                    break;
+                case 'sha512':
+                    hash = 'sha512-' + Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15) + 
+                           Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15) +
+                           Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15);
+                    break;
+                default:
+                    hash = 'Unknown algorithm';
+            }
+            
+            resultDiv.textContent = hash;
+        }
+
+        // QR Code Generator
+        function generateQRCode() {
+            const text = document.getElementById('qrText').value;
+            const qrCodeContainer = document.getElementById('qrCodeContainer');
+            const qrCodeImage = document.getElementById('qrCodeImage');
+            const qrDownload = document.getElementById('qrDownload');
+            
+            if (!text) {
+                qrCodeImage.src = 'https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/599a3ef4-593b-43b1-9f86-6afb502f4515.png';
+                qrDownload.classList.add('hidden');
+                return;
+            }
+            
+            // In a real app, you would use a QR code library here
+            // For demonstration, we'll simulate it with a placeholder
+            qrCodeImage.src = 'https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/95fd19f3-f6d6-440f-89cd-89f00527d8fc.png' + encodeURIComponent(text.substring(0, 20));
+            qrDownload.href = qrCodeImage.src;
+            qrDownload.download = 'sarvheshcyberx-qrcode.png';
+            qrDownload.classList.remove('hidden');
+        }
+
+        // MAC Address Changer Guide
+        function showMacChangeGuide() {
+            const os = document.getElementById('osSelect').value;
+            const macGuide = document.getElementById('macGuide');
+            const macInstructions = document.getElementById('macInstructions');
+            
+            macGuide.classList.remove('hidden');
+            
+            let instructions = '';
+            
+            switch(os) {
+                case 'windows':
+                    instructions = `
+                        <ol class="list-decimal list-inside space-y-2 text-gray-300">
+                            <li>Open Command Prompt as Administrator</li>
+                            <li>Run: <code class="bg-gray-800 px-2 py-1 rounded">ipconfig /all</code> to find your current MAC address</li>
+                            <li>Note the name of your network adapter (e.g., "Ethernet")</li>
+                            <li>Run: <code class="bg-gray-800 px-2 py-1 rounded">getmac /v</code> to list MAC addresses</li>
+                            <li>To change MAC address, go to Device Manager → Network adapters</li>
+                            <li>Right-click your adapter → Properties → Advanced → Network Address</li>
+                            <li>Enter a new MAC address (12 hex digits, no colons)</li>
+                            <li>Restart your network adapter</li>
+                        </ol>
+                        <p class="mt-4 text-gray-400 text-sm">Note: Changing MAC address may violate your network policies. Use responsibly.</p>
+                    `;
+                    break;
+                case 'linux':
+                    instructions = `
+                        <ol class="list-decimal list-inside space-y-2 text-gray-300">
+                            <li>Open Terminal</li>
+                            <li>Run: <code class="bg-gray-800 px-2 py-1 rounded">ifconfig</code> to find your network interface (e.g., eth0, wlan0)</li>
+                            <li>Bring interface down: <code class="bg-gray-800 px-2 py-1 rounded">sudo ifconfig INTERFACE down</code></li>
+                            <li>Change MAC address: <code class="bg-gray-800 px-2 py-1 rounded">sudo ifconfig INTERFACE hw ether XX:XX:XX:XX:XX:XX</code></li>
+                            <li>Bring interface up: <code class="bg-gray-800 px-2 py-1 rounded">sudo ifconfig INTERFACE up</code></li>
+                            <li>Verify change: <code class="bg-gray-800 px-2 py-1 rounded">ifconfig INTERFACE</code></li>
+                        </ol>
+                        <p class="mt-4 text-gray-400 text-sm">For persistent changes, update your network configuration files.</p>
+                    `;
+                    break;
+                case 'macos':
+                    instructions = `
+                        <ol class="list-decimal list-inside space-y-2 text-gray-300">
+                            <li>Open Terminal</li>
+                            <li>Find your interface name: <code class="bg-gray-800 px-2 py-1 rounded">networksetup -listallhardwareports</code></li>
+                            <li>Generate a random MAC: <code class="bg-gray-800 px-2 py-1 rounded">openssl rand -hex 6 | sed 's/\\(..\\)/\1:/g; s/.$//'</code></li>
+                            <li>Disconnect from current Wi-Fi network</li>
+                            <li>Change MAC: <code class="bg-gray-800 px-2 py-1 rounded">sudo ifconfig INTERFACE ether XX:XX:XX:XX:XX:XX</code></li>
+                            <li>Reconnect to Wi-Fi</li>
+                            <li>Verify: <code class="bg-gray-800 px-2 py-1 rounded">ifconfig INTERFACE | grep ether</code></li>
+                        </ol>
+                        <p class="mt-4 text-gray-400 text-sm">Note: MAC changes may not persist after reboot on macOS.</p>
+                    `;
+                    break;
+            }
+            
+            macInstructions.innerHTML = instructions;
+        }
+
+        // Initialize particles (simulated for educational purposes)
+        function initParticles() {
+            const container = document.getElementById('cyberParticles');
+            if (!container) return;
+            
+            // Simulate particle effect
+            container.style.background = 'radial-gradient(circle, rgba(16,185,129,0.1) 0%, rgba(16,185,129,0.05) 50%, rgba(16,185,129,0) 100%)';
+        }
+
+        // Initialize on DOM load
+        document.addEventListener('DOMContentLoaded', function() {
+            initParticles();
+            
+            // Initialize password strength checker
+            const passwordInput = document.getElementById('passwordInput');
+            if (passwordInput) {
+                passwordInput.addEventListener('input', checkPassword);
+            }
         });
     </script>
 </body>
 </html>
+
