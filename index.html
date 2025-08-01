@@ -1,540 +1,1233 @@
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>simran404cyberx | Ethical Hacking Academy</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        cyberblue: '#0033A0',
-                        cyberteal: '#2BD2FF',
-                        cyberdark: '#121827',
-                        cyberpurple: '#6941C6',
-                        cybergray: '#1F2A37'
-                    }
-                }
-            }
-        }
-    </script>
+    <title>simran404cyberx - Cyber Security & Ethical Hacking</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
     <style>
-        /* Name animation */
-        @keyframes typing-animation {
-            0% { opacity: 0; }
-            5% { opacity: 1; }
-            50% { opacity: 1; }
-            55% { opacity: 0; }
-            100% { opacity: 0; }
+        :root {
+            --primary: #0f172a;
+            --secondary: #1e293b;
+            --accent: #0ea5e9;
+            --accent-glow: #0ea5e933;
+            --text: #e2e8f0;
+            --text-secondary: #94a3b8;
+            --border: #334155;
         }
-        .hacker-name {
-            font-size: 3.5rem;
-            font-weight: bold;
-            font-family: 'Courier New', monospace;
-            letter-spacing: 0;
-            margin: -0.5rem 0 0 0;
-            position: relative;
-            line-height: 0.8;
-            height: auto;
-            overflow: hidden;
-            text-transform: uppercase;
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
         }
-        .hacker-name span {
-            animation: typing-animation 8s infinite;
-            display: inline-block;
-            margin-right: -0.1em;
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: var(--primary);
+            color: var(--text);
+            line-height: 1.6;
+            overflow-x: hidden;
+            background-image: 
+                radial-gradient(circle at 25% 25%, rgba(14, 165, 233, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 75% 75%, rgba(14, 165, 233, 0.1) 0%, transparent 50%);
         }
-        /* SARVESH letters */
-        .hacker-name:first-child span:nth-child(1) { animation-delay: 0.1s }
-        .hacker-name:first-child span:nth-child(2) { animation-delay: 0.4s }
-        .hacker-name:first-child span:nth-child(3) { animation-delay: 0.7s }
-        .hacker-name:first-child span:nth-child(4) { animation-delay: 1.0s }
-        .hacker-name:first-child span:nth-child(5) { animation-delay: 1.3s }
-        .hacker-name:first-child span:nth-child(6) { animation-delay: 1.6s }
-        .hacker-name:first-child span:nth-child(7) { animation-delay: 1.9s }
-        
-        /* BHARTI letters */
-        .hacker-name:last-child span:nth-child(1) { animation-delay: 2.5s }
-        .hacker-name:last-child span:nth-child(2) { animation-delay: 2.8s }
-        .hacker-name:last-child span:nth-child(3) { animation-delay: 3.1s }
-        .hacker-name:last-child span:nth-child(4) { animation-delay: 3.4s }
-        .hacker-name:last-child span:nth-child(5) { animation-delay: 3.7s }
-        .hacker-name:last-child span:nth-child(6) { animation-delay: 4.0s }
-        .subtitle {
-            color: #2bd2ff;
-            font-size: 1.5rem;
-            margin-top: -0.5rem;
-            text-shadow: 0 0 5px #2bd2ff;
-        }
-        .hexagon-bg {
-            background-image: url('https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/d519e78d-c8fb-4391-9308-0bf7ec4feac6.png');
-            background-size: cover;
-            opacity: 0.1;
-        }
-        .card-hover {
+
+        /* Header & Navigation */
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            background: rgba(15, 23, 42, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--border);
             transition: all 0.3s ease;
         }
-        .card-hover:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 25px rgba(43, 210, 255, 0.3);
+
+        .header-scrolled {
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
         }
-        .terminal {
+
+        .nav-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 80px;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: white;
+            text-decoration: none;
+            position: relative;
+        }
+
+        .logo::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--accent);
+            transition: width 0.3s ease;
+        }
+
+        .logo:hover::after {
+            width: 100%;
+        }
+
+        .logo-accent {
+            color: var(--accent);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: var(--text);
+            text-decoration: none;
+            font-weight: 500;
+            position: relative;
+            padding: 0.5rem 0;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent);
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--accent);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .active {
+            color: var(--accent);
+        }
+
+        .active::after {
+            width: 100%;
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--text);
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding: 8rem 2rem 4rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(15, 23, 42, 0.9) 0%, rgba(15, 23, 42, 0.7) 50%, rgba(15, 23, 42, 0.9) 100%);
+            z-index: -1;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(14, 165, 233, 0.1) 0%, transparent 70%);
+            z-index: -2;
+            animation: rotate 20s linear infinite;
+        }
+
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-title {
+            font-size: 3.5rem;
+            font-weight: 800;
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+            background: linear-gradient(90deg, #e2e8f0, #0ea5e9);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero-subtitle {
+            font-size: 1.25rem;
+            color: var(--text-secondary);
+            margin-bottom: 2.5rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .hero-owner {
+            font-size: 1.1rem;
+            color: var(--accent);
+            margin-bottom: 2rem;
+            display: block;
+            font-weight: 600;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 0.75rem 2rem;
+            border-radius: 50px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .btn-primary {
+            background: var(--accent);
+            color: white;
+            border: 2px solid var(--accent);
+        }
+
+        .btn-primary:hover {
+            background: transparent;
+            color: var(--accent);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(14, 165, 233, 0.2);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--text);
+            border: 2px solid var(--border);
+        }
+
+        .btn-secondary:hover {
+            border-color: var(--accent);
+            color: var(--accent);
+            transform: translateY(-3px);
+        }
+
+        /* Services Section */
+        .section {
+            padding: 6rem 2rem;
+            position: relative;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            position: relative;
+            display: inline-block;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 50px;
+            height: 3px;
+            background: var(--accent);
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .section-subtitle {
+            text-align: center;
+            color: var(--text-secondary);
+            max-width: 700px;
+            margin: 0 auto 3rem;
+            font-size: 1.1rem;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .service-card {
+            background: var(--secondary);
+            border: 1px solid var(--border);
+            border-radius: 15px;
+            padding: 2rem;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            backdrop-filter: blur(10px);
+        }
+
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: transparent;
+            transition: background 0.3s ease;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+            border-color: var(--accent-glow);
+        }
+
+        .service-card:hover::before {
+            background: var(--accent);
+        }
+
+        .service-icon {
+            width: 60px;
+            height: 60px;
+            background: var(--accent-glow);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+            color: var(--accent);
+            font-size: 1.5rem;
+        }
+
+        .service-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .service-description {
+            color: var(--text-secondary);
+            line-height: 1.7;
+        }
+
+        /* Features Section */
+        .features {
+            background: var(--secondary);
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .feature-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 1.5rem;
+            background: rgba(15, 23, 42, 0.5);
+            border-radius: 10px;
+            border: 1px solid var(--border);
+            transition: all 0.3s ease;
+        }
+
+        .feature-item:hover {
+            transform: translateX(10px);
+            border-color: var(--accent-glow);
+            background: rgba(14, 165, 233, 0.1);
+        }
+
+        .feature-icon {
+            width: 40px;
+            height: 40px;
+            background: var(--accent-glow);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--accent);
+            font-size: 1rem;
+        }
+
+        .feature-text {
+            font-weight: 500;
+        }
+
+        /* About Section */
+        .about-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+            gap: 2rem;
+        }
+
+        .about-text {
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+            line-height: 1.8;
+        }
+
+        .owner-info {
+            background: var(--secondary);
+            border: 1px solid var(--border);
+            border-radius: 15px;
+            padding: 2rem;
+            text-align: center;
+            max-width: 500px;
+        }
+
+        .owner-name {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--accent);
+            margin-bottom: 0.5rem;
+        }
+
+        .owner-title {
+            color: var(--text-secondary);
+            margin-bottom: 1.5rem;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+        }
+
+        .social-link {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: rgba(15, 23, 42, 0.5);
+            border: 1px solid var(--border);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text);
+            transition: all 0.3s ease;
+        }
+
+        .social-link:hover {
+            background: var(--accent);
+            color: white;
+            transform: translateY(-3px);
+        }
+
+        /* Contact Section */
+        .contact-container {
+            max-width: 800px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+        }
+
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+        }
+
+        .contact-icon {
+            width: 40px;
+            height: 40px;
+            background: var(--accent-glow);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--accent);
+            flex-shrink: 0;
+        }
+
+        .contact-text {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .contact-label {
+            font-weight: 600;
+            margin-bottom: 0.25rem;
+        }
+
+        .contact-value {
+            color: var(--text-secondary);
+        }
+
+        .contact-form {
+            background: var(--secondary);
+            padding: 2.5rem;
+            border-radius: 15px;
+            border: 1px solid var(--border);
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+        }
+
+        .form-input, .form-textarea {
+            width: 100%;
+            padding: 0.75rem;
+            border: 1px solid var(--border);
+            background: rgba(15, 23, 42, 0.5);
+            border-radius: 8px;
+            color: var(--text);
+            font-family: inherit;
+            transition: all 0.3s ease;
+        }
+
+        .form-input:focus, .form-textarea:focus {
+            outline: none;
+            border-color: var(--accent);
+            background: rgba(14, 165, 233, 0.1);
+        }
+
+        .form-textarea {
+            min-height: 150px;
+            resize: vertical;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--secondary);
+            padding: 3rem 2rem;
+            border-top: 1px solid var(--border);
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+        }
+
+        .footer-column h3 {
+            font-size: 1.25rem;
+            margin-bottom: 1.5rem;
+            position: relative;
+            display: inline-block;
+        }
+
+        .footer-column h3::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 0;
+            width: 30px;
+            height: 2px;
+            background: var(--accent);
+        }
+
+        .footer-links {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+
+        .footer-link {
+            color: var(--text-secondary);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-link:hover {
+            color: var(--accent);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            margin-top: 2rem;
+            border-top: 1px solid var(--border);
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .animate-fade-in {
+            animation: fadeIn 0.6s ease forwards;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1024px) {
+            .hero-title {
+                font-size: 3rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            .mobile-menu {
+                position: fixed;
+                top: 80px;
+                left: 0;
+                right: 0;
+                background: var(--secondary);
+                border-top: 1px solid var(--border);
+                padding: 1rem 2rem;
+                display: none;
+                flex-direction: column;
+                gap: 1rem;
+                z-index: 999;
+            }
+
+            .mobile-menu.active {
+                display: flex;
+            }
+
+            .hero-title {
+                font-size: 2.5rem;
+            }
+
+            .hero-subtitle {
+                font-size: 1.1rem;
+            }
+
+            .contact-container {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .section {
+                padding: 4rem 2rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero-title {
+                font-size: 2rem;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .btn {
+                width: 100%;
+                max-width: 300px;
+                justify-content: center;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+        }
+
+        /* Python Code Display */
+        .python-code {
+            background: #0d1117;
+            border: 1px solid #30363d;
+            border-radius: 10px;
+            padding: 1.5rem;
+            margin: 2rem 0;
+            overflow-x: auto;
             font-family: 'Courier New', monospace;
-            background-color: rgb(18, 24, 39);
-            color: #2BD2FF;
+            font-size: 0.9rem;
+            line-height: 1.5;
+        }
+
+        .code-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+            color: #58a6ff;
+            font-weight: 600;
+        }
+
+        .code-content {
+            color: #c9d1d9;
+        }
+
+        .keyword {
+            color: #ff7b72;
+        }
+
+        .string {
+            color: #a5d6ff;
+        }
+
+        .comment {
+            color: #8b949e;
+            font-style: italic;
+        }
+
+        .function {
+            color: #d2a8ff;
+        }
+
+        .variable {
+            color: #79c0ff;
         }
     </style>
 </head>
-<body class="bg-cyberdark text-white">
-    <!-- Navigation -->
-    <nav class="bg-cyberdark border-b border-gray-800 py-4 sticky top-0 z-50">
-        <div class="container mx-auto px-6 flex justify-between items-center">
-            <div class="flex items-center space-x-4">
-                <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/22dbc644-8ad8-4e2a-8dab-eb6fc3a9e352.png" alt="simran404cyberx logo" class="h-10">
-                <span class="text-xl font-bold text-cyberteal">simran404cyberx</span>
-            </div>
-            <div class="hidden md:flex space-x-8">
-                <a href="#courses" class="hover:text-cyberteal transition">Courses</a>
-                <a href="#resources" class="hover:text-cyberteal transition">Resources</a>
-                <a href="#labs" class="hover:text-cyberteal transition">Virtual Labs</a>
-                <a href="#about" class="hover:text-cyberteal transition">About</a>
-            </div>
-            <button class="md:hidden">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
-                </svg>
+<body>
+    <!-- Header & Navigation -->
+    <header id="header">
+        <div class="nav-container">
+            <a href="#home" class="logo">
+                simran<span class="logo-accent">404</span>cyberx
+            </a>
+            <nav class="nav-links">
+                <a href="#home" class="nav-link active">Home</a>
+                <a href="#services" class="nav-link">Services</a>
+                <a href="#features" class="nav-link">Features</a>
+                <a href="#about" class="nav-link">About</a>
+                <a href="#contact" class="nav-link">Contact</a>
+            </nav>
+            <button class="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
             </button>
         </div>
-    </nav>
+        <nav class="mobile-menu">
+            <a href="#home" class="nav-link">Home</a>
+            <a href="#services" class="nav-link">Services</a>
+            <a href="#features" class="nav-link">Features</a>
+            <a href="#about" class="nav-link">About</a>
+            <a href="#contact" class="nav-link">Contact</a>
+        </nav>
+    </header>
 
     <!-- Hero Section -->
-    <section class="relative overflow-hidden">
-        <div class="absolute inset-0 hexagon-bg"></div>
-        <div class="relative container mx-auto px-6 py-16">
-            <div class="max-w-3xl text-center">
-                <div class="flex flex-col items-center gap-0">
-                    <div class="hacker-name">
-                        <span>S</span><span>A</span><span>R</span><span>V</span><span>E</span><span>S</span><span>H</span>
-                    </div>
-                    <div class="hacker-name">
-                        <span>B</span><span>H</span><span>A</span><span>R</span><span>T</span><span>I</span>
-                    </div>
-                </div>
-                <div class="subtitle">simran404cyberx</div>
-                <h1 class="text-4xl md:text-6xl font-bold mb-6">
-                    <span class="text-white">Master Cybersecurity</span>
-                    <span class="text-cyberteal block">Ethically</span>
-                </h1>
-                <p class="text-xl text-gray-300 mb-8">Learn to protect systems, detect vulnerabilities, and think like a hacker with our hands-on courses in ethical hacking and cyber defense.</p>
-                <div class="flex flex-wrap gap-4">
-                    <a href="#courses" class="bg-cyberteal hover:bg-cyberblue text-cyberdark font-bold py-3 px-6 rounded-lg transition">Explore Courses</a>
-                    <a href="#labs" class="border border-cyberteal hover:bg-cybergray text-cyberteal font-bold py-3 px-6 rounded-lg transition">Try Free Labs</a>
-                </div>
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <span class="hero-owner">Website Owner: SARVESH BHARTI</span>
+            <h1 class="hero-title">Advanced Cyber Security & Ethical Hacking Solutions</h1>
+            <p class="hero-subtitle">Protecting digital assets with cutting-edge security expertise and ethical hacking methodologies. We identify vulnerabilities before malicious actors can exploit them.</p>
+            <div class="cta-buttons">
+                <a href="#services" class="btn btn-primary">
+                    Explore Services
+                    <i class="fas fa-arrow-right"></i>
+                </a>
+                <a href="#contact" class="btn btn-secondary">
+                    Get Free Consultation
+                </a>
             </div>
         </div>
     </section>
 
-    <!-- Stats Section -->
-    <section class="bg-cybergray py-12">
-        <div class="container mx-auto px-6">
-            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 text-center">
-                <div class="p-6">
-                    <div class="text-4xl font-bold text-cyberteal">250+</div>
-                    <div class="text-gray-300 mt-2">Happy Students</div>
+    <!-- Services Section -->
+    <section id="services" class="section">
+        <h2 class="section-title">Our Services</h2>
+        <p class="section-subtitle">Comprehensive cyber security solutions tailored to protect your digital infrastructure from evolving threats.</p>
+        
+        <div class="services-grid">
+            <div class="service-card animate-fade-in">
+                <div class="service-icon">
+                    <i class="fas fa-shield-alt"></i>
                 </div>
-                <div class="p-6">
-                    <div class="text-4xl font-bold text-cyberteal">35+</div>
-                    <div class="text-gray-300 mt-2">Hands-On Labs</div>
-                </div>
-                <div class="p-6">
-                    <div class="text-4xl font-bold text-cyberteal">98%</div>
-                    <div class="text-gray-300 mt-2">Success Rate</div>
-                </div>
-                <div class="p-6">
-                    <div class="text-4xl font-bold text-cyberteal">24/7</div>
-                    <div class="text-gray-300 mt-2">Support</div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Courses Section -->
-    <section id="courses" class="py-20 bg-cyberdark">
-        <div class="container mx-auto px-6">
-            <div class="text-center mb-16">
-                <h2 class="text-3xl font-bold">Our Cybersecurity Courses</h2>
-                <p class="text-gray-400 mt-4 max-w-2xl mx-auto">From beginner to professional level training in ethical hacking and cyber defense.</p>
+                <h3 class="service-title">Penetration Testing</h3>
+                <p class="service-description">Comprehensive security assessments to identify vulnerabilities in your systems, networks, and applications before malicious hackers can exploit them.</p>
             </div>
             
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <!-- Course 1 -->
-                <div class="bg-cybergray p-6 rounded-xl card-hover">
-                    <div class="mb-4">
-                        <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/5e3730c0-c6bc-48f4-ab55-b5ba3cb42ff6.png" alt="Abstract representation of ethical hacking with network connections and shield symbol" class="w-full rounded-lg">
-                    </div>
-                    <div>
-                        <div class="flex justify-between items-center">
-                            <h3 class="text-xl font-bold">Ethical Hacking Fundamentals</h3>
-                            <span class="text-cyberteal font-medium">Beginner</span>
-                        </div>
-                        <p class="text-gray-400 mt-2">Learn penetration testing and vulnerability assessment techniques.</p>
-                        <div class="mt-4 flex items-center justify-between">
-                            <span class="text-cyberteal font-medium">4 Weeks</span>
-                            <button class="bg-cyberteal hover:bg-cyberblue text-cyberdark px-4 py-2 rounded-lg font-medium">Enroll Now</button>
-                        </div>
-                    </div>
+            <div class="service-card animate-fade-in">
+                <div class="service-icon">
+                    <i class="fas fa-lock"></i>
                 </div>
-                
-                <!-- Course 2 -->
-                <div class="bg-cybergray p-6 rounded-xl card-hover">
-                    <div class="mb-4">
-                        <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/82b40965-310c-4859-84f9-7fe1eae4caff.png" alt="3D network security diagram showing firewalls and protection layers" class="w-full rounded-lg">
-                    </div>
-                    <div>
-                        <div class="flex justify-between items-center">
-                            <h3 class="text-xl font-bold">Network Security & Defense</h3>
-                            <span class="text-purple-500 font-medium">Intermediate</span>
-                        </div>
-                        <p class="text-gray-400 mt-2">Master network monitoring, intrusion detection, and firewall configuration.</p>
-                        <div class="mt-4 flex items-center justify-between">
-                            <span class="text-purple-500 font-medium">6 Weeks</span>
-                            <button class="bg-cyberteal hover:bg-cyberblue text-cyberdark px-4 py-2 rounded-lg font-medium">Enroll Now</button>
-                        </div>
-                    </div>
+                <h3 class="service-title">Vulnerability Assessment</h3>
+                <p class="service-description">Systematic review of security weaknesses in your IT infrastructure, providing detailed reports and remediation guidance.</p>
+            </div>
+            
+            <div class="service-card animate-fade-in">
+                <div class="service-icon">
+                    <i class="fas fa-network-wired"></i>
                 </div>
-                
-                <!-- Course 3 -->
-                <div class="bg-cybergray p-6 rounded-xl card-hover">
-                    <div class="mb-4">
-                        <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/46665016-2b5b-49b4-b100-0c1a9dc26fe4.png" alt="Digital forensics workspace with computer screens showing data analysis tools" class="w-full rounded-lg">
-                    </div>
-                    <div>
-                        <div class="flex justify-between items-center">
-                            <h3 class="text-xl font-bold">Digital Forensics</h3>
-                            <span class="text-cyberteal font-medium">Advanced</span>
-                        </div>
-                        <p class="text-gray-400 mt-2">Investigate cyber crimes and recover digital evidence like a professional.</p>
-                        <div class="mt-4 flex items-center justify-between">
-                            <span class="text-cyberteal font-medium">8 Weeks</span>
-                            <button class="bg-cyberteal hover:bg-cyberblue text-cyberdark px-4 py-2 rounded-lg font-medium">Enroll Now</button>
-                        </div>
-                    </div>
+                <h3 class="service-title">Network Security</h3>
+                <p class="service-description">Advanced protection for your network infrastructure, including firewall configuration, intrusion detection, and secure network design.</p>
+            </div>
+            
+            <div class="service-card animate-fade-in">
+                <div class="service-icon">
+                    <i class="fas fa-code"></i>
                 </div>
+                <h3 class="service-title">Web Application Security</h3>
+                <p class="service-description">Specialized testing for web applications to prevent common vulnerabilities like SQL injection, XSS, and CSRF attacks.</p>
             </div>
         </div>
     </section>
 
-    <!-- Interactive Terminal Demo -->
-    <section id="labs" class="py-20 bg-cyberpurple">
-        <div class="container mx-auto px-6">
-            <div class="text-center mb-12">
-                <h2 class="text-3xl font-bold">Hands-On Learning Environment</h2>
-                <p class="text-gray-300 mt-4 max-w-2xl mx-auto">Try our virtual lab environment to practice your skills safely.</p>
+    <!-- Features Section -->
+    <section id="features" class="section features">
+        <h2 class="section-title">Top Features</h2>
+        <p class="section-subtitle">Cutting-edge cyber security capabilities powered by ethical hacking expertise and advanced technologies.</p>
+        
+        <div class="features-grid">
+            <div class="feature-item animate-fade-in">
+                <div class="feature-icon">
+                    <i class="fas fa-bolt"></i>
+                </div>
+                <span class="feature-text">Advanced Ethical Hacking Techniques</span>
             </div>
             
-            <div class="max-w-4xl mx-auto bg-black rounded-xl overflow-hidden">
-                <div class="flex bg-cyberdark p-3 items-center">
-                    <div class="flex space-x-2 mr-4">
-                        <div class="w-3 h-3 rounded-full bg-red-500"></div>
-                        <div class="w-3 h-3 rounded-full bg-yellow-500"></div>
-                        <div class="w-3 h-3 rounded-full bg-green-500"></div>
-                    </div>
-                    <div class="text-gray-400 text-sm">root@cyberlab:~</div>
+            <div class="feature-item animate-fade-in">
+                <div class="feature-icon">
+                    <i class="fas fa-eye"></i>
                 </div>
-                <div class="terminal p-6 h-64 overflow-y-auto">
-                    <div id="terminal-output" class="whitespace-pre-wrap">
-<span class="text-green-400">Welcome to CyberGuard Academy Virtual Lab</span>
-<span class="text-white">Type 'help' to see available commands</span>
-
-<span class="text-cyberteal">root@cyberlab:~$</span> <span id="last-command"></span>
-                    </div>
-                    <div class="flex items-center mt-2">
-                        <span class="text-cyberteal">root@cyberlab:~$</span>
-                        <input type="text" id="terminal-input" class="flex-1 bg-transparent border-none outline-none text-white ml-2" autocomplete="off" placeholder="type 'help' for commands...">
-                    </div>
+                <span class="feature-text">Real-time Threat Intelligence</span>
+            </div>
+            
+            <div class="feature-item animate-fade-in">
+                <div class="feature-icon">
+                    <i class="fas fa-bug"></i>
                 </div>
+                <span class="feature-text">Zero-Day Vulnerability Research</span>
+            </div>
+            
+            <div class="feature-item animate-fade-in">
+                <div class="feature-icon">
+                    <i class="fas fa-cog"></i>
+                </div>
+                <span class="feature-text">Custom Security Solutions</span>
+            </div>
+            
+            <div class="feature-item animate-fade-in">
+                <div class="feature-icon">
+                    <i class="fas fa-clock"></i>
+                </div>
+                <span class="feature-text">24/7 Security Monitoring</span>
+            </div>
+            
+            <div class="feature-item animate-fade-in">
+                <div class="feature-icon">
+                    <i class="fas fa-sync"></i>
+                </div>
+                <span class="feature-text">Incident Response & Recovery</span>
+            </div>
+            
+            <div class="feature-item animate-fade-in">
+                <div class="feature-icon">
+                    <i class="fas fa-graduation-cap"></i>
+                </div>
+                <span class="feature-text">Security Awareness Training</span>
+            </div>
+            
+            <div class="feature-item animate-fade-in">
+                <div class="feature-icon">
+                    <i class="fas fa-file-contract"></i>
+                </div>
+                <span class="feature-text">Compliance & Regulatory Support</span>
             </div>
         </div>
     </section>
 
-    <!-- Resources Section -->
-    <section id="resources" class="py-20 bg-cyberdark">
-        <div class="container mx-auto px-6">
-            <div class="text-center mb-16">
-                <h2 class="text-3xl font-bold">Cybersecurity Resources</h2>
-                <p class="text-gray-400 mt-4 max-w-2xl mx-auto">Essential tools and references for ethical hackers and security professionals.</p>
+    <!-- Python Security Code Example -->
+    <section class="section">
+        <div class="python-code">
+            <div class="code-header">
+                <span>security_scanner.py</span>
+                <span>Python</span>
             </div>
+            <div class="code-content">
+                <pre><span class="comment"># simran404cyberx - Advanced Security Scanner</span>
+<span class="keyword">import</span> requests
+<span class="keyword">import</span> ssl
+<span class="keyword">import</span> socket
+<span class="keyword">from</span> urllib.parse <span class="keyword">import</span> urlparse
+<span class="keyword">import</span> json
+
+<span class="keyword">class</span> <span class="function">SecurityScanner</span>:
+    <span class="keyword">def</span> <span class="function">__init__</span>(<span class="variable">self</span>, target_url):
+        <span class="variable">self</span>.target_url = target_url
+        <span class="variable">self</span>.results = {}
+    
+    <span class="keyword">def</span> <span class="function">check_ssl_certificate</span>(<span class="variable">self</span>):
+        <span class="keyword">try</span>:
+            <span class="variable">parsed</span> = urlparse(<span class="variable">self</span>.target_url)
+            <span class="variable">context</span> = ssl.create_default_context()
+            <span class="variable">with</span> socket.create_connection((<span class="variable">parsed</span>.netloc, 443), timeout=10) <span class="variable">as</span> sock:
+                <span class="variable">with</span> context.wrap_socket(sock, server_hostname=<span class="variable">parsed</span>.netloc) <span class="variable">as</span> ssock:
+                    <span class="variable">cert</span> = ssock.getpeercert()
+                    <span class="variable">self</span>.results['ssl_valid'] = <span class="keyword">True</span>
+                    <span class="variable">self</span>.results['ssl_expiry'] = cert.get('notAfter')
+        <span class="keyword">except</span> Exception <span class="variable">as</span> e:
+            <span class="variable">self</span>.results['ssl_valid'] = <span class="keyword">False</span>
+            <span class="variable">self</span>.results['ssl_error'] = str(e)
+    
+    <span class="keyword">def</span> <span class="function">check_headers</span>(<span class="variable">self</span>):
+        <span class="keyword">try</span>:
+            <span class="variable">response</span> = requests.get(<span class="variable">self</span>.target_url, timeout=10)
+            <span class="variable">headers</span> = response.headers
             
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <!-- Resource 1 -->
-                <div class="bg-cybergray p-6 rounded-xl card-hover">
-                    <div class="mb-4">
-                        <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/bde5369e-0ff9-4e48-a3c1-2822bd5d48ac.png" alt="Collection of cybersecurity tools on a digital interface" class="w-full rounded-lg">
-                    </div>
-                    <div>
-                        <h3 class="text-xl font-bold mb-2">Penetration Testing Toolkit</h3>
-                        <p class="text-gray-400 mb-4">Collection of essential tools for vulnerability assessment and penetration testing.</p>
-                        <ul class="space-y-2 text-gray-300">
-                            <li>- Kali Linux Environment</li>
-                            <li>- Metasploit Framework</li>
-                            <li>- Burp Suite Community</li>
-                            <li>- Wireshark</li>
-                        </ul>
-                        <button class="mt-4 text-cyberteal hover:underline">Download Toolkit</button>
-                    </div>
-                </div>
-                
-                <!-- Resource 2 -->
-                <div class="bg-cybergray p-6 rounded-xl card-hover">
-                    <div class="mb-4">
-                        <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/2c2eee3b-adf6-42d4-84b0-3baa83575e6f.png" alt="Digital cheat sheets with commands and shortcuts for cybersecurity tools" class="w-full rounded-lg">
-                    </div>
-                    <div>
-                        <h3 class="text-xl font-bold mb-2">Command Cheat Sheets</h3>
-                        <p class="text-gray-400 mb-4">Quick reference guides for popular cybersecurity tools and programming languages.</p>
-                        <ul class="space-y-2 text-gray-300">
-                            <li>- Nmap Commands</li>
-                            <li>- Linux Terminal</li>
-                            <li>- Python for Security</li>
-                            <li>- SQL Injection</li>
-                        </ul>
-                        <button class="mt-4 text-cyberteal hover:underline">View All Cheat Sheets</button>
-                    </div>
-                </div>
-                
-                <!-- Resource 3 -->
-                <div class="bg-cybergray p-6 rounded-xl card-hover">
-                    <div class="mb-4">
-                        <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/6b2a133a-1944-4f8e-bb35-a60f4c414f41.png" alt="Capture the flag competition environment with hackers working together" class="w-full rounded-lg">
-                    </div>
-                    <div>
-                        <h3 class="text-xl font-bold mb-2">Capture The Flag Challenges</h3>
-                        <p class="text-gray-400 mb-4">Practice your skills with our collection of CTF challenges and walkthroughs.</p>
-                        <ul class="space-y-2 text-gray-300">
-                            <li>- Web Exploitation</li>
-                            <li>- Reverse Engineering</li>
-                            <li>- Cryptography</li>
-                            <li>- Forensics</li>
-                        </ul>
-                        <button class="mt-4 text-cyberteal hover:underline">Start Challenges</button>
-                    </div>
-                </div>
+            <span class="variable">security_headers</span> = {
+                'X-Content-Type-Options': 'nosniff' <span class="keyword">in</span> headers.get('X-Content-Type-Options', ''),
+                'X-Frame-Options': 'DENY' <span class="keyword">in</span> headers.get('X-Frame-Options', '') <span class="keyword">or</span> 'SAMEORIGIN' <span class="keyword">in</span> headers.get('X-Frame-Options', ''),
+                'Strict-Transport-Security': 'max-age' <span class="keyword">in</span> headers.get('Strict-Transport-Security', ''),
+                'Content-Security-Policy': 'default-src' <span class="keyword">in</span> headers.get('Content-Security-Policy', '')
+            }
+            
+            <span class="variable">self</span>.results['security_headers'] = security_headers
+        <span class="keyword">except</span> Exception <span class="variable">as</span> e:
+            <span class="variable">self</span>.results['headers_error'] = str(e)
+    
+    <span class="keyword">def</span> <span class="function">scan</span>(<span class="variable">self</span>):
+        <span class="variable">print</span>(f"Starting security scan for: {<span class="variable">self</span>.target_url}")
+        <span class="variable">self</span>.check_ssl_certificate()
+        <span class="variable">self</span>.check_headers()
+        <span class="variable">return</span> <span class="variable">self</span>.results
+
+<span class="comment"># Usage example</span>
+<span class="keyword">if</span> __name__ == "__main__":
+    <span class="variable">scanner</span> = SecurityScanner("https://example.com")
+    <span class="variable">results</span> = scanner.scan()
+    <span class="variable">print</span>(json.dumps(results, indent=2))</pre>
             </div>
         </div>
     </section>
 
     <!-- About Section -->
-    <section id="about" class="py-20 bg-cybergray">
-        <div class="container mx-auto px-6">
-            <div class="text-center mb-16">
-                <h2 class="text-3xl font-bold">About CyberGuard Academy</h2>
-                <p class="text-gray-400 mt-4 max-w-2xl mx-auto">Our mission is to train the next generation of ethical hackers and cybersecurity professionals.</p>
-            </div>
+    <section id="about" class="section">
+        <h2 class="section-title">About simran404cyberx</h2>
+        <p class="section-subtitle">Your trusted partner in cyber security and ethical hacking solutions.</p>
+        
+        <div class="about-content">
+            <p class="about-text">
+                simran404cyberx is a premier cyber security organization specializing in ethical hacking and advanced security solutions. 
+                Founded with the mission to protect digital assets in an increasingly connected world, we combine cutting-edge technology 
+                with deep expertise in ethical hacking methodologies to provide comprehensive security services.
+            </p>
             
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-                <div>
-                    <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/762700a5-cd05-4622-a7af-b36f951d697e.png" alt="Diverse team of cybersecurity professionals working in a modern office environment" class="w-full rounded-lg">
-                </div>
-                <div>
-                    <h3 class="text-2xl font-bold mb-6">Who We Are</h3>
-                    <p class="text-gray-300 mb-4">CyberGuard Academy was founded in 2015 by a team of cybersecurity experts who saw the growing need for practical, hands-on training in ethical hacking and cyber defense.</p>
-                    <p class="text-gray-300 mb-4">Our instructors are active professionals in the field, bringing real-world experience and up-to-date knowledge to our courses and labs.</p>
-                    <p class="text-gray-300 mb-6">We're committed to promoting ethical hacking practices and helping to close the cybersecurity skills gap by making quality training accessible to everyone.</p>
-                    <div class="flex flex-wrap gap-4">
-                        <div class="bg-cyberdark p-4 rounded-lg">
-                            <div class="text-cyberteal text-2xl font-bold">50+</div>
-                            <div class="text-gray-300">Years Combined Experience</div>
-                        </div>
-                        <div class="bg-cyberdark p-4 rounded-lg">
-                            <div class="text-cyberteal text-2xl font-bold">100%</div>
-                            <div class="text-gray-300">Ethical Focus</div>
-                        </div>
-                        <div class="bg-cyberdark p-4 rounded-lg">
-                            <div class="text-cyberteal text-2xl font-bold">24/7</div>
-                            <div class="text-gray-300">Mentor Support</div>
-                        </div>
-                    </div>
+            <p class="about-text">
+                Our team of certified security professionals stays ahead of emerging threats through continuous research and development, 
+                ensuring our clients receive the most effective protection against evolving cyber threats. We believe in proactive security 
+                measures and work diligently to identify vulnerabilities before they can be exploited.
+            </p>
+            
+            <div class="owner-info animate-fade-in">
+                <h3 class="owner-name">SARVESH BHARTI</h3>
+                <p class="owner-title">Founder & Chief Security Officer</p>
+                <p class="about-text" style="margin: 1rem 0;">
+                    With over a decade of experience in cyber security and ethical hacking, SARVESH BHARTI leads our team with a passion 
+                    for creating secure digital environments. His expertise in penetration testing and vulnerability assessment has 
+                    helped numerous organizations strengthen their security posture.
+                </p>
+                <div class="social-links">
+                    <a href="#" class="social-link"><i class="fab fa-github"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="#" class="social-link"><i class="fas fa-envelope"></i></a>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Newsletter -->
-    <section class="py-16 bg-cyberblue">
-        <div class="container mx-auto px-6 text-center">
-            <h2 class="text-3xl font-bold mb-6">Stay Updated on Cybersecurity</h2>
-            <p class="text-gray-300 max-w-2xl mx-auto mb-8">Subscribe to our newsletter for the latest security news, course updates, and free resources.</p>
-            <div class="max-w-md mx-auto flex">
-                <input type="email" placeholder="Your email address" class="flex-1 px-4 py-3 rounded-l-lg focus:outline-none text-gray-900">
-                <button class="bg-cyberteal hover:bg-cyberdark text-cyberdark hover:text-white px-6 py-3 rounded-r-lg font-bold transition">Subscribe</button>
+    <!-- Contact Section -->
+    <section id="contact" class="section">
+        <h2 class="section-title">Contact Us</h2>
+        <p class="section-subtitle">Get in touch for a free security consultation and assessment.</p>
+        
+        <div class="contact-container">
+            <div class="contact-info">
+                <div class="contact-item animate-fade-in">
+                    <div class="contact-icon">
+                        <i class="fas fa-map-marker-alt"></i>
+                    </div>
+                    <div class="contact-text">
+                        <span class="contact-label">Location</span>
+                        <span class="contact-value">New Delhi, India</span>
+                    </div>
+                </div>
+                
+                <div class="contact-item animate-fade-in">
+                    <div class="contact-icon">
+                        <i class="fas fa-phone"></i>
+                    </div>
+                    <div class="contact-text">
+                        <span class="contact-label">Phone</span>
+                        <span class="contact-value">+91 XXXXX XXXXX</span>
+                    </div>
+                </div>
+                
+                <div class="contact-item animate-fade-in">
+                    <div class="contact-icon">
+                        <i class="fas fa-envelope"></i>
+                    </div>
+                    <div class="contact-text">
+                        <span class="contact-label">Email</span>
+                        <span class="contact-value">contact@simran404cyberx.com</span>
+                    </div>
+                </div>
+                
+                <div class="contact-item animate-fade-in">
+                    <div class="contact-icon">
+                        <i class="fas fa-globe"></i>
+                    </div>
+                    <div class="contact-text">
+                        <span class="contact-label">Website</span>
+                        <span class="contact-value">www.simran404cyberx.com</span>
+                    </div>
+                </div>
             </div>
+            
+            <form class="contact-form animate-fade-in">
+                <div class="form-group">
+                    <label class="form-label">Name</label>
+                    <input type="text" class="form-input" placeholder="Your full name">
+                </div>
+                
+                <div class="form-group">
+                    <label class="form-label">Email</label>
+                    <input type="email" class="form-input" placeholder="Your email address">
+                </div>
+                
+                <div class="form-group">
+                    <label class="form-label">Subject</label>
+                    <input type="text" class="form-input" placeholder="Subject of your message">
+                </div>
+                
+                <div class="form-group">
+                    <label class="form-label">Message</label>
+                    <textarea class="form-textarea" placeholder="How can we help you?"></textarea>
+                </div>
+                
+                <button type="submit" class="btn btn-primary" style="width: 100%;">
+                    Send Message
+                    <i class="fas fa-paper-plane"></i>
+                </button>
+            </form>
         </div>
     </section>
 
     <!-- Footer -->
-    <footer class="bg-cyberdark py-12">
-        <div class="container mx-auto px-6">
-            <div class="grid grid-cols-1 md:grid-cols-4 gap-12">
-                <div>
-                    <div class="flex items-center space-x-4 mb-4">
-                        <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/c8445471-c0e0-46ec-a9cb-2db3c58c1d39.png" alt="CyberGuard Academy small logo for footer section" class="h-8">
-                        <span class="text-xl font-bold text-cyberteal">CyberGuard</span>
-                    </div>
-                    <p class="text-gray-400">The leading academy for ethical hacking and cybersecurity training.</p>
-                </div>
-                
-                <div>
-                    <h4 class="text-lg font-bold mb-4">Quick Links</h4>
-                    <ul class="space-y-2 text-gray-400">
-                        <li><a href="#" class="hover:text-cyberteal transition">Home</a></li>
-                        <li><a href="#courses" class="hover:text-cyberteal transition">Courses</a></li>
-                        <li><a href="#resources" class="hover:text-cyberteal transition">Resources</a></li>
-                        <li><a href="#about" class="hover:text-cyberteal transition">About Us</a></li>
-                    </ul>
-                </div>
-                
-                <div>
-                    <h4 class="text-lg font-bold mb-4">Legal</h4>
-                    <ul class="space-y-2 text-gray-400">
-                        <li><a href="#" class="hover:text-cyberteal transition">Terms of Service</a></li>
-                        <li><a href="#" class="hover:text-cyberteal transition">Privacy Policy</a></li>
-                        <li><a href="#" class="hover:text-cyberteal transition">Code of Ethics</a></li>
-                        <li><a href="#" class="hover:text-cyberteal transition">Responsible Disclosure</a></li>
-                    </ul>
-                </div>
-                
-                <div>
-                    <h4 class="text-lg font-bold mb-4">Contact</h4>
-                    <ul class="space-y-2 text-gray-400">
-                        <li><a href="mailto:sarveshjatav738@gmail.com" class="hover:text-cyberteal transition">sarveshjatav738@gmail.com</a></li>
-                        <li>+1 (555) 123-4567</li>
-                        <li>123 Security Ave, Cyberspace</li>
-                    </ul>
+    <footer>
+        <div class="footer-content">
+            <div class="footer-column">
+                <h3>simran404cyberx</h3>
+                <p style="color: var(--text-secondary); line-height: 1.7; margin-top: 1rem;">
+                    Advanced cyber security and ethical hacking solutions for businesses and individuals. 
+                    Protecting digital assets with cutting-edge technology and expertise.
+                </p>
+            </div>
+            
+            <div class="footer-column">
+                <h3>Services</h3>
+                <div class="footer-links">
+                    <a href="#" class="footer-link">Penetration Testing</a>
+                    <a href="#" class="footer-link">Vulnerability Assessment</a>
+                    <a href="#" class="footer-link">Network Security</a>
+                    <a href="#" class="footer-link">Web Application Security</a>
+                    <a href="#" class="footer-link">Security Consulting</a>
                 </div>
             </div>
             
-            <div class="border-t border-gray-800 mt-12 pt-8">
-                <div class="flex flex-col items-center mb-6">
-                    <img src="https://i.postimg.cc/pXsMB3H6/IMG-20250728-212019.jpg" alt="SARVESH BHARTI" class="w-24 h-24 rounded-full object-cover mb-2 border-2 border-cyberteal">
-                    <p class="text-gray-300">Developer by SARVESH BHARTI</p>
+            <div class="footer-column">
+                <h3>Quick Links</h3>
+                <div class="footer-links">
+                    <a href="#home" class="footer-link">Home</a>
+                    <a href="#services" class="footer-link">Services</a>
+                    <a href="#features" class="footer-link">Features</a>
+                    <a href="#about" class="footer-link">About</a>
+                    <a href="#contact" class="footer-link">Contact</a>
                 </div>
-                <div class="flex flex-col md:flex-row justify-between items-center">
-                    <div class="text-gray-500 mb-4 md:mb-0">
-                        © 2023 simran404cyberx. All rights reserved.
-                </div>
-                <div class="flex space-x-6">
-                    <a href="https://www.instagram.com/sarveshx404" target="_blank" aria-label="Instagram">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-gray-400 hover:text-cyberteal" fill="currentColor" viewBox="0 0 24 24">
-                            <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
-                        </svg>
-                    </a>
-                    <a href="https://www.facebook.com/SARVESH07Bharti" target="_blank" aria-label="Facebook">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-gray-400 hover:text-cyberteal" fill="currentColor" viewBox="0 0 24 24">
-                            <path d="M22.675 0h-21.35c-.732 0-1.325.593-1.325 1.325v21.351c0 .731.593 1.324 1.325 1.324h11.495v-9.294h-3.128v-3.622h3.128v-2.671c0-3.1 1.893-4.788 4.659-4.788 1.325 0 2.463.099 2.795.143v3.24l-1.918.001c-1.504 0-1.795.715-1.795 1.763v2.313h3.587l-.467 3.622h-3.12v9.293h6.116c.73 0 1.323-.593 1.323-1.325v-21.35c0-.732-.593-1.325-1.325-1.325z"/>
-                        </svg>
-                    </a>
-                    <a href="https://x.com/SARVESH07Bharti" target="_blank" aria-label="Twitter">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-gray-400 hover:text-cyberteal" fill="currentColor" viewBox="0 0 24 24">
-                            <path d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z"/>
-                        </svg>
-                    </a>
+            </div>
+            
+            <div class="footer-column">
+                <h3>Legal</h3>
+                <div class="footer-links">
+                    <a href="#" class="footer-link">Privacy Policy</a>
+                    <a href="#" class="footer-link">Terms of Service</a>
+                    <a href="#" class="footer-link">Ethical Guidelines</a>
+                    <a href="#" class="footer-link">Responsible Disclosure</a>
                 </div>
             </div>
         </div>
+        
+        <div class="footer-bottom">
+            <p>&copy; 2024 simran404cyberx. All rights reserved. Website Owner: SARVESH BHARTI</p>
+        </div>
     </footer>
 
-    <!-- Terminal Script -->
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            // Animated name typing effect
-            const name = "SARVESH BHARTI";
-            const hateChars = ['R', 'A'];
-            const colors = ['#2BD2FF', '#00FF00', '#FF00FF', '#FFFF00'];
-            const animatedName = document.getElementById('animated-name');
-            let html = '';
-            
-            for (let i = 0; i < name.length; i++) {
-                const char = name[i];
-                const color = colors[Math.floor(Math.random() * colors.length)];
-                if (hateChars.includes(char)) {
-                    html += `<span style="color: #FF0000;">HATE</span>`;
-                } else if (char === ' ') {
-                    html += ' ';
-                } else {
-                    html += `<span onclick="this.style.color='${color}'">${char}</span>`;
-                }
+        // Mobile Menu Toggle
+        const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+        const mobileMenu = document.querySelector('.mobile-menu');
+        
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('active');
+            const icon = mobileMenuBtn.querySelector('i');
+            if (mobileMenu.classList.contains('active')) {
+                icon.classList.remove('fa-bars');
+                icon.classList.add('fa-times');
+            } else {
+                icon.classList.remove('fa-times');
+                icon.classList.add('fa-bars');
             }
-            animatedName.innerHTML = html;
-            const terminalInput = document.getElementById('terminal-input');
-            const terminalOutput = document.getElementById('terminal-output');
+        });
+
+        // Close mobile menu when clicking on a link
+        document.querySelectorAll('.mobile-menu .nav-link').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.remove('active');
+                mobileMenuBtn.querySelector('i').classList.remove('fa-times');
+                mobileMenuBtn.querySelector('i').classList.add('fa-bars');
+            });
+        });
+
+        // Navigation active state
+        const navLinks = document.querySelectorAll('.nav-link');
+        const sections = document.querySelectorAll('section');
+        
+        window.addEventListener('scroll', () => {
+            let current = '';
             
-            terminalInput.addEventListener('keydown', function(e) {
-                if (e.key === 'Enter') {
-                    const command = terminalInput.value.trim();
-                    terminalInput.value = '';
-                    
-                    // Display the command in output
-                    document.getElementById('last-command').textContent = command;
-                    
-                    // Process command
-                    let response = '<span class="text-white">Unknown command. Type "help" for available commands.</span>';
-                    
-                    if (command === 'help') {
-                        response = `
-<span class="text-green-400">Available commands:</span>
-<span class="text-white">- help: Show this help message</span>
-<span class="text-white">- whoami: Learn about the user</span>
-<span class="text-white">- echo [text]: Repeat the text back</span>
-<span class="text-white">- scan [ip]: Simulate port scanning</span>
-<span class="text-white">- clear: Clear terminal</span>
-`;
-                    } else if (command === 'whoami') {
-                        response = '<span class="text-white">You are a cybersecurity student using the CyberGuard Academy virtual lab.</span>';
-                    } else if (command.startsWith('echo ')) {
-                        const text = command.substring(5);
-                        response = `<span class="text-white">${text}</span>`;
-                    } else if (command.startsWith('scan ')) {
-                        const ip = command.substring(5);
-                        if (ip.match(/^\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}$/)) {
-                            response = `<span class="text-green-400">Scanning ${ip}...</span>
-<span class="text-white">PORT     STATE    SERVICE</span>
-<span class="text-white">22/tcp   open     ssh</span>
-<span class="text-white">80/tcp   open     http</span>
-<span class="text-white">443/tcp  open     https</span>
-<span class="text-white">3389/tcp filtered ms-wbt-server</span>
-<span class="text-white">Scan completed in 3.42 seconds</span>`;
-                        } else {
-                            response = '<span class="text-red-400">Invalid IP address format. Try something like 192.168.1.1</span>';
-                        }
-                    } else if (command === 'clear') {
-                        terminalOutput.innerHTML = `
-<span class="text-green-400">Welcome to CyberGuard Academy Virtual Lab</span>
-<span class="text-white">Type 'help' to see available commands</span>
-
-<span class="text-cyberteal">root@cyberlab:~$</span> <span id="last-command"></span>`;
-                        return;
-                    }
-                    
-                    // Add new output
-                    const newOutput = document.createElement('div');
-                    newOutput.innerHTML = `
-<span class="text-cyberteal">root@cyberlab:~$</span> ${command}
-${response}
-
-<span class="text-cyberteal">root@cyberlab:~$</span> <span id="last-command"></span>`;
-                    terminalOutput.innerHTML = newOutput.innerHTML;
-                    
-                    // Auto-scroll to bottom
-                    terminalOutput.scrollTop = terminalOutput.scrollHeight;
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop - 100;
+                const sectionHeight = section.clientHeight;
+                
+                if (pageYOffset >= sectionTop) {
+                    current = section.getAttribute('id');
                 }
             });
             
-            // Focus terminal input
-            terminalInput.focus();
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === `#${current}`) {
+                    link.classList.add('active');
+                }
+            });
+            
+            // Header scroll effect
+            const header = document.getElementById('header');
+            if (window.scrollY > 100) {
+                header.classList.add('header-scrolled');
+            } else {
+                header.classList.remove('header-scrolled');
+            }
+        });
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Animation on scroll
+        const animateElements = document.querySelectorAll('.animate-fade-in');
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = 1;
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, { threshold: 0.1 });
+        
+        animateElements.forEach((el, index) => {
+            el.style.opacity = 0;
+            el.style.transform = 'translateY(20px)';
+            el.style.transition = `all 0.6s ease ${index * 0.1}s`;
+            observer.observe(el);
+        });
+
+        // Form submission
+        const contactForm = document.querySelector('.contact-form');
+        if (contactForm) {
+            contactForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                alert('Thank you for your message! We will get back to you soon.');
+                this.reset();
+            });
+        }
+
+        // Python code syntax highlighting simulation
+        document.addEventListener('DOMContentLoaded', function() {
+            const codeBlocks = document.querySelectorAll('.python-code');
+            codeBlocks.forEach(block => {
+                // Add some dynamic effect to the code block
+                block.style.animation = 'fadeIn 0.8s ease forwards';
+            });
         });
     </script>
 </body>
 </html>
-
+```
