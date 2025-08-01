@@ -15,6 +15,9 @@
             --text: #e2e8f0;
             --text-secondary: #94a3b8;
             --border: #334155;
+            --success: #10b981;
+            --danger: #ef4444;
+            --warning: #f59e0b;
         }
 
         * {
@@ -256,7 +259,7 @@
             transform: translateY(-3px);
         }
 
-        /* Services Section */
+        /* Section Styles */
         .section {
             padding: 6rem 2rem;
             position: relative;
@@ -293,7 +296,82 @@
             font-size: 1.1rem;
         }
 
-        .services-grid {
+        /* Kali Linux Section */
+        .kali-section {
+            background: var(--secondary);
+        }
+
+        .kali-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .kali-content {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .kali-image {
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+            border: 1px solid var(--border);
+        }
+
+        .kali-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+            transition: transform 0.3s ease;
+        }
+
+        .kali-image:hover img {
+            transform: scale(1.05);
+        }
+
+        .kali-title {
+            font-size: 2rem;
+            color: var(--accent);
+            margin-bottom: 1rem;
+        }
+
+        .kali-text {
+            color: var(--text-secondary);
+            line-height: 1.8;
+        }
+
+        .kali-features {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+
+        .kali-feature {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .kali-feature-icon {
+            width: 30px;
+            height: 30px;
+            background: var(--accent-glow);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--accent);
+            font-size: 0.8rem;
+        }
+
+        /* Tools Section */
+        .tools-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 2rem;
@@ -301,7 +379,7 @@
             margin: 0 auto;
         }
 
-        .service-card {
+        .tool-card {
             background: var(--secondary);
             border: 1px solid var(--border);
             border-radius: 15px;
@@ -312,7 +390,7 @@
             backdrop-filter: blur(10px);
         }
 
-        .service-card::before {
+        .tool-card::before {
             content: '';
             position: absolute;
             top: 0;
@@ -323,17 +401,17 @@
             transition: background 0.3s ease;
         }
 
-        .service-card:hover {
+        .tool-card:hover {
             transform: translateY(-10px);
             box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
             border-color: var(--accent-glow);
         }
 
-        .service-card:hover::before {
+        .tool-card:hover::before {
             background: var(--accent);
         }
 
-        .service-icon {
+        .tool-icon {
             width: 60px;
             height: 60px;
             background: var(--accent-glow);
@@ -346,61 +424,115 @@
             font-size: 1.5rem;
         }
 
-        .service-title {
+        .tool-title {
             font-size: 1.5rem;
             font-weight: 600;
             margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
         }
 
-        .service-description {
+        .tool-category {
+            font-size: 0.8rem;
+            background: rgba(14, 165, 233, 0.2);
+            color: var(--accent);
+            padding: 0.25rem 0.5rem;
+            border-radius: 5px;
+            margin-left: 0.5rem;
+        }
+
+        .tool-description {
             color: var(--text-secondary);
             line-height: 1.7;
+            margin-bottom: 1.5rem;
         }
 
-        /* Features Section */
-        .features {
-            background: var(--secondary);
+        .tool-features {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-top: 1rem;
         }
 
-        .features-grid {
+        .tool-feature {
+            background: rgba(15, 23, 42, 0.5);
+            color: var(--text-secondary);
+            padding: 0.25rem 0.75rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            border: 1px solid var(--border);
+        }
+
+        /* Protection Section */
+        .protection {
+            background: linear-gradient(135deg, rgba(15, 23, 42, 0.8) 0%, rgba(29, 78, 216, 0.1) 100%);
+        }
+
+        .protection-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 1.5rem;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
             max-width: 1200px;
             margin: 0 auto;
         }
 
-        .feature-item {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-            padding: 1.5rem;
-            background: rgba(15, 23, 42, 0.5);
-            border-radius: 10px;
+        .protection-card {
+            background: var(--secondary);
             border: 1px solid var(--border);
+            border-radius: 15px;
+            padding: 2rem;
             transition: all 0.3s ease;
         }
 
-        .feature-item:hover {
-            transform: translateX(10px);
-            border-color: var(--accent-glow);
-            background: rgba(14, 165, 233, 0.1);
+        .protection-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
         }
 
-        .feature-icon {
-            width: 40px;
-            height: 40px;
+        .protection-icon {
+            width: 50px;
+            height: 50px;
             background: var(--accent-glow);
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
+            margin-bottom: 1.5rem;
             color: var(--accent);
-            font-size: 1rem;
+            font-size: 1.25rem;
         }
 
-        .feature-text {
-            font-weight: 500;
+        .protection-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .protection-description {
+            color: var(--text-secondary);
+            line-height: 1.7;
+        }
+
+        .protection-steps {
+            margin-top: 1.5rem;
+            padding-left: 1.5rem;
+        }
+
+        .protection-step {
+            margin-bottom: 1rem;
+            position: relative;
+        }
+
+        .protection-step::before {
+            content: '';
+            position: absolute;
+            left: -1.25rem;
+            top: 0.5rem;
+            width: 6px;
+            height: 6px;
+            background: var(--accent);
+            border-radius: 50%;
         }
 
         /* About Section */
@@ -653,6 +785,10 @@
                 display: flex;
             }
 
+            .kali-container {
+                grid-template-columns: 1fr;
+            }
+
             .hero-title {
                 font-size: 2.5rem;
             }
@@ -691,53 +827,6 @@
                 font-size: 2rem;
             }
         }
-
-        /* Python Code Display */
-        .python-code {
-            background: #0d1117;
-            border: 1px solid #30363d;
-            border-radius: 10px;
-            padding: 1.5rem;
-            margin: 2rem 0;
-            overflow-x: auto;
-            font-family: 'Courier New', monospace;
-            font-size: 0.9rem;
-            line-height: 1.5;
-        }
-
-        .code-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 1rem;
-            color: #58a6ff;
-            font-weight: 600;
-        }
-
-        .code-content {
-            color: #c9d1d9;
-        }
-
-        .keyword {
-            color: #ff7b72;
-        }
-
-        .string {
-            color: #a5d6ff;
-        }
-
-        .comment {
-            color: #8b949e;
-            font-style: italic;
-        }
-
-        .function {
-            color: #d2a8ff;
-        }
-
-        .variable {
-            color: #79c0ff;
-        }
     </style>
 </head>
 <body>
@@ -749,8 +838,9 @@
             </a>
             <nav class="nav-links">
                 <a href="#home" class="nav-link active">Home</a>
-                <a href="#services" class="nav-link">Services</a>
-                <a href="#features" class="nav-link">Features</a>
+                <a href="#kali" class="nav-link">Kali Linux</a>
+                <a href="#tools" class="nav-link">Security Tools</a>
+                <a href="#protection" class="nav-link">Protection</a>
                 <a href="#about" class="nav-link">About</a>
                 <a href="#contact" class="nav-link">Contact</a>
             </nav>
@@ -760,8 +850,9 @@
         </div>
         <nav class="mobile-menu">
             <a href="#home" class="nav-link">Home</a>
-            <a href="#services" class="nav-link">Services</a>
-            <a href="#features" class="nav-link">Features</a>
+            <a href="#kali" class="nav-link">Kali Linux</a>
+            <a href="#tools" class="nav-link">Security Tools</a>
+            <a href="#protection" class="nav-link">Protection</a>
             <a href="#about" class="nav-link">About</a>
             <a href="#contact" class="nav-link">Contact</a>
         </nav>
@@ -774,181 +865,345 @@
             <h1 class="hero-title">Advanced Cyber Security & Ethical Hacking Solutions</h1>
             <p class="hero-subtitle">Protecting digital assets with cutting-edge security expertise and ethical hacking methodologies. We identify vulnerabilities before malicious actors can exploit them.</p>
             <div class="cta-buttons">
-                <a href="#services" class="btn btn-primary">
-                    Explore Services
+                <a href="#kali" class="btn btn-primary">
+                    Learn About Kali Linux
                     <i class="fas fa-arrow-right"></i>
                 </a>
-                <a href="#contact" class="btn btn-secondary">
-                    Get Free Consultation
+                <a href="#tools" class="btn btn-secondary">
+                    Explore Security Tools
                 </a>
             </div>
         </div>
     </section>
 
-    <!-- Services Section -->
-    <section id="services" class="section">
-        <h2 class="section-title">Our Services</h2>
-        <p class="section-subtitle">Comprehensive cyber security solutions tailored to protect your digital infrastructure from evolving threats.</p>
+    <!-- Kali Linux Section -->
+    <section id="kali" class="section kali-section">
+        <h2 class="section-title">Kali Linux</h2>
+        <p class="section-subtitle">The world's most advanced penetration testing and ethical hacking platform.</p>
         
-        <div class="services-grid">
-            <div class="service-card animate-fade-in">
-                <div class="service-icon">
-                    <i class="fas fa-shield-alt"></i>
+        <div class="kali-container">
+            <div class="kali-content animate-fade-in">
+                <h3 class="kali-title">Kali Linux: The Hacker's Choice</h3>
+                <p class="kali-text">
+                    Kali Linux is a Debian-based Linux distribution specifically designed for digital forensics and penetration testing. 
+                    Developed and maintained by Offensive Security, Kali Linux comes pre-installed with hundreds of tools for various 
+                    information security tasks such as penetration testing, security research, computer forensics, and reverse engineering.
+                </p>
+                
+                <p class="kali-text">
+                    Originally released as BackTrack Linux in 2006, Kali Linux was completely rebuilt in 2013 as a complete top-to-bottom 
+                    rewrite of the previous BackTrack Linux distribution. It's now the standard platform for security professionals, 
+                    ethical hackers, and penetration testers worldwide.
+                </p>
+                
+                <div class="kali-features">
+                    <div class="kali-feature">
+                        <div class="kali-feature-icon">
+                            <i class="fas fa-check"></i>
+                        </div>
+                        <span>Over 600 pre-installed security tools</span>
+                    </div>
+                    <div class="kali-feature">
+                        <div class="kali-feature-icon">
+                            <i class="fas fa-check"></i>
+                        </div>
+                        <span>Fully customizable and configurable</span>
+                    </div>
+                    <div class="kali-feature">
+                        <div class="kali-feature-icon">
+                            <i class="fas fa-check"></i>
+                        </div>
+                        <span>Free and open-source</span>
+                    </div>
+                    <div class="kali-feature">
+                        <div class="kali-feature-icon">
+                            <i class="fas fa-check"></i>
+                        </div>
+                        <span>Regularly updated and maintained</span>
+                    </div>
                 </div>
-                <h3 class="service-title">Penetration Testing</h3>
-                <p class="service-description">Comprehensive security assessments to identify vulnerabilities in your systems, networks, and applications before malicious hackers can exploit them.</p>
             </div>
             
-            <div class="service-card animate-fade-in">
-                <div class="service-icon">
-                    <i class="fas fa-lock"></i>
-                </div>
-                <h3 class="service-title">Vulnerability Assessment</h3>
-                <p class="service-description">Systematic review of security weaknesses in your IT infrastructure, providing detailed reports and remediation guidance.</p>
+            <div class="kali-image animate-fade-in">
+                <img src="https://placehold.co/600x400/1e293b/0ea5e9?text=Kali+Linux+Interface" alt="Kali Linux Interface">
             </div>
+        </div>
+    </section>
+
+    <!-- Installation Guide -->
+    <section class="section">
+        <div class="kali-container" style="flex-direction: column;">
+            <h2 class="section-title">Kali Linux Installation</h2>
+            <p class="section-subtitle">Step-by-step guide to install Kali Linux on your system.</p>
             
-            <div class="service-card animate-fade-in">
-                <div class="service-icon">
+            <div class="kali-content" style="max-width: 800px;">
+                <h3 class="kali-title">Installation Methods</h3>
+                
+                <div class="protection-card" style="margin: 1.5rem 0;">
+                    <h4 style="color: var(--accent); margin-bottom: 1rem;">Method 1: Virtual Machine (Recommended for Beginners)</h4>
+                    <p class="kali-text">
+                        <strong>Step 1:</strong> Download VMware Workstation Player or Oracle VirtualBox (free)<br>
+                        <strong>Step 2:</strong> Download Kali Linux ISO from official website (kali.org)<br>
+                        <strong>Step 3:</strong> Create a new virtual machine and point to the ISO file<br>
+                        <strong>Step 4:</strong> Follow installation wizard (default settings recommended)<br>
+                        <strong>Step 5:</strong> Boot into Kali Linux and update system
+                    </p>
+                    <p class="kali-text" style="margin-top: 1rem; font-style: italic;">
+                        Advantages: Safe, reversible, doesn't affect your main system
+                    </p>
+                </div>
+                
+                <div class="protection-card" style="margin: 1.5rem 0;">
+                    <h4 style="color: var(--accent); margin-bottom: 1rem;">Method 2: Dual Boot (Advanced Users)</h4>
+                    <p class="kali-text">
+                        <strong>Step 1:</strong> Create bootable USB using Rufus or Etcher<br>
+                        <strong>Step 2:</strong> Boot from USB and select "Graphical Install"<br>
+                        <strong>Step 3:</strong> Partition your hard drive (create separate partition for Kali)<br>
+                        <strong>Step 4:</strong> Install GRUB bootloader<br>
+                        <strong>Step 5:</strong> Complete installation and reboot
+                    </p>
+                    <p class="kali-text" style="margin-top: 1rem; font-style: italic;">
+                        Warning: Backup your data before proceeding. This method modifies your hard drive.
+                    </p>
+                </div>
+                
+                <div class="protection-card" style="margin: 1.5rem 0;">
+                    <h4 style="color: var(--accent); margin-bottom: 1rem;">Method 3: Live USB (No Installation)</h4>
+                    <p class="kali-text">
+                        <strong>Step 1:</strong> Create bootable USB with Kali Linux ISO<br>
+                        <strong>Step 2:</strong> Boot from USB and select "Live System"<br>
+                        <strong>Step 3:</strong> Use Kali Linux without installing it on your hard drive
+                    </p>
+                    <p class="kali-text" style="margin-top: 1rem; font-style: italic;">
+                        Perfect for demonstrations and temporary use. No changes to your system.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Security Tools Section -->
+    <section id="tools" class="section">
+        <h2 class="section-title">Security Tools</h2>
+        <p class="section-subtitle">Essential tools for penetration testing, vulnerability assessment, and network security.</p>
+        
+        <div class="tools-grid">
+            <div class="tool-card animate-fade-in">
+                <div class="tool-icon">
                     <i class="fas fa-network-wired"></i>
                 </div>
-                <h3 class="service-title">Network Security</h3>
-                <p class="service-description">Advanced protection for your network infrastructure, including firewall configuration, intrusion detection, and secure network design.</p>
+                <h3 class="tool-title">
+                    IP Scanner
+                    <span class="tool-category">Network</span>
+                </h3>
+                <p class="tool-description">
+                    Identify all devices on a network by scanning IP addresses. Essential for network mapping and discovery.
+                </p>
+                <div class="tool-features">
+                    <span class="tool-feature">Active Scanning</span>
+                    <span class="tool-feature">Passive Detection</span>
+                    <span class="tool-feature">MAC Address Lookup</span>
+                    <span class="tool-feature">Vendor Identification</span>
+                </div>
             </div>
             
-            <div class="service-card animate-fade-in">
-                <div class="service-icon">
+            <div class="tool-card animate-fade-in">
+                <div class="tool-icon">
+                    <i class="fas fa-door-open"></i>
+                </div>
+                <h3 class="tool-title">
+                    Port Scanner
+                    <span class="tool-category">Network</span>
+                </h3>
+                <p class="tool-description">
+                    Discover open ports and services running on target systems. Critical for vulnerability assessment.
+                </p>
+                <div class="tool-features">
+                    <span class="tool-feature">TCP/UDP Scanning</span>
+                    <span class="tool-feature">Service Detection</span>
+                    <span class="tool-feature">Version Identification</span>
+                    <span class="tool-feature">OS Fingerprinting</span>
+                </div>
+            </div>
+            
+            <div class="tool-card animate-fade-in">
+                <div class="tool-icon">
+                    <i class="fas fa-link"></i>
+                </div>
+                <h3 class="tool-title">
+                    Phishing Link Scanner
+                    <span class="tool-category">Web Security</span>
+                </h3>
+                <p class="tool-description">
+                    Analyze URLs for phishing attempts and malicious content. Protect against social engineering attacks.
+                </p>
+                <div class="tool-features">
+                    <span class="tool-feature">URL Analysis</span>
+                    <span class="tool-feature">Domain Reputation</span>
+                    <span class="tool-feature">SSL Certificate Check</span>
+                    <span class="tool-feature">Malware Detection</span>
+                </div>
+            </div>
+            
+            <div class="tool-card animate-fade-in">
+                <div class="tool-icon">
+                    <i class="fas fa-shield-alt"></i>
+                </div>
+                <h3 class="tool-title">
+                    Vulnerability Scanner
+                    <span class="tool-category">Assessment</span>
+                </h3>
+                <p class="tool-description">
+                    Automated detection of security weaknesses in systems, networks, and applications.
+                </p>
+                <div class="tool-features">
+                    <span class="tool-feature">CVE Database</span>
+                    <span class="tool-feature">Risk Scoring</span>
+                    <span class="tool-feature">Patch Management</span>
+                    <span class="tool-feature">Compliance Checks</span>
+                </div>
+            </div>
+            
+            <div class="tool-card animate-fade-in">
+                <div class="tool-icon">
+                    <i class="fas fa-database"></i>
+                </div>
+                <h3 class="tool-title">
+                    Password Auditor
+                    <span class="tool-category">Authentication</span>
+                </h3>
+                <p class="tool-description">
+                    Test password strength and security. Identify weak credentials and enforce strong password policies.
+                </p>
+                <div class="tool-features">
+                    <span class="tool-feature">Brute Force Testing</span>
+                    <span class="tool-feature">Dictionary Attacks</span>
+                    <span class="tool-feature">Rainbow Tables</span>
+                    <span class="tool-feature">Password Policy Analysis</span>
+                </div>
+            </div>
+            
+            <div class="tool-card animate-fade-in">
+                <div class="tool-icon">
+                    <i class="fas fa-wifi"></i>
+                </div>
+                <h3 class="tool-title">
+                    Wireless Analyzer
+                    <span class="tool-category">Network</span>
+                </h3>
+                <p class="tool-description">
+                    Assess wireless network security, detect rogue access points, and test Wi-Fi encryption.
+                </p>
+                <div class="tool-features">
+                    <span class="tool-feature">Signal Strength</span>
+                    <span class="tool-feature">Channel Analysis</span>
+                    <span class="tool-feature">Encryption Testing</span>
+                    <span class="tool-feature">Deauthentication</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Protection Section -->
+    <section id="protection" class="section protection">
+        <h2 class="section-title">Cyber Attack Protection</h2>
+        <p class="section-subtitle">Comprehensive strategies to protect against common cyber threats and attacks.</p>
+        
+        <div class="protection-grid">
+            <div class="protection-card animate-fade-in">
+                <div class="protection-icon">
+                    <i class="fas fa-shield-alt"></i>
+                </div>
+                <h3 class="protection-title">Network Protection</h3>
+                <p class="protection-description">
+                    Secure your network infrastructure from unauthorized access and attacks.
+                </p>
+                <ol class="protection-steps">
+                    <li class="protection-step">Implement firewalls and intrusion detection systems</li>
+                    <li class="protection-step">Use network segmentation to limit attack surface</li>
+                    <li class="protection-step">Enable network monitoring and logging</li>
+                    <li class="protection-step">Regularly update and patch network devices</li>
+                </ol>
+            </div>
+            
+            <div class="protection-card animate-fade-in">
+                <div class="protection-icon">
+                    <i class="fas fa-user-secret"></i>
+                </div>
+                <h3 class="protection-title">Phishing Defense</h3>
+                <p class="protection-description">
+                    Protect against social engineering attacks that trick users into revealing sensitive information.
+                </p>
+                <ol class="protection-steps">
+                    <li class="protection-step">Implement email filtering and URL scanning</li>
+                    <li class="protection-step">Conduct regular security awareness training</li>
+                    <li class="protection-step">Use multi-factor authentication</li>
+                    <li class="protection-step">Verify suspicious communications through alternate channels</li>
+                </ol>
+            </div>
+            
+            <div class="protection-card animate-fade-in">
+                <div class="protection-icon">
+                    <i class="fas fa-lock"></i>
+                </div>
+                <h3 class="protection-title">Data Security</h3>
+                <p class="protection-description">
+                    Protect sensitive data from unauthorized access, theft, and corruption.
+                </p>
+                <ol class="protection-steps">
+                    <li class="protection-step">Encrypt sensitive data at rest and in transit</li>
+                    <li class="protection-step">Implement access controls and least privilege</li>
+                    <li class="protection-step">Regularly backup critical data</li>
+                    <li class="protection-step">Use data loss prevention (DLP) solutions</li>
+                </ol>
+            </div>
+            
+            <div class="protection-card animate-fade-in">
+                <div class="protection-icon">
                     <i class="fas fa-code"></i>
                 </div>
-                <h3 class="service-title">Web Application Security</h3>
-                <p class="service-description">Specialized testing for web applications to prevent common vulnerabilities like SQL injection, XSS, and CSRF attacks.</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- Features Section -->
-    <section id="features" class="section features">
-        <h2 class="section-title">Top Features</h2>
-        <p class="section-subtitle">Cutting-edge cyber security capabilities powered by ethical hacking expertise and advanced technologies.</p>
-        
-        <div class="features-grid">
-            <div class="feature-item animate-fade-in">
-                <div class="feature-icon">
-                    <i class="fas fa-bolt"></i>
-                </div>
-                <span class="feature-text">Advanced Ethical Hacking Techniques</span>
+                <h3 class="protection-title">Web Application Security</h3>
+                <p class="protection-description">
+                    Protect web applications from common vulnerabilities and attacks.
+                </p>
+                <ol class="protection-steps">
+                    <li class="protection-step">Implement input validation and sanitization</li>
+                    <li class="protection-step">Use secure coding practices</li>
+                    <li class="protection-step">Regularly test for vulnerabilities (SQLi, XSS, etc.)</li>
+                    <li class="protection-step">Implement web application firewalls (WAF)</li>
+                </ol>
             </div>
             
-            <div class="feature-item animate-fade-in">
-                <div class="feature-icon">
-                    <i class="fas fa-eye"></i>
+            <div class="protection-card animate-fade-in">
+                <div class="protection-icon">
+                    <i class="fas fa-fingerprint"></i>
                 </div>
-                <span class="feature-text">Real-time Threat Intelligence</span>
+                <h3 class="protection-title">Identity Protection</h3>
+                <p class="protection-description">
+                    Secure user identities and prevent unauthorized access to systems.
+                </p>
+                <ol class="protection-steps">
+                    <li class="protection-step">Implement strong password policies</li>
+                    <li class="protection-step">Use multi-factor authentication (MFA)</li>
+                    <li class="protection-step">Monitor for suspicious login attempts</li>
+                    <li class="protection-step">Regularly review and update user permissions</li>
+                </ol>
             </div>
             
-            <div class="feature-item animate-fade-in">
-                <div class="feature-icon">
-                    <i class="fas fa-bug"></i>
-                </div>
-                <span class="feature-text">Zero-Day Vulnerability Research</span>
-            </div>
-            
-            <div class="feature-item animate-fade-in">
-                <div class="feature-icon">
-                    <i class="fas fa-cog"></i>
-                </div>
-                <span class="feature-text">Custom Security Solutions</span>
-            </div>
-            
-            <div class="feature-item animate-fade-in">
-                <div class="feature-icon">
-                    <i class="fas fa-clock"></i>
-                </div>
-                <span class="feature-text">24/7 Security Monitoring</span>
-            </div>
-            
-            <div class="feature-item animate-fade-in">
-                <div class="feature-icon">
+            <div class="protection-card animate-fade-in">
+                <div class="protection-icon">
                     <i class="fas fa-sync"></i>
                 </div>
-                <span class="feature-text">Incident Response & Recovery</span>
-            </div>
-            
-            <div class="feature-item animate-fade-in">
-                <div class="feature-icon">
-                    <i class="fas fa-graduation-cap"></i>
-                </div>
-                <span class="feature-text">Security Awareness Training</span>
-            </div>
-            
-            <div class="feature-item animate-fade-in">
-                <div class="feature-icon">
-                    <i class="fas fa-file-contract"></i>
-                </div>
-                <span class="feature-text">Compliance & Regulatory Support</span>
-            </div>
-        </div>
-    </section>
-
-    <!-- Python Security Code Example -->
-    <section class="section">
-        <div class="python-code">
-            <div class="code-header">
-                <span>security_scanner.py</span>
-                <span>Python</span>
-            </div>
-            <div class="code-content">
-                <pre><span class="comment"># simran404cyberx - Advanced Security Scanner</span>
-<span class="keyword">import</span> requests
-<span class="keyword">import</span> ssl
-<span class="keyword">import</span> socket
-<span class="keyword">from</span> urllib.parse <span class="keyword">import</span> urlparse
-<span class="keyword">import</span> json
-
-<span class="keyword">class</span> <span class="function">SecurityScanner</span>:
-    <span class="keyword">def</span> <span class="function">__init__</span>(<span class="variable">self</span>, target_url):
-        <span class="variable">self</span>.target_url = target_url
-        <span class="variable">self</span>.results = {}
-    
-    <span class="keyword">def</span> <span class="function">check_ssl_certificate</span>(<span class="variable">self</span>):
-        <span class="keyword">try</span>:
-            <span class="variable">parsed</span> = urlparse(<span class="variable">self</span>.target_url)
-            <span class="variable">context</span> = ssl.create_default_context()
-            <span class="variable">with</span> socket.create_connection((<span class="variable">parsed</span>.netloc, 443), timeout=10) <span class="variable">as</span> sock:
-                <span class="variable">with</span> context.wrap_socket(sock, server_hostname=<span class="variable">parsed</span>.netloc) <span class="variable">as</span> ssock:
-                    <span class="variable">cert</span> = ssock.getpeercert()
-                    <span class="variable">self</span>.results['ssl_valid'] = <span class="keyword">True</span>
-                    <span class="variable">self</span>.results['ssl_expiry'] = cert.get('notAfter')
-        <span class="keyword">except</span> Exception <span class="variable">as</span> e:
-            <span class="variable">self</span>.results['ssl_valid'] = <span class="keyword">False</span>
-            <span class="variable">self</span>.results['ssl_error'] = str(e)
-    
-    <span class="keyword">def</span> <span class="function">check_headers</span>(<span class="variable">self</span>):
-        <span class="keyword">try</span>:
-            <span class="variable">response</span> = requests.get(<span class="variable">self</span>.target_url, timeout=10)
-            <span class="variable">headers</span> = response.headers
-            
-            <span class="variable">security_headers</span> = {
-                'X-Content-Type-Options': 'nosniff' <span class="keyword">in</span> headers.get('X-Content-Type-Options', ''),
-                'X-Frame-Options': 'DENY' <span class="keyword">in</span> headers.get('X-Frame-Options', '') <span class="keyword">or</span> 'SAMEORIGIN' <span class="keyword">in</span> headers.get('X-Frame-Options', ''),
-                'Strict-Transport-Security': 'max-age' <span class="keyword">in</span> headers.get('Strict-Transport-Security', ''),
-                'Content-Security-Policy': 'default-src' <span class="keyword">in</span> headers.get('Content-Security-Policy', '')
-            }
-            
-            <span class="variable">self</span>.results['security_headers'] = security_headers
-        <span class="keyword">except</span> Exception <span class="variable">as</span> e:
-            <span class="variable">self</span>.results['headers_error'] = str(e)
-    
-    <span class="keyword">def</span> <span class="function">scan</span>(<span class="variable">self</span>):
-        <span class="variable">print</span>(f"Starting security scan for: {<span class="variable">self</span>.target_url}")
-        <span class="variable">self</span>.check_ssl_certificate()
-        <span class="variable">self</span>.check_headers()
-        <span class="variable">return</span> <span class="variable">self</span>.results
-
-<span class="comment"># Usage example</span>
-<span class="keyword">if</span> __name__ == "__main__":
-    <span class="variable">scanner</span> = SecurityScanner("https://example.com")
-    <span class="variable">results</span> = scanner.scan()
-    <span class="variable">print</span>(json.dumps(results, indent=2))</pre>
+                <h3 class="protection-title">Incident Response</h3>
+                <p class="protection-description">
+                    Prepare for and respond to security incidents effectively.
+                </p>
+                <ol class="protection-steps">
+                    <li class="protection-step">Develop an incident response plan</li>
+                    <li class="protection-step">Establish monitoring and detection capabilities</li>
+                    <li class="protection-step">Conduct regular incident response drills</li>
+                    <li class="protection-step">Maintain forensic capabilities for investigation</li>
+                </ol>
             </div>
         </div>
     </section>
@@ -1080,10 +1335,10 @@
             <div class="footer-column">
                 <h3>Services</h3>
                 <div class="footer-links">
+                    <a href="#kali" class="footer-link">Kali Linux Training</a>
+                    <a href="#tools" class="footer-link">Security Tools</a>
+                    <a href="#protection" class="footer-link">Cyber Protection</a>
                     <a href="#" class="footer-link">Penetration Testing</a>
-                    <a href="#" class="footer-link">Vulnerability Assessment</a>
-                    <a href="#" class="footer-link">Network Security</a>
-                    <a href="#" class="footer-link">Web Application Security</a>
                     <a href="#" class="footer-link">Security Consulting</a>
                 </div>
             </div>
@@ -1092,8 +1347,9 @@
                 <h3>Quick Links</h3>
                 <div class="footer-links">
                     <a href="#home" class="footer-link">Home</a>
-                    <a href="#services" class="footer-link">Services</a>
-                    <a href="#features" class="footer-link">Features</a>
+                    <a href="#kali" class="footer-link">Kali Linux</a>
+                    <a href="#tools" class="footer-link">Security Tools</a>
+                    <a href="#protection" class="footer-link">Protection</a>
                     <a href="#about" class="footer-link">About</a>
                     <a href="#contact" class="footer-link">Contact</a>
                 </div>
@@ -1218,15 +1474,6 @@
                 this.reset();
             });
         }
-
-        // Python code syntax highlighting simulation
-        document.addEventListener('DOMContentLoaded', function() {
-            const codeBlocks = document.querySelectorAll('.python-code');
-            codeBlocks.forEach(block => {
-                // Add some dynamic effect to the code block
-                block.style.animation = 'fadeIn 0.8s ease forwards';
-            });
-        });
     </script>
 </body>
 </html>
